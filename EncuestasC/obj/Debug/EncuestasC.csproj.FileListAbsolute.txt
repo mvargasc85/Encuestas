@@ -1,0 +1,5 @@
+F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC\bin\EncuestasC.dll
+F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC\bin\EncuestasC.pdb
+F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC\obj\Debug\EncuestasC.csprojResolveAssemblyReference.cache
+F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC\obj\Debug\EncuestasC.dll
+F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC\obj\Debug\EncuestasC.pdb
