@@ -7,6 +7,9 @@ C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\Encuesta
 C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC\obj\Debug\EncuestasC.pdb
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 25fe18ecc3d4fa89e43eb2f5148226ccd062f79e
+=======
 >>>>>>> 25fe18ecc3d4fa89e43eb2f5148226ccd062f79e
 =======
 >>>>>>> 25fe18ecc3d4fa89e43eb2f5148226ccd062f79e

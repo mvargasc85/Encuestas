@@ -31,4 +31,7 @@ F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.csprojResolveAssemblyReference.cache
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.dll
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.pdb
+<<<<<<< HEAD
+>>>>>>> 25fe18ecc3d4fa89e43eb2f5148226ccd062f79e
+=======
 >>>>>>> 25fe18ecc3d4fa89e43eb2f5148226ccd062f79e
