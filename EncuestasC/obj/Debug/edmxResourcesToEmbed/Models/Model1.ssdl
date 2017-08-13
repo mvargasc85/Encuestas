@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="EncuestasModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+<Schema Namespace="EncuestasModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="EncuestasModelStoreContainer">
-    <EntitySet Name="Canton" EntityType="EncuestasModel.Store.Canton" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CodigoPresupuestario" EntityType="EncuestasModel.Store.CodigoPresupuestario" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CPSP" EntityType="EncuestasModel.Store.CPSP" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Distrito" EntityType="EncuestasModel.Store.Distrito" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Email" EntityType="EncuestasModel.Store.Email" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Encuesta" EntityType="EncuestasModel.Store.Encuesta" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EstadoServicio" EntityType="EncuestasModel.Store.EstadoServicio" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Poblado" EntityType="EncuestasModel.Store.Poblado" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Provincia" EntityType="EncuestasModel.Store.Provincia" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Proyecto" EntityType="EncuestasModel.Store.Proyecto" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="EncuestasModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Telefono" EntityType="EncuestasModel.Store.Telefono" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Canton" EntityType="EncuestasModel.Store.Canton" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CodigoPresupuestario" EntityType="EncuestasModel.Store.CodigoPresupuestario" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CPSP" EntityType="EncuestasModel.Store.CPSP" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Distrito" EntityType="EncuestasModel.Store.Distrito" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Email" EntityType="EncuestasModel.Store.Email" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Encuesta" EntityType="EncuestasModel.Store.Encuesta" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="EstadoServicio" EntityType="EncuestasModel.Store.EstadoServicio" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Poblado" EntityType="EncuestasModel.Store.Poblado" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Provincia" EntityType="EncuestasModel.Store.Provincia" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Proyecto" EntityType="EncuestasModel.Store.Proyecto" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="sysdiagrams" EntityType="EncuestasModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Telefono" EntityType="EncuestasModel.Store.Telefono" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <AssociationSet Name="FK_Canton_Provincia" Association="EncuestasModel.Store.FK_Canton_Provincia">
       <End Role="Provincia" EntitySet="Provincia" />
       <End Role="Canton" EntitySet="Canton" />

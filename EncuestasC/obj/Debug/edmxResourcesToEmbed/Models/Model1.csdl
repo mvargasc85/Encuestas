@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="EncuestasModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+<Schema Namespace="EncuestasModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="EncuestasEntitiesx">
     <EntitySet Name="Canton" EntityType="EncuestasModel.Cantonx" />
     <EntitySet Name="CodigoPresupuestario" EntityType="EncuestasModel.CodigoPresupuestariox" />
@@ -90,7 +90,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Provincia" Relationship="EncuestasModel.FK_Canton_Provincia" FromRole="Canton" ToRole="Provincia" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_CPSP_Canton" FromRole="Canton" ToRole="CPSP" />
@@ -101,7 +101,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Codigo" Type="Decimal" Precision="5" Scale="0" />
     <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_CodigoPresupuestario" FromRole="CodigoPresupuestario" ToRole="Encuesta" />
   </EntityType>
@@ -109,7 +109,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Canton" Relationship="EncuestasModel.FK_CPSP_Canton" FromRole="CPSP" ToRole="Canton" />
     <NavigationProperty Name="Distrito" Relationship="EncuestasModel.FK_CPSP_Distrito" FromRole="CPSP" ToRole="Distrito" />
@@ -123,7 +123,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Canton" Relationship="EncuestasModel.FK_Distrito_Canton" FromRole="Distrito" ToRole="Canton" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_CPSP_Distrito" FromRole="Distrito" ToRole="CPSP" />
@@ -134,7 +134,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Correo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Nombre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_Email_CPSP" FromRole="Email" ToRole="CPSP" />
@@ -144,7 +144,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="10" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="10" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="ContestaLlamada" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
     <Property Name="NombreContacto" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="Comentarios" Type="String" MaxLength="5000" Unicode="false" FixedLength="false" />
@@ -159,7 +159,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Estado" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Detalle" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_EstadoServicio" FromRole="EstadoServicio" ToRole="Encuesta" />
@@ -168,7 +168,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Canton" Relationship="EncuestasModel.FK_Poblado_Canton" FromRole="Poblado" ToRole="Canton" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_CPSP_Poblado" FromRole="Poblado" ToRole="CPSP" />
@@ -190,7 +190,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Detalle" Type="String" MaxLength="5000" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_Proyecto" FromRole="Proyecto" ToRole="Encuesta" />
@@ -201,7 +201,7 @@
     </Key>
     <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
     <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
