@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncuestasC", "EncuestasC\EncuestasC.csproj", "{7879055B-D62D-4EA0-9EB1-CA8767152C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncuestasC.Tests", "EncuestasC.Tests\EncuestasC.Tests.csproj", "{8ECA4615-64EC-45FF-B26E-FFEDD80F6C5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7879055B-D62D-4EA0-9EB1-CA8767152C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7879055B-D62D-4EA0-9EB1-CA8767152C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7879055B-D62D-4EA0-9EB1-CA8767152C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7879055B-D62D-4EA0-9EB1-CA8767152C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ECA4615-64EC-45FF-B26E-FFEDD80F6C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ECA4615-64EC-45FF-B26E-FFEDD80F6C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ECA4615-64EC-45FF-B26E-FFEDD80F6C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ECA4615-64EC-45FF-B26E-FFEDD80F6C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
