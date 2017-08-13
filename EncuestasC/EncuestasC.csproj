@@ -91,6 +91,8 @@
       <DependentUpon>Encuestas.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Views\GeographicInfo\CreateProvince.aspx" />
+    <Content Include="Views\GeographicInfo\DeleteProvince.aspx" />
     <Content Include="Views\GeographicInfo\EditProvince.aspx" />
     <Content Include="Views\Home\BCanton.aspx" />
     <Content Include="Views\Home\Create.aspx" />

@@ -25,21 +25,21 @@ namespace EncuestasC.Controllers
         }
 
         //CREAR
-        public ActionResult CProvincia()
+        public ActionResult CreateProvince()
         {
             return View();
         }
 
         //
-        // POST: /Home/Create
+        // POST: /GeographicInfo/CreateProvince
 
         [HttpPost]
-        public ActionResult CProvincia(Provinciax provinciaToCreate)
+        public ActionResult CreateProvince(Provinciax provinceToCreate)
         {
             try
             {
                 // TODO: Add insert logic here
-                _entities.AddToProvincia(provinciaToCreate);
+                _entities.AddToProvincia(provinceToCreate);
                 _entities.SaveChanges();
                 return RedirectToAction("GetAllProvinces");
             }
@@ -57,7 +57,7 @@ namespace EncuestasC.Controllers
         }
 
         //
-        // POST: /Home/Edit/5
+        // POST: /GeographicInfo/Edit/5
 
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]
@@ -81,7 +81,7 @@ namespace EncuestasC.Controllers
         }
 
         //
-        // GET: /Home/Delete/5
+        // GET: /GeographicInfo/Delete/5
         //BORRAR
         public ActionResult DeleteProvince(int id)
         {
@@ -90,17 +90,17 @@ namespace EncuestasC.Controllers
         }
 
         //
-        // POST: /Home/Delete/5
+        // POST: /GeographicInfo/DeleteProvince/5
 
         [HttpPost]
-        public ActionResult DeleteProvince(Provinciax provinciaToDelete)
+        public ActionResult DeleteProvince(Provinciax provinceToDelete)
         {
-            var originalProvincia = _entities.Provincia.First(m => m.Id == provinciaToDelete.Id);
+            provinceToDelete = _entities.Provincia.First(m => m.Id == provinceToDelete.Id);
 
             if (!ModelState.IsValid)
+                return View(provinceToDelete);
 
-                return View(originalProvincia);
-            _entities.DeleteObject(provinciaToDelete);
+            _entities.DeleteObject(provinceToDelete);
 
             _entities.SaveChanges();
 

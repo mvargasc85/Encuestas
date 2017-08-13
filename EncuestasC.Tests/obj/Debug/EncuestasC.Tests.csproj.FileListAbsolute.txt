@@ -13,11 +13,3 @@ F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasC\EncuestasC.T
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasC\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.csprojResolveAssemblyReference.cache
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasC\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.dll
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasC\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.pdb
-C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC.Tests\bin\Debug\EncuestasC.Tests.dll.config
-C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC.Tests\bin\Debug\EncuestasC.Tests.dll
-C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC.Tests\bin\Debug\EncuestasC.Tests.pdb
-C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC.Tests\bin\Debug\EncuestasC.dll
-C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC.Tests\bin\Debug\EncuestasC.pdb
-C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.dll
-C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC.Tests\obj\Debug\EncuestasC.Tests.pdb
