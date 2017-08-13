@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactInfoController.cs" />
     <Compile Include="Controllers\GeographicInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -86,9 +87,13 @@
       <DependentUpon>Encuestas.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Views\GeographicInfo\CreateCanton.aspx" />
     <Content Include="Views\GeographicInfo\CreateProvince.aspx" />
+    <Content Include="Views\GeographicInfo\DeleteCanton.aspx" />
     <Content Include="Views\GeographicInfo\DeleteProvince.aspx" />
+    <Content Include="Views\GeographicInfo\EditCanton.aspx" />
     <Content Include="Views\GeographicInfo\EditProvince.aspx" />
+    <Content Include="Views\GeographicInfo\GetAllCantons.aspx" />
     <Content Include="Views\Home\BCanton.aspx" />
     <Content Include="Views\Home\Create.aspx" />
     <Content Include="Views\Home\DCanton.aspx" />

@@ -14,9 +14,7 @@ namespace EncuestasC.Controllers
 
         #region Provincia
 
-        //Datos para provincia
-
-
+      
         //LIST
         public ActionResult GetAllProvinces()
         {
@@ -71,7 +69,7 @@ namespace EncuestasC.Controllers
 
                 return View(originalProvincia);
 
-            _entities.ApplyPropertyChanges(originalProvincia.EntityKey.EntitySetName, provinciaToEdit);
+            _entities.ApplyCurrentValues(originalProvincia.EntityKey.EntitySetName, provinciaToEdit);
 
             _entities.SaveChanges();
 
@@ -110,7 +108,116 @@ namespace EncuestasC.Controllers
 
         #endregion
 
+        #region Canton
+
+        //Datos para canton
+        //LIST
+        public ActionResult GetAllCantons()
+        {
+            return View(_entities.Canton.ToList());
+
+        }
+        //CREAR
+        public ActionResult CreateCanton()
+        {
+            return View();
+        }
+
+        //
+        // POST: /GeographicInfo/CreateCanton
+
+        [HttpPost]
+        public ActionResult CreateCanton(Cantonx cantonToCreate)
+        {
+            try
+            {
+                _entities.AddToCanton(cantonToCreate);
+                _entities.SaveChanges();
+                return RedirectToAction("GetAllCantons");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        //EDITAR
+        public ActionResult EditCanton(int id)
+        {
+            var cantonToEdit = (from m in _entities.Canton
+                where m.Id == id
+                select m).First();
+            return View(cantonToEdit);
+        }
+
+        //
+        // POST: /GeographicInfo/EditCanton/5
+
+        [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult EditCanton(Cantonx cantonToEdit)
+        {
+
+            // TODO: Add update logic here
+            var originalCanton = (from m in _entities.Canton
+                where m.Id == cantonToEdit.Id
+                select m).First();
+
+            
+            if (!ModelState.IsValid)
+
+                return View(originalCanton);
+
+            _entities.ApplyCurrentValues(originalCanton.EntityKey.EntitySetName, cantonToEdit);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllCantons");
+
+
+        }
+
+        //
+        // GET: /GeographicInfo/DeleteCanton/5
+        //BORRAR
+        public ActionResult DeleteCanton(int id)
+        {
+            var cantonToDelete = (_entities.Canton.Where(m => m.Id == id)).First();
+            return View(cantonToDelete);
+        }
+
+        //
+        // POST: /GeographicInfo/DeleteCanton/5
+
+        [HttpPost]
+        public ActionResult DeleteCanton(Cantonx cantonToDelete)
+        {
+            cantonToDelete = _entities.Canton.First(m => m.Id == cantonToDelete.Id);
+            
+            if (!ModelState.IsValid)
+
+                return View(cantonToDelete);
+            _entities.DeleteObject(cantonToDelete);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllCantons");
+
+        }
+
+        #endregion
+
+        #region District
+
         
+
+        #endregion
+
+        #region Town
+
+        
+
+        #endregion
+
 
     }
 }

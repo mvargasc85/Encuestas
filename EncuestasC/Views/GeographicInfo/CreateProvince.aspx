@@ -14,15 +14,7 @@
         <fieldset>
             <legend>Datos a Completar</legend>
             
-           <%-- <div class="editor-label">
-                <%= Html.LabelFor(model => model.Id) %>
-            </div>
-            <div class="editor-field">
-                <%= Html.TextBoxFor(model => model.Id) %>
-                <%= Html.ValidationMessageFor(model => model.Id) %>
-            </div>--%>
-            
-            <div class="editor-label">
+          <div class="editor-label">
                 <%= Html.LabelFor(model => model.Nombre) %>
             </div>
             <div class="editor-field">

@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EncuestasModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EncuestasModelStoreContainer">
+    <EntitySet Name="Canton" EntityType="EncuestasModel.Store.Canton" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CodigoPresupuestario" EntityType="EncuestasModel.Store.CodigoPresupuestario" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CPSP" EntityType="EncuestasModel.Store.CPSP" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Distrito" EntityType="EncuestasModel.Store.Distrito" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Email" EntityType="EncuestasModel.Store.Email" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Encuesta" EntityType="EncuestasModel.Store.Encuesta" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="EstadoServicio" EntityType="EncuestasModel.Store.EstadoServicio" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Poblado" EntityType="EncuestasModel.Store.Poblado" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Provincia" EntityType="EncuestasModel.Store.Provincia" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Proyecto" EntityType="EncuestasModel.Store.Proyecto" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="sysdiagrams" EntityType="EncuestasModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Telefono" EntityType="EncuestasModel.Store.Telefono" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="FK_Canton_Provincia" Association="EncuestasModel.Store.FK_Canton_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Canton" EntitySet="Canton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CPSP_Canton" Association="EncuestasModel.Store.FK_CPSP_Canton">
+      <End Role="Canton" EntitySet="Canton" />
+      <End Role="CPSP" EntitySet="CPSP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CPSP_Distrito" Association="EncuestasModel.Store.FK_CPSP_Distrito">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="CPSP" EntitySet="CPSP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CPSP_Poblado" Association="EncuestasModel.Store.FK_CPSP_Poblado">
+      <End Role="Poblado" EntitySet="Poblado" />
+      <End Role="CPSP" EntitySet="CPSP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CPSP_Provincia" Association="EncuestasModel.Store.FK_CPSP_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="CPSP" EntitySet="CPSP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Distrito_Canton" Association="EncuestasModel.Store.FK_Distrito_Canton">
+      <End Role="Canton" EntitySet="Canton" />
+      <End Role="Distrito" EntitySet="Distrito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Distrito_Provincia" Association="EncuestasModel.Store.FK_Distrito_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Distrito" EntitySet="Distrito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Email_CPSP" Association="EncuestasModel.Store.FK_Email_CPSP">
+      <End Role="CPSP" EntitySet="CPSP" />
+      <End Role="Email" EntitySet="Email" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encuesta_CodigoPresupuestario" Association="EncuestasModel.Store.FK_Encuesta_CodigoPresupuestario">
+      <End Role="CodigoPresupuestario" EntitySet="CodigoPresupuestario" />
+      <End Role="Encuesta" EntitySet="Encuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encuesta_CPSP" Association="EncuestasModel.Store.FK_Encuesta_CPSP">
+      <End Role="CPSP" EntitySet="CPSP" />
+      <End Role="Encuesta" EntitySet="Encuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encuesta_Email" Association="EncuestasModel.Store.FK_Encuesta_Email">
+      <End Role="Email" EntitySet="Email" />
+      <End Role="Encuesta" EntitySet="Encuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encuesta_EstadoServicio" Association="EncuestasModel.Store.FK_Encuesta_EstadoServicio">
+      <End Role="EstadoServicio" EntitySet="EstadoServicio" />
+      <End Role="Encuesta" EntitySet="Encuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encuesta_Proyecto" Association="EncuestasModel.Store.FK_Encuesta_Proyecto">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="Encuesta" EntitySet="Encuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encuesta_Telefono" Association="EncuestasModel.Store.FK_Encuesta_Telefono">
+      <End Role="Telefono" EntitySet="Telefono" />
+      <End Role="Encuesta" EntitySet="Encuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poblado_Canton" Association="EncuestasModel.Store.FK_Poblado_Canton">
+      <End Role="Canton" EntitySet="Canton" />
+      <End Role="Poblado" EntitySet="Poblado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poblado_Distrito" Association="EncuestasModel.Store.FK_Poblado_Distrito">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="Poblado" EntitySet="Poblado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poblado_Provincia" Association="EncuestasModel.Store.FK_Poblado_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Poblado" EntitySet="Poblado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefono_CPSP" Association="EncuestasModel.Store.FK_Telefono_CPSP">
+      <End Role="CPSP" EntitySet="CPSP" />
+      <End Role="Telefono" EntitySet="Telefono" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Canton">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="3" StoreGeneratedPattern="Identity" />
+    <Property Name="IdProvincia" Type="numeric" Precision="2" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CodigoPresupuestario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="5" StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="numeric" Precision="5" />
+  </EntityType>
+  <EntityType Name="CPSP">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="5" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="IdProvincia" Type="numeric" Precision="2" />
+    <Property Name="IdCanton" Type="numeric" Precision="3" />
+    <Property Name="IdDistrito" Type="numeric" Precision="3" />
+    <Property Name="IdPoblado" Type="numeric" Precision="3" />
+  </EntityType>
+  <EntityType Name="Distrito">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="3" StoreGeneratedPattern="Identity" />
+    <Property Name="IdCanton" Type="numeric" Precision="3" />
+    <Property Name="IdProvincia" Type="numeric" Precision="2" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="5" StoreGeneratedPattern="Identity" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="IdCPSP" Type="numeric" Precision="5" />
+  </EntityType>
+  <EntityType Name="Encuesta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="10" StoreGeneratedPattern="Identity" />
+    <Property Name="IdProyecto" Type="numeric" Precision="5" />
+    <Property Name="IdCPSP" Type="numeric" Precision="5" />
+    <Property Name="IdCodigoPresupuestario" Type="numeric" Precision="5" />
+    <Property Name="IdTelefono" Type="numeric" Precision="6" />
+    <Property Name="ContestaLlamada" Type="char" MaxLength="1" />
+    <Property Name="NombreContacto" Type="varchar" MaxLength="100" />
+    <Property Name="IdEmail" Type="numeric" Precision="5" />
+    <Property Name="IdEstadoServicio" Type="numeric" Precision="3" />
+    <Property Name="Comentarios" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="EstadoServicio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="3" StoreGeneratedPattern="Identity" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="Detalle" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Poblado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="3" StoreGeneratedPattern="Identity" />
+    <Property Name="IdDistrito" Type="numeric" Precision="3" />
+    <Property Name="IdCanton" Type="numeric" Precision="3" />
+    <Property Name="IdProvincia" Type="numeric" Precision="2" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="2" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Proyecto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="5" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Detalle" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Telefono">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="6" />
+    <Property Name="Telefono" Type="numeric" Precision="9" />
+    <Property Name="IdCPSP" Type="numeric" Precision="5" />
+  </EntityType>
+  <Association Name="FK_Canton_Provincia">
+    <End Role="Provincia" Type="EncuestasModel.Store.Provincia" Multiplicity="0..1" />
+    <End Role="Canton" Type="EncuestasModel.Store.Canton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Canton">
+        <PropertyRef Name="IdProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CPSP_Canton">
+    <End Role="Canton" Type="EncuestasModel.Store.Canton" Multiplicity="0..1" />
+    <End Role="CPSP" Type="EncuestasModel.Store.CPSP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canton">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CPSP">
+        <PropertyRef Name="IdCanton" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CPSP_Distrito">
+    <End Role="Distrito" Type="EncuestasModel.Store.Distrito" Multiplicity="0..1" />
+    <End Role="CPSP" Type="EncuestasModel.Store.CPSP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CPSP">
+        <PropertyRef Name="IdDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CPSP_Poblado">
+    <End Role="Poblado" Type="EncuestasModel.Store.Poblado" Multiplicity="0..1" />
+    <End Role="CPSP" Type="EncuestasModel.Store.CPSP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Poblado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CPSP">
+        <PropertyRef Name="IdPoblado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CPSP_Provincia">
+    <End Role="Provincia" Type="EncuestasModel.Store.Provincia" Multiplicity="0..1" />
+    <End Role="CPSP" Type="EncuestasModel.Store.CPSP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CPSP">
+        <PropertyRef Name="IdProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Distrito_Canton">
+    <End Role="Canton" Type="EncuestasModel.Store.Canton" Multiplicity="0..1" />
+    <End Role="Distrito" Type="EncuestasModel.Store.Distrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canton">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Distrito">
+        <PropertyRef Name="IdCanton" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Distrito_Provincia">
+    <End Role="Provincia" Type="EncuestasModel.Store.Provincia" Multiplicity="0..1" />
+    <End Role="Distrito" Type="EncuestasModel.Store.Distrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Distrito">
+        <PropertyRef Name="IdProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Email_CPSP">
+    <End Role="CPSP" Type="EncuestasModel.Store.CPSP" Multiplicity="0..1" />
+    <End Role="Email" Type="EncuestasModel.Store.Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CPSP">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="IdCPSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encuesta_CodigoPresupuestario">
+    <End Role="CodigoPresupuestario" Type="EncuestasModel.Store.CodigoPresupuestario" Multiplicity="0..1" />
+    <End Role="Encuesta" Type="EncuestasModel.Store.Encuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CodigoPresupuestario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Encuesta">
+        <PropertyRef Name="IdCodigoPresupuestario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encuesta_CPSP">
+    <End Role="CPSP" Type="EncuestasModel.Store.CPSP" Multiplicity="0..1" />
+    <End Role="Encuesta" Type="EncuestasModel.Store.Encuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CPSP">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Encuesta">
+        <PropertyRef Name="IdCPSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encuesta_Email">
+    <End Role="Email" Type="EncuestasModel.Store.Email" Multiplicity="0..1" />
+    <End Role="Encuesta" Type="EncuestasModel.Store.Encuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Email">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Encuesta">
+        <PropertyRef Name="IdEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encuesta_EstadoServicio">
+    <End Role="EstadoServicio" Type="EncuestasModel.Store.EstadoServicio" Multiplicity="0..1" />
+    <End Role="Encuesta" Type="EncuestasModel.Store.Encuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoServicio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Encuesta">
+        <PropertyRef Name="IdEstadoServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encuesta_Proyecto">
+    <End Role="Proyecto" Type="EncuestasModel.Store.Proyecto" Multiplicity="0..1" />
+    <End Role="Encuesta" Type="EncuestasModel.Store.Encuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Encuesta">
+        <PropertyRef Name="IdProyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encuesta_Telefono">
+    <End Role="Telefono" Type="EncuestasModel.Store.Telefono" Multiplicity="0..1" />
+    <End Role="Encuesta" Type="EncuestasModel.Store.Encuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Telefono">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Encuesta">
+        <PropertyRef Name="IdTelefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poblado_Canton">
+    <End Role="Canton" Type="EncuestasModel.Store.Canton" Multiplicity="0..1" />
+    <End Role="Poblado" Type="EncuestasModel.Store.Poblado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canton">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Poblado">
+        <PropertyRef Name="IdCanton" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poblado_Distrito">
+    <End Role="Distrito" Type="EncuestasModel.Store.Distrito" Multiplicity="0..1" />
+    <End Role="Poblado" Type="EncuestasModel.Store.Poblado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Poblado">
+        <PropertyRef Name="IdDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poblado_Provincia">
+    <End Role="Provincia" Type="EncuestasModel.Store.Provincia" Multiplicity="0..1" />
+    <End Role="Poblado" Type="EncuestasModel.Store.Poblado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Poblado">
+        <PropertyRef Name="IdProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefono_CPSP">
+    <End Role="CPSP" Type="EncuestasModel.Store.CPSP" Multiplicity="0..1" />
+    <End Role="Telefono" Type="EncuestasModel.Store.Telefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CPSP">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Telefono">
+        <PropertyRef Name="IdCPSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

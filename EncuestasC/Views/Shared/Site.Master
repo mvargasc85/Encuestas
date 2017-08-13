@@ -39,9 +39,9 @@
                         <asp:MenuItem Text="Mantenimientos" Value="Mantenimientos">
                             <asp:MenuItem Text="Editar Datos Geográficos" Value="Editar Datos Geográficos">
                                 <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllProvinces" Text="Provincia" Value="Provincia"></asp:MenuItem>
-                                <asp:MenuItem Text="Cantón" Value="Cantón"></asp:MenuItem>
-                                <asp:MenuItem Text="Distrito" Value="Distrito"></asp:MenuItem>
-                                <asp:MenuItem Text="Poblado" Value="Poblado"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllCantons" Text="Cantón" Value="Cantón"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllDistrites" Text="Distrito" Value="Distrito"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllTowns" Text="Poblado" Value="Poblado"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Editar Códigos Presupuestarios" 
                                 Value="Editar Códigos Presupuestarios"></asp:MenuItem>
