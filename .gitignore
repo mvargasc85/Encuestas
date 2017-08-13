@@ -2,3 +2,7 @@
 EncuestasC.suo
 EncuestasC.Tests/obj/Debug/EncuestasC.Tests.csproj.FileListAbsolute.txt
 EncuestasC.suo
+*.suo
+*.cache
+EncuestasC.Tests/obj/Debug/EncuestasC.Tests.csproj.FileListAbsolute.txt
+EncuestasC.Tests/obj/Debug/EncuestasC.Tests.dll

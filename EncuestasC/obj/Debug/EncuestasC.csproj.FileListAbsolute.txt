@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC\bin\EncuestasC.dll
+C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC\bin\EncuestasC.pdb
+C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC\obj\Debug\EncuestasC.csprojResolveAssemblyReference.cache
+C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC\obj\Debug\EncuestasC.dll
+C:\Users\Magally Vargas\Documents\Visual Studio 2010\Projects\encuestas\EncuestasC\obj\Debug\EncuestasC.pdb
+>>>>>>> 25fe18ecc3d4fa89e43eb2f5148226ccd062f79e
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC\bin\EncuestasC.dll
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC\bin\EncuestasC.pdb
 F:\Usuarios\Andres\Documents\Visual Studio 2010\Projects\EncuestasCGH\Encuestas\EncuestasC\obj\Debug\EncuestasC.csprojResolveAssemblyReference.cache
