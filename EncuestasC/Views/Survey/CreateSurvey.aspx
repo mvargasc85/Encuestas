@@ -28,8 +28,9 @@
                 <%: Html.ValidationMessageFor(model => model.Id) %>
             </div>
             <br/>
-            <h2>Información de Contacto:</h2>
-            <div id="telephonesDiv" style="display:none">  
+            
+            <div id="telephonesDiv" style="display:none">
+                  <h2>Información de Contacto:</h2>
             <%: Html.Label("Numeros Telefónicos:") %> 
             <br/>
             <%--   Div to show telephones grid for the selected cpsp--%>
