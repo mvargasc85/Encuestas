@@ -65,6 +65,8 @@
     <Compile Include="Controllers\ContactInfoController.cs" />
     <Compile Include="Controllers\GeographicInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Data\CommonDataRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -74,12 +76,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SurveyDTOModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\SurveyDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Encuestas.mdf" />
@@ -87,6 +91,7 @@
       <DependentUpon>Encuestas.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\survey.js" />
     <Content Include="Views\GeographicInfo\CreateCanton.aspx" />
     <Content Include="Views\GeographicInfo\CreateProvince.aspx" />
     <Content Include="Views\GeographicInfo\DeleteCanton.aspx" />
@@ -110,6 +115,11 @@
     <Content Include="Views\Home\ECanton.aspx" />
     <Content Include="Views\Home\Edit.aspx" />
     <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Survey\CreateSurvey.aspx" />
+    <Content Include="Views\Survey\EditSurvey.aspx" />
+    <Content Include="Views\Survey\GetAllSurveys.aspx" />
+    <Content Include="Views\Survey\GetEmails.ascx" />
+    <Content Include="Views\Survey\GetTelephones.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

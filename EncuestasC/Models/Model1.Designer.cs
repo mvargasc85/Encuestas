@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Data.EntityClient;
 using System.Data.Objects;
@@ -1382,6 +1383,10 @@ namespace EncuestasC.Models
         #endregion
 
         #region Propiedades primitivas
+
+     
+
+         
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
