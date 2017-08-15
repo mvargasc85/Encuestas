@@ -87,6 +87,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\GeographicDataProvider.cs" />
     <Compile Include="Services\SurveyDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,21 +108,7 @@
     <Content Include="Views\GeographicInfo\EditCanton.aspx" />
     <Content Include="Views\GeographicInfo\EditProvince.aspx" />
     <Content Include="Views\GeographicInfo\GetAllCantons.aspx" />
-    <Content Include="Views\Home\BCanton.aspx" />
-    <Content Include="Views\Home\Create.aspx" />
-    <Content Include="Views\Home\DCanton.aspx" />
-    <Content Include="Views\Home\DCodPres.aspx" />
-    <Content Include="Views\Home\DCPSP.aspx" />
-    <Content Include="Views\Home\DDistrito.aspx" />
-    <Content Include="Views\Home\DEmail.aspx" />
-    <Content Include="Views\Home\DEncuesta.aspx" />
-    <Content Include="Views\Home\DEstSer.aspx" />
-    <Content Include="Views\Home\DPoblado.aspx" />
     <Content Include="Views\GeographicInfo\GetAllProvinces.aspx" />
-    <Content Include="Views\Home\DProyecto.aspx" />
-    <Content Include="Views\Home\DTelefono.aspx" />
-    <Content Include="Views\Home\ECanton.aspx" />
-    <Content Include="Views\Home\Edit.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Survey\CreateSurvey.aspx" />
     <Content Include="Views\Survey\EditSurvey.aspx" />
