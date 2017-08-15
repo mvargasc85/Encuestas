@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EncuestasModelStoreContainer" CdmEntityContainer="EncuestasEntities">
+  <EntityContainerMapping StorageEntityContainer="EncuestasModelStoreContainer" CdmEntityContainer="EncuestasEntitiesx">
     <EntitySetMapping Name="Canton">
       <EntityTypeMapping TypeName="EncuestasModel.Cantonx">
         <MappingFragment StoreEntitySet="Canton">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -23,10 +22,6 @@
         <MappingFragment StoreEntitySet="CPSP">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
-          <ScalarProperty Name="IdCanton" ColumnName="IdCanton" />
-          <ScalarProperty Name="IdDistrito" ColumnName="IdDistrito" />
-          <ScalarProperty Name="IdPoblado" ColumnName="IdPoblado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -34,8 +29,6 @@
       <EntityTypeMapping TypeName="EncuestasModel.Distritox">
         <MappingFragment StoreEntitySet="Distrito">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdCanton" ColumnName="IdCanton" />
-          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -46,7 +39,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Correo" ColumnName="Correo" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdCPSP" ColumnName="IdCPSP" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -54,14 +46,8 @@
       <EntityTypeMapping TypeName="EncuestasModel.Encuestax">
         <MappingFragment StoreEntitySet="Encuesta">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
-          <ScalarProperty Name="IdCPSP" ColumnName="IdCPSP" />
-          <ScalarProperty Name="IdCodigoPresupuestario" ColumnName="IdCodigoPresupuestario" />
-          <ScalarProperty Name="IdTelefono" ColumnName="IdTelefono" />
           <ScalarProperty Name="ContestaLlamada" ColumnName="ContestaLlamada" />
           <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
-          <ScalarProperty Name="IdEmail" ColumnName="IdEmail" />
-          <ScalarProperty Name="IdEstadoServicio" ColumnName="IdEstadoServicio" />
           <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -79,9 +65,6 @@
       <EntityTypeMapping TypeName="EncuestasModel.Pobladox">
         <MappingFragment StoreEntitySet="Poblado">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdDistrito" ColumnName="IdDistrito" />
-          <ScalarProperty Name="IdCanton" ColumnName="IdCanton" />
-          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -119,9 +102,170 @@
         <MappingFragment StoreEntitySet="Telefono">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Telefono1" ColumnName="Telefono" />
-          <ScalarProperty Name="IdCPSP" ColumnName="IdCPSP" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="FK_Canton_Provincia" TypeName="EncuestasModel.FK_Canton_Provincia" StoreEntitySet="Canton">
+      <EndProperty Name="Provincia">
+        <ScalarProperty Name="Id" ColumnName="IdProvincia" />
+      </EndProperty>
+      <EndProperty Name="Canton">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdProvincia" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_CPSP_Canton" TypeName="EncuestasModel.FK_CPSP_Canton" StoreEntitySet="CPSP">
+      <EndProperty Name="Canton">
+        <ScalarProperty Name="Id" ColumnName="IdCanton" />
+      </EndProperty>
+      <EndProperty Name="CPSP">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdCanton" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Distrito_Canton" TypeName="EncuestasModel.FK_Distrito_Canton" StoreEntitySet="Distrito">
+      <EndProperty Name="Canton">
+        <ScalarProperty Name="Id" ColumnName="IdCanton" />
+      </EndProperty>
+      <EndProperty Name="Distrito">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdCanton" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Poblado_Canton" TypeName="EncuestasModel.FK_Poblado_Canton" StoreEntitySet="Poblado">
+      <EndProperty Name="Canton">
+        <ScalarProperty Name="Id" ColumnName="IdCanton" />
+      </EndProperty>
+      <EndProperty Name="Poblado">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdCanton" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Encuesta_CodigoPresupuestario" TypeName="EncuestasModel.FK_Encuesta_CodigoPresupuestario" StoreEntitySet="Encuesta">
+      <EndProperty Name="CodigoPresupuestario">
+        <ScalarProperty Name="Id" ColumnName="IdCodigoPresupuestario" />
+      </EndProperty>
+      <EndProperty Name="Encuesta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdCodigoPresupuestario" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_CPSP_Distrito" TypeName="EncuestasModel.FK_CPSP_Distrito" StoreEntitySet="CPSP">
+      <EndProperty Name="Distrito">
+        <ScalarProperty Name="Id" ColumnName="IdDistrito" />
+      </EndProperty>
+      <EndProperty Name="CPSP">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdDistrito" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_CPSP_Poblado" TypeName="EncuestasModel.FK_CPSP_Poblado" StoreEntitySet="CPSP">
+      <EndProperty Name="Poblado">
+        <ScalarProperty Name="Id" ColumnName="IdPoblado" />
+      </EndProperty>
+      <EndProperty Name="CPSP">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdPoblado" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_CPSP_Provincia" TypeName="EncuestasModel.FK_CPSP_Provincia" StoreEntitySet="CPSP">
+      <EndProperty Name="Provincia">
+        <ScalarProperty Name="Id" ColumnName="IdProvincia" />
+      </EndProperty>
+      <EndProperty Name="CPSP">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdProvincia" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Email_CPSP" TypeName="EncuestasModel.FK_Email_CPSP" StoreEntitySet="Email">
+      <EndProperty Name="CPSP">
+        <ScalarProperty Name="Id" ColumnName="IdCPSP" />
+      </EndProperty>
+      <EndProperty Name="Email">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdCPSP" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Encuesta_CPSP" TypeName="EncuestasModel.FK_Encuesta_CPSP" StoreEntitySet="Encuesta">
+      <EndProperty Name="CPSP">
+        <ScalarProperty Name="Id" ColumnName="IdCPSP" />
+      </EndProperty>
+      <EndProperty Name="Encuesta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdCPSP" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Telefono_CPSP" TypeName="EncuestasModel.FK_Telefono_CPSP" StoreEntitySet="Telefono">
+      <EndProperty Name="CPSP">
+        <ScalarProperty Name="Id" ColumnName="IdCPSP" />
+      </EndProperty>
+      <EndProperty Name="Telefono">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdCPSP" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Distrito_Provincia" TypeName="EncuestasModel.FK_Distrito_Provincia" StoreEntitySet="Distrito">
+      <EndProperty Name="Provincia">
+        <ScalarProperty Name="Id" ColumnName="IdProvincia" />
+      </EndProperty>
+      <EndProperty Name="Distrito">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdProvincia" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Poblado_Distrito" TypeName="EncuestasModel.FK_Poblado_Distrito" StoreEntitySet="Poblado">
+      <EndProperty Name="Distrito">
+        <ScalarProperty Name="Id" ColumnName="IdDistrito" />
+      </EndProperty>
+      <EndProperty Name="Poblado">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdDistrito" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Encuesta_Email" TypeName="EncuestasModel.FK_Encuesta_Email" StoreEntitySet="Encuesta">
+      <EndProperty Name="Email">
+        <ScalarProperty Name="Id" ColumnName="IdEmail" />
+      </EndProperty>
+      <EndProperty Name="Encuesta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdEmail" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Encuesta_EstadoServicio" TypeName="EncuestasModel.FK_Encuesta_EstadoServicio" StoreEntitySet="Encuesta">
+      <EndProperty Name="EstadoServicio">
+        <ScalarProperty Name="Id" ColumnName="IdEstadoServicio" />
+      </EndProperty>
+      <EndProperty Name="Encuesta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdEstadoServicio" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Encuesta_Proyecto" TypeName="EncuestasModel.FK_Encuesta_Proyecto" StoreEntitySet="Encuesta">
+      <EndProperty Name="Proyecto">
+        <ScalarProperty Name="Id" ColumnName="IdProyecto" />
+      </EndProperty>
+      <EndProperty Name="Encuesta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdProyecto" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Encuesta_Telefono" TypeName="EncuestasModel.FK_Encuesta_Telefono" StoreEntitySet="Encuesta">
+      <EndProperty Name="Telefono">
+        <ScalarProperty Name="Id" ColumnName="IdTelefono" />
+      </EndProperty>
+      <EndProperty Name="Encuesta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdTelefono" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Poblado_Provincia" TypeName="EncuestasModel.FK_Poblado_Provincia" StoreEntitySet="Poblado">
+      <EndProperty Name="Provincia">
+        <ScalarProperty Name="Id" ColumnName="IdProvincia" />
+      </EndProperty>
+      <EndProperty Name="Poblado">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="IdProvincia" IsNull="false" />
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

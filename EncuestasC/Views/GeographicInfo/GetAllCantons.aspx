@@ -14,9 +14,6 @@
             <th>
                 Id
             </th>
-             <th>
-                Id Provincia
-            </th>
             <th>
                 Nombre
             </th> 
@@ -28,9 +25,6 @@
         <tr>
             <td>
                 <%: String.Format("{0:F}", item.Id) %>
-            </td>
-            <td>
-                <%: String.Format("{0:F}", item.IdProvincia) %>
             </td>
             <td>
                 <%: item.Nombre %>

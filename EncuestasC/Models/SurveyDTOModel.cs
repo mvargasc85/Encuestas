@@ -19,6 +19,21 @@ namespace EncuestasC.Models
         public string NombreContacto { get; set; }
         public char Contesta { get; set; }
         public SelectList CpspList { get; set; }
+        public LocationDtoModel Location { get; set; }
+
+    }
+
+
+    public class LocationDtoModel
+    {
+        public IEnumerable<Provinciax> Provincias { get; set; }
+        public IEnumerable<Cantonx> Cantones { get; set; }
+        public IEnumerable<Distritox> Distritos { get; set; }
+        public IEnumerable<Pobladox> Poblados { get; set; }
+        public decimal? ProvinciaId { get; set; }
+        public decimal? CantonId { get; set; }
+        public decimal? DistritoId { get; set; }
+        public decimal? PobladosId { get; set; }
 
     }
 }

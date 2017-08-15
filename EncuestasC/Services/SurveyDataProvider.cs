@@ -40,5 +40,17 @@ namespace EncuestasC.Services
         {
             return _commonDataRepository.GetEmails(idCpsp);
         }
+
+
+        public CodigoPresupuestariox GetCodigoPresupuestario(decimal cpspId)
+        {
+            return _commonDataRepository.GetCodigoPresupuestario(cpspId);
+        }
+
+
+        public SurveyDtoModel GetCpspInfo(decimal cpspId)
+        {
+            return _commonDataRepository.GetCpspInfo(cpspId);
+        }
     }
 }

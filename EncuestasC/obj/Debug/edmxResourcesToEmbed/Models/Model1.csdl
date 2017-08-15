@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="EncuestasModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="EncuestasEntities" annotation:LazyLoadingEnabled="true">
+<Schema Namespace="EncuestasModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EncuestasEntitiesx">
     <EntitySet Name="Canton" EntityType="EncuestasModel.Cantonx" />
     <EntitySet Name="CodigoPresupuestario" EntityType="EncuestasModel.CodigoPresupuestariox" />
     <EntitySet Name="CPSP" EntityType="EncuestasModel.CPSPx" />
@@ -90,8 +90,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdProvincia" Type="Int32" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Provincia" Relationship="EncuestasModel.FK_Canton_Provincia" FromRole="Canton" ToRole="Provincia" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_CPSP_Canton" FromRole="Canton" ToRole="CPSP" />
@@ -102,20 +101,16 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Codigo" Type="Int32" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Codigo" Type="Decimal" Precision="5" Scale="0" />
     <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_CodigoPresupuestario" FromRole="CodigoPresupuestario" ToRole="Encuesta" />
   </EntityType>
   <EntityType Name="CPSPx">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="IdProvincia" Type="Int32" />
-    <Property Name="IdCanton" Type="Int32" />
-    <Property Name="IdDistrito" Type="Int32" />
-    <Property Name="IdPoblado" Type="Int32" />
     <NavigationProperty Name="Canton" Relationship="EncuestasModel.FK_CPSP_Canton" FromRole="CPSP" ToRole="Canton" />
     <NavigationProperty Name="Distrito" Relationship="EncuestasModel.FK_CPSP_Distrito" FromRole="CPSP" ToRole="Distrito" />
     <NavigationProperty Name="Poblado" Relationship="EncuestasModel.FK_CPSP_Poblado" FromRole="CPSP" ToRole="Poblado" />
@@ -128,9 +123,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdCanton" Type="Int32" />
-    <Property Name="IdProvincia" Type="Int32" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Canton" Relationship="EncuestasModel.FK_Distrito_Canton" FromRole="Distrito" ToRole="Canton" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_CPSP_Distrito" FromRole="Distrito" ToRole="CPSP" />
@@ -141,10 +134,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Correo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Nombre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="IdCPSP" Type="Int32" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_Email_CPSP" FromRole="Email" ToRole="CPSP" />
     <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_Email" FromRole="Email" ToRole="Encuesta" />
   </EntityType>
@@ -152,15 +144,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdProyecto" Type="Int32" />
-    <Property Name="IdCPSP" Type="Int32" />
-    <Property Name="IdCodigoPresupuestario" Type="Int32" />
-    <Property Name="IdTelefono" Type="Int32" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="10" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="ContestaLlamada" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
     <Property Name="NombreContacto" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="IdEmail" Type="Int32" />
-    <Property Name="IdEstadoServicio" Type="Int32" />
     <Property Name="Comentarios" Type="String" MaxLength="5000" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="CodigoPresupuestario" Relationship="EncuestasModel.FK_Encuesta_CodigoPresupuestario" FromRole="Encuesta" ToRole="CodigoPresupuestario" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_Encuesta_CPSP" FromRole="Encuesta" ToRole="CPSP" />
@@ -173,7 +159,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Estado" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Detalle" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_EstadoServicio" FromRole="EstadoServicio" ToRole="Encuesta" />
@@ -182,10 +168,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdDistrito" Type="Int32" />
-    <Property Name="IdCanton" Type="Int32" />
-    <Property Name="IdProvincia" Type="Int32" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Canton" Relationship="EncuestasModel.FK_Poblado_Canton" FromRole="Poblado" ToRole="Canton" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_CPSP_Poblado" FromRole="Poblado" ToRole="CPSP" />
@@ -196,7 +179,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Canton" Relationship="EncuestasModel.FK_Canton_Provincia" FromRole="Provincia" ToRole="Canton" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_CPSP_Provincia" FromRole="Provincia" ToRole="CPSP" />
@@ -207,7 +190,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="5" Scale="0" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Detalle" Type="String" MaxLength="5000" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_Proyecto" FromRole="Proyecto" ToRole="Encuesta" />
@@ -218,7 +201,7 @@
     </Key>
     <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
     <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
@@ -226,226 +209,81 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
     <Property Name="Telefono1" Type="Decimal" Precision="9" Scale="0" />
-    <Property Name="IdCPSP" Type="Int32" />
     <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_Telefono_CPSP" FromRole="Telefono" ToRole="CPSP" />
     <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_Telefono" FromRole="Telefono" ToRole="Encuesta" />
   </EntityType>
   <Association Name="FK_Canton_Provincia">
     <End Role="Provincia" Type="EncuestasModel.Provinciax" Multiplicity="0..1" />
     <End Role="Canton" Type="EncuestasModel.Cantonx" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Provincia">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Canton">
-        <PropertyRef Name="IdProvincia" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_CPSP_Canton">
     <End Role="Canton" Type="EncuestasModel.Cantonx" Multiplicity="0..1" />
     <End Role="CPSP" Type="EncuestasModel.CPSPx" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Canton">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CPSP">
-        <PropertyRef Name="IdCanton" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Distrito_Canton">
     <End Role="Canton" Type="EncuestasModel.Cantonx" Multiplicity="0..1" />
     <End Role="Distrito" Type="EncuestasModel.Distritox" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Canton">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Distrito">
-        <PropertyRef Name="IdCanton" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Poblado_Canton">
     <End Role="Canton" Type="EncuestasModel.Cantonx" Multiplicity="0..1" />
     <End Role="Poblado" Type="EncuestasModel.Pobladox" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Canton">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Poblado">
-        <PropertyRef Name="IdCanton" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Encuesta_CodigoPresupuestario">
     <End Role="CodigoPresupuestario" Type="EncuestasModel.CodigoPresupuestariox" Multiplicity="0..1" />
     <End Role="Encuesta" Type="EncuestasModel.Encuestax" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CodigoPresupuestario">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Encuesta">
-        <PropertyRef Name="IdCodigoPresupuestario" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_CPSP_Distrito">
     <End Role="Distrito" Type="EncuestasModel.Distritox" Multiplicity="0..1" />
     <End Role="CPSP" Type="EncuestasModel.CPSPx" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Distrito">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CPSP">
-        <PropertyRef Name="IdDistrito" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_CPSP_Poblado">
     <End Role="Poblado" Type="EncuestasModel.Pobladox" Multiplicity="0..1" />
     <End Role="CPSP" Type="EncuestasModel.CPSPx" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Poblado">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CPSP">
-        <PropertyRef Name="IdPoblado" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_CPSP_Provincia">
     <End Role="Provincia" Type="EncuestasModel.Provinciax" Multiplicity="0..1" />
     <End Role="CPSP" Type="EncuestasModel.CPSPx" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Provincia">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CPSP">
-        <PropertyRef Name="IdProvincia" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Email_CPSP">
     <End Role="CPSP" Type="EncuestasModel.CPSPx" Multiplicity="0..1" />
     <End Role="Email" Type="EncuestasModel.Emailx" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CPSP">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Email">
-        <PropertyRef Name="IdCPSP" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Encuesta_CPSP">
     <End Role="CPSP" Type="EncuestasModel.CPSPx" Multiplicity="0..1" />
     <End Role="Encuesta" Type="EncuestasModel.Encuestax" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CPSP">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Encuesta">
-        <PropertyRef Name="IdCPSP" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Telefono_CPSP">
     <End Role="CPSP" Type="EncuestasModel.CPSPx" Multiplicity="0..1" />
     <End Role="Telefono" Type="EncuestasModel.Telefonox" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CPSP">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Telefono">
-        <PropertyRef Name="IdCPSP" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Distrito_Provincia">
     <End Role="Provincia" Type="EncuestasModel.Provinciax" Multiplicity="0..1" />
     <End Role="Distrito" Type="EncuestasModel.Distritox" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Provincia">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Distrito">
-        <PropertyRef Name="IdProvincia" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Poblado_Distrito">
     <End Role="Distrito" Type="EncuestasModel.Distritox" Multiplicity="0..1" />
     <End Role="Poblado" Type="EncuestasModel.Pobladox" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Distrito">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Poblado">
-        <PropertyRef Name="IdDistrito" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Encuesta_Email">
     <End Role="Email" Type="EncuestasModel.Emailx" Multiplicity="0..1" />
     <End Role="Encuesta" Type="EncuestasModel.Encuestax" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Email">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Encuesta">
-        <PropertyRef Name="IdEmail" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Encuesta_EstadoServicio">
     <End Role="EstadoServicio" Type="EncuestasModel.EstadoServiciox" Multiplicity="0..1" />
     <End Role="Encuesta" Type="EncuestasModel.Encuestax" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EstadoServicio">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Encuesta">
-        <PropertyRef Name="IdEstadoServicio" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Encuesta_Proyecto">
     <End Role="Proyecto" Type="EncuestasModel.Proyectox" Multiplicity="0..1" />
     <End Role="Encuesta" Type="EncuestasModel.Encuestax" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Proyecto">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Encuesta">
-        <PropertyRef Name="IdProyecto" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Encuesta_Telefono">
     <End Role="Telefono" Type="EncuestasModel.Telefonox" Multiplicity="0..1" />
     <End Role="Encuesta" Type="EncuestasModel.Encuestax" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Telefono">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Encuesta">
-        <PropertyRef Name="IdTelefono" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Poblado_Provincia">
     <End Role="Provincia" Type="EncuestasModel.Provinciax" Multiplicity="0..1" />
     <End Role="Poblado" Type="EncuestasModel.Pobladox" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Provincia">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Poblado">
-        <PropertyRef Name="IdProvincia" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
 </Schema>

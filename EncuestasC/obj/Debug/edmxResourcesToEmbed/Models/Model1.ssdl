@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="EncuestasModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+<Schema Namespace="EncuestasModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="EncuestasModelStoreContainer">
-    <EntitySet Name="Canton" EntityType="EncuestasModel.Store.Canton" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CodigoPresupuestario" EntityType="EncuestasModel.Store.CodigoPresupuestario" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CPSP" EntityType="EncuestasModel.Store.CPSP" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Distrito" EntityType="EncuestasModel.Store.Distrito" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Email" EntityType="EncuestasModel.Store.Email" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Encuesta" EntityType="EncuestasModel.Store.Encuesta" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EstadoServicio" EntityType="EncuestasModel.Store.EstadoServicio" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Poblado" EntityType="EncuestasModel.Store.Poblado" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Provincia" EntityType="EncuestasModel.Store.Provincia" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Proyecto" EntityType="EncuestasModel.Store.Proyecto" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="EncuestasModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Telefono" EntityType="EncuestasModel.Store.Telefono" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Canton" EntityType="EncuestasModel.Store.Canton" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CodigoPresupuestario" EntityType="EncuestasModel.Store.CodigoPresupuestario" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CPSP" EntityType="EncuestasModel.Store.CPSP" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Distrito" EntityType="EncuestasModel.Store.Distrito" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Email" EntityType="EncuestasModel.Store.Email" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Encuesta" EntityType="EncuestasModel.Store.Encuesta" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="EstadoServicio" EntityType="EncuestasModel.Store.EstadoServicio" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Poblado" EntityType="EncuestasModel.Store.Poblado" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Provincia" EntityType="EncuestasModel.Store.Provincia" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Proyecto" EntityType="EncuestasModel.Store.Proyecto" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="sysdiagrams" EntityType="EncuestasModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Telefono" EntityType="EncuestasModel.Store.Telefono" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <AssociationSet Name="FK_Canton_Provincia" Association="EncuestasModel.Store.FK_Canton_Provincia">
       <End Role="Provincia" EntitySet="Provincia" />
       <End Role="Canton" EntitySet="Canton" />
@@ -90,66 +90,66 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="IdProvincia" Type="int" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="3" StoreGeneratedPattern="Identity" />
+    <Property Name="IdProvincia" Type="numeric" Precision="2" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="CodigoPresupuestario">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Codigo" Type="int" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="5" StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="numeric" Precision="5" />
   </EntityType>
   <EntityType Name="CPSP">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="5" StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="varchar" MaxLength="100" />
-    <Property Name="IdProvincia" Type="int" />
-    <Property Name="IdCanton" Type="int" />
-    <Property Name="IdDistrito" Type="int" />
-    <Property Name="IdPoblado" Type="int" />
+    <Property Name="IdProvincia" Type="numeric" Precision="2" />
+    <Property Name="IdCanton" Type="numeric" Precision="3" />
+    <Property Name="IdDistrito" Type="numeric" Precision="3" />
+    <Property Name="IdPoblado" Type="numeric" Precision="3" />
   </EntityType>
   <EntityType Name="Distrito">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="IdCanton" Type="int" />
-    <Property Name="IdProvincia" Type="int" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="3" StoreGeneratedPattern="Identity" />
+    <Property Name="IdCanton" Type="numeric" Precision="3" />
+    <Property Name="IdProvincia" Type="numeric" Precision="2" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Email">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="5" StoreGeneratedPattern="Identity" />
     <Property Name="Correo" Type="varchar" MaxLength="50" />
     <Property Name="Nombre" Type="varchar" MaxLength="100" />
-    <Property Name="IdCPSP" Type="int" />
+    <Property Name="IdCPSP" Type="numeric" Precision="5" />
   </EntityType>
   <EntityType Name="Encuesta">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="IdProyecto" Type="int" />
-    <Property Name="IdCPSP" Type="int" />
-    <Property Name="IdCodigoPresupuestario" Type="int" />
-    <Property Name="IdTelefono" Type="int" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="10" StoreGeneratedPattern="Identity" />
+    <Property Name="IdProyecto" Type="numeric" Precision="5" />
+    <Property Name="IdCPSP" Type="numeric" Precision="5" />
+    <Property Name="IdCodigoPresupuestario" Type="numeric" Precision="5" />
+    <Property Name="IdTelefono" Type="numeric" Precision="6" />
     <Property Name="ContestaLlamada" Type="char" MaxLength="1" />
     <Property Name="NombreContacto" Type="varchar" MaxLength="100" />
-    <Property Name="IdEmail" Type="int" />
-    <Property Name="IdEstadoServicio" Type="int" />
+    <Property Name="IdEmail" Type="numeric" Precision="5" />
+    <Property Name="IdEstadoServicio" Type="numeric" Precision="3" />
     <Property Name="Comentarios" Type="varchar" MaxLength="5000" />
   </EntityType>
   <EntityType Name="EstadoServicio">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="3" StoreGeneratedPattern="Identity" />
     <Property Name="Estado" Type="varchar" MaxLength="50" />
     <Property Name="Detalle" Type="varchar" MaxLength="1000" />
   </EntityType>
@@ -157,24 +157,24 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="IdDistrito" Type="int" />
-    <Property Name="IdCanton" Type="int" />
-    <Property Name="IdProvincia" Type="int" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="3" StoreGeneratedPattern="Identity" />
+    <Property Name="IdDistrito" Type="numeric" Precision="3" />
+    <Property Name="IdCanton" Type="numeric" Precision="3" />
+    <Property Name="IdProvincia" Type="numeric" Precision="2" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Provincia">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="2" StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Proyecto">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="5" StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
     <Property Name="Detalle" Type="varchar" MaxLength="5000" />
   </EntityType>
@@ -192,9 +192,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="numeric" Nullable="false" Precision="6" />
     <Property Name="Telefono" Type="numeric" Precision="9" />
-    <Property Name="IdCPSP" Type="int" />
+    <Property Name="IdCPSP" Type="numeric" Precision="5" />
   </EntityType>
   <Association Name="FK_Canton_Provincia">
     <End Role="Provincia" Type="EncuestasModel.Store.Provincia" Multiplicity="0..1" />

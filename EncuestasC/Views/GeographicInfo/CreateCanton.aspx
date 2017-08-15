@@ -12,22 +12,13 @@
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
-            <legend>Campos</legend>
+            <legend>Fields</legend>
             
             <div class="editor-label">
-           <tr>
-            <th>
-            <%: Html.LabelFor(model => model.IdProvincia)%>
-            </th>
-            <th>
                 <%: Html.LabelFor(model => model.Nombre) %>
-                </th>
-                </tr>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.IdProvincia)%>
-                <%: Html.TextBoxFor(model => model.Nombre)%>
-                <%: Html.ValidationMessageFor(model => model.IdProvincia)%>
+                <%: Html.TextBoxFor(model => model.Nombre) %>
                 <%: Html.ValidationMessageFor(model => model.Nombre) %>
             </div>
             

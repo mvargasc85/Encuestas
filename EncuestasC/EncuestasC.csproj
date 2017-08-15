@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -71,7 +75,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\GeographicDTOModel.cs" />
     <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,7 +87,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Services\GeographicDataProvider.cs" />
     <Compile Include="Services\SurveyDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,8 +94,11 @@
     <Content Include="App_Data\Encuestas_log.LDF">
       <DependentUpon>Encuestas.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\kendo.common.css" />
+    <Content Include="Content\kendo.common.min.css" />
+    <Content Include="Content\kendo.default.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\geographic.js" />
+    <Content Include="Scripts\kendoui\kendo.web.min.js" />
     <Content Include="Scripts\survey.js" />
     <Content Include="Views\GeographicInfo\CreateCanton.aspx" />
     <Content Include="Views\GeographicInfo\CreateProvince.aspx" />
@@ -159,6 +164,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

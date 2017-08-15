@@ -22,27 +22,25 @@
             <div class="editor-label">
                 <%: Html.Label("Nombre del CSPS") %>
             </div>
-            <div class="editor-field">
-                
-             <%:Html.DropDownList("cpspDdl", Model.CpspList, "Seleccione ...")%>
-                <%: Html.ValidationMessageFor(model => model.Id) %>
-            </div>
+            
+            <div id="cpspDdlDiv"></div>
             <br/>
             
-            <div id="telephonesDiv" style="display:none">
-                  <h2>Información de Contacto:</h2>
-            <%: Html.Label("Numeros Telefónicos:") %> 
+            <div id="telephonesDiv" style="display: none; ">
+              <h2>Información de Contacto:</h2>
+            
+              <label class="k-label">Numeros Telefónicos:</label>
+               <div id="telephonepv" ></div>
+                   
+                <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>
+              <label class="k-label">Correo Electronico:</label>
+              <div id="emailpv" ></div>
+       
             <br/>
-            <%--   Div to show telephones grid for the selected cpsp--%>
-            <div id="telephonepv" ></div>
+        
             </div>
-            <br/>
-            <div id="emailsDiv" style="display:none">  
-                <%: Html.Label("Correo Electrónico:") %> 
-                <br/>
-                <%--   Div to show emails grid for the selected cpsp--%>
-                <div id="emailpv" ></div>
-            </div>
+            
+            <br/>  <br/> <br/> 
        <div class="editor-label">
        <%: Html.LabelFor(model => model.Comentarios) %>
             </div>
