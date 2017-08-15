@@ -4,14 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EncuestasC.Models;
+using EncuestasC.Services;
 
 namespace EncuestasC.Controllers
 {
     public class GeographicInfoController : Controller
     {
-
+        private GeographicDtoModel _geographic = new GeographicDtoModel();
         private EncuestasEntities _entities = new EncuestasEntities();
 
+        private readonly GeographicDataProvider _GeographicDataProvider = new GeographicDataProvider();
         #region Provincia
 
       
@@ -120,7 +122,12 @@ namespace EncuestasC.Controllers
         //CREAR
         public ActionResult CreateCanton()
         {
-            return View();
+            //_survey = new SurveyDtoModel();
+            var provinciaC = _GeographicDataProvider.GetAllProvincia();
+
+            _geographic.ProvinciaList = new SelectList(provinciaC, "Id", "Nombre");
+
+            return View(_geographic);
         }
 
         //

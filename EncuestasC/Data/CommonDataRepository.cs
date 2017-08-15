@@ -35,6 +35,12 @@ namespace EncuestasC.Data
             return list;
         }
 
+        public IEnumerable<Provinciax> GetAllProvincia()
+        {
+            var list = _encuestasDbEntities.Provincia.Select(p => p);
+            return list;
+        }
+
         public IEnumerable<Telefonox> GetTelephones(decimal idCpsp)
         {
             var list = _encuestasDbEntities.Telefono.Where(t => t.CPSP.Id == idCpsp);

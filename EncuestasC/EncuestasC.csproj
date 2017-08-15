@@ -71,6 +71,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\GeographicDTOModel.cs" />
     <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +84,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\GeographicDataProvider.cs" />
     <Compile Include="Services\SurveyDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +93,7 @@
       <DependentUpon>Encuestas.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\geographic.js" />
     <Content Include="Scripts\survey.js" />
     <Content Include="Views\GeographicInfo\CreateCanton.aspx" />
     <Content Include="Views\GeographicInfo\CreateProvince.aspx" />
