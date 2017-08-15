@@ -10,7 +10,7 @@ namespace EncuestasC.Controllers
     public class GeographicInfoController : Controller
     {
 
-        private EncuestasEntitiesx _entities = new EncuestasEntitiesx();
+        private EncuestasEntities _entities = new EncuestasEntities();
 
         #region Provincia
 

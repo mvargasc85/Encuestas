@@ -15,10 +15,12 @@
             <legend>Fields</legend>
             
             <div class="editor-label">
+            <%: Html.LabelFor(model => model.IdProvincia)%>
                 <%: Html.LabelFor(model => model.Nombre) %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.Nombre) %>
+                <%: Html.TextBoxFor(model => model.IdProvincia) %>
                 <%: Html.ValidationMessageFor(model => model.Nombre) %>
             </div>
             

@@ -9,7 +9,7 @@ namespace EncuestasC.Controllers
 {
     public class HomeController : Controller
     {
-        private EncuestasEntitiesx _entities = new EncuestasEntitiesx();
+        private EncuestasEntities _entities = new EncuestasEntities();
 
 
         //

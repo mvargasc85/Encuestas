@@ -11,7 +11,7 @@ namespace EncuestasC.Controllers
     public class SurveyController : Controller
     {
         private SurveyDtoModel _survey=new SurveyDtoModel();
-        private readonly EncuestasEntitiesx _entities = new EncuestasEntitiesx();
+        private readonly EncuestasEntities _entities = new EncuestasEntities();
 
         private readonly SurveyDataProvider _surveyDataProvider = new SurveyDataProvider();
 

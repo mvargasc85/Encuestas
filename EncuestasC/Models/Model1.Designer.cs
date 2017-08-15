@@ -8,7 +8,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Data.EntityClient;
 using System.Data.Objects;
@@ -20,24 +19,24 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
 
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Canton_Provincia", "Provincia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Provinciax), "Canton", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Cantonx))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_CPSP_Canton", "Canton", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Cantonx), "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.CPSPx))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Distrito_Canton", "Canton", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Cantonx), "Distrito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Distritox))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Poblado_Canton", "Canton", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Cantonx), "Poblado", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Pobladox))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_CodigoPresupuestario", "CodigoPresupuestario", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.CodigoPresupuestariox), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_CPSP_Distrito", "Distrito", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Distritox), "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.CPSPx))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_CPSP_Poblado", "Poblado", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Pobladox), "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.CPSPx))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_CPSP_Provincia", "Provincia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Provinciax), "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.CPSPx))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Email_CPSP", "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.CPSPx), "Email", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Emailx))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_CPSP", "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.CPSPx), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Telefono_CPSP", "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.CPSPx), "Telefono", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Telefonox))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Distrito_Provincia", "Provincia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Provinciax), "Distrito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Distritox))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Poblado_Distrito", "Distrito", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Distritox), "Poblado", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Pobladox))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_Email", "Email", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Emailx), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_EstadoServicio", "EstadoServicio", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.EstadoServiciox), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_Proyecto", "Proyecto", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Proyectox), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_Telefono", "Telefono", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Telefonox), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax))]
-[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Poblado_Provincia", "Provincia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Provinciax), "Poblado", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Pobladox))]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Canton_Provincia", "Provincia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Provinciax), "Canton", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Cantonx), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_CPSP_Canton", "Canton", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Cantonx), "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.CPSPx), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Distrito_Canton", "Canton", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Cantonx), "Distrito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Distritox), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Poblado_Canton", "Canton", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Cantonx), "Poblado", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Pobladox), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_CodigoPresupuestario", "CodigoPresupuestario", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.CodigoPresupuestariox), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_CPSP_Distrito", "Distrito", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Distritox), "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.CPSPx), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_CPSP_Poblado", "Poblado", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Pobladox), "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.CPSPx), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_CPSP_Provincia", "Provincia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Provinciax), "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.CPSPx), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Email_CPSP", "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.CPSPx), "Email", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Emailx), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_CPSP", "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.CPSPx), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Telefono_CPSP", "CPSP", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.CPSPx), "Telefono", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Telefonox), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Distrito_Provincia", "Provincia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Provinciax), "Distrito", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Distritox), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Poblado_Distrito", "Distrito", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Distritox), "Poblado", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Pobladox), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_Email", "Email", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Emailx), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_EstadoServicio", "EstadoServicio", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.EstadoServiciox), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_Proyecto", "Proyecto", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Proyectox), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Encuesta_Telefono", "Telefono", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Telefonox), "Encuesta", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Encuestax), true)]
+[assembly: EdmRelationshipAttribute("EncuestasModel", "FK_Poblado_Provincia", "Provincia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EncuestasC.Models.Provinciax), "Poblado", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EncuestasC.Models.Pobladox), true)]
 
 #endregion
 
@@ -48,31 +47,34 @@ namespace EncuestasC.Models
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
-    public partial class EncuestasEntitiesx : ObjectContext
+    public partial class EncuestasEntities : ObjectContext
     {
         #region Constructores
     
         /// <summary>
-        /// Inicializa un nuevo objeto EncuestasEntitiesx usando la cadena de conexión encontrada en la sección 'EncuestasEntitiesx' del archivo de configuración de la aplicación.
+        /// Inicializa un nuevo objeto EncuestasEntities usando la cadena de conexión encontrada en la sección 'EncuestasEntities' del archivo de configuración de la aplicación.
         /// </summary>
-        public EncuestasEntitiesx() : base("name=EncuestasEntitiesx", "EncuestasEntitiesx")
+        public EncuestasEntities() : base("name=EncuestasEntities", "EncuestasEntities")
         {
+            this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Inicializar un nuevo objeto EncuestasEntitiesx.
+        /// Inicializar un nuevo objeto EncuestasEntities.
         /// </summary>
-        public EncuestasEntitiesx(string connectionString) : base(connectionString, "EncuestasEntitiesx")
+        public EncuestasEntities(string connectionString) : base(connectionString, "EncuestasEntities")
         {
+            this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Inicializar un nuevo objeto EncuestasEntitiesx.
+        /// Inicializar un nuevo objeto EncuestasEntities.
         /// </summary>
-        public EncuestasEntitiesx(EntityConnection connection) : base(connection, "EncuestasEntitiesx")
+        public EncuestasEntities(EntityConnection connection) : base(connection, "EncuestasEntities")
         {
+            this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
@@ -400,7 +402,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto Cantonx.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Cantonx CreateCantonx(global::System.Decimal id)
+        public static Cantonx CreateCantonx(global::System.Int32 id)
         {
             Cantonx cantonx = new Cantonx();
             cantonx.Id = id;
@@ -416,7 +418,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -434,9 +436,33 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProvincia
+        {
+            get
+            {
+                return _IdProvincia;
+            }
+            set
+            {
+                OnIdProvinciaChanging(value);
+                ReportPropertyChanging("IdProvincia");
+                _IdProvincia = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProvincia");
+                OnIdProvinciaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProvincia;
+        partial void OnIdProvinciaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdProvinciaChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -589,7 +615,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto CodigoPresupuestariox.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static CodigoPresupuestariox CreateCodigoPresupuestariox(global::System.Decimal id)
+        public static CodigoPresupuestariox CreateCodigoPresupuestariox(global::System.Int32 id)
         {
             CodigoPresupuestariox codigoPresupuestariox = new CodigoPresupuestariox();
             codigoPresupuestariox.Id = id;
@@ -605,7 +631,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -623,8 +649,8 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
     
         /// <summary>
@@ -632,7 +658,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Codigo
+        public Nullable<global::System.Int32> Codigo
         {
             get
             {
@@ -647,8 +673,8 @@ namespace EncuestasC.Models
                 OnCodigoChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Codigo;
-        partial void OnCodigoChanging(Nullable<global::System.Decimal> value);
+        private Nullable<global::System.Int32> _Codigo;
+        partial void OnCodigoChanging(Nullable<global::System.Int32> value);
         partial void OnCodigoChanged();
 
         #endregion
@@ -696,7 +722,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto CPSPx.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static CPSPx CreateCPSPx(global::System.Decimal id)
+        public static CPSPx CreateCPSPx(global::System.Int32 id)
         {
             CPSPx cPSPx = new CPSPx();
             cPSPx.Id = id;
@@ -712,7 +738,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -730,8 +756,8 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
     
         /// <summary>
@@ -757,6 +783,102 @@ namespace EncuestasC.Models
         private global::System.String _Nombre;
         partial void OnNombreChanging(global::System.String value);
         partial void OnNombreChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProvincia
+        {
+            get
+            {
+                return _IdProvincia;
+            }
+            set
+            {
+                OnIdProvinciaChanging(value);
+                ReportPropertyChanging("IdProvincia");
+                _IdProvincia = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProvincia");
+                OnIdProvinciaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProvincia;
+        partial void OnIdProvinciaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdProvinciaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdCanton
+        {
+            get
+            {
+                return _IdCanton;
+            }
+            set
+            {
+                OnIdCantonChanging(value);
+                ReportPropertyChanging("IdCanton");
+                _IdCanton = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCanton");
+                OnIdCantonChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdCanton;
+        partial void OnIdCantonChanging(Nullable<global::System.Int32> value);
+        partial void OnIdCantonChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdDistrito
+        {
+            get
+            {
+                return _IdDistrito;
+            }
+            set
+            {
+                OnIdDistritoChanging(value);
+                ReportPropertyChanging("IdDistrito");
+                _IdDistrito = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdDistrito");
+                OnIdDistritoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdDistrito;
+        partial void OnIdDistritoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdDistritoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdPoblado
+        {
+            get
+            {
+                return _IdPoblado;
+            }
+            set
+            {
+                OnIdPobladoChanging(value);
+                ReportPropertyChanging("IdPoblado");
+                _IdPoblado = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdPoblado");
+                OnIdPobladoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdPoblado;
+        partial void OnIdPobladoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdPobladoChanged();
 
         #endregion
 
@@ -999,7 +1121,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto Distritox.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Distritox CreateDistritox(global::System.Decimal id)
+        public static Distritox CreateDistritox(global::System.Int32 id)
         {
             Distritox distritox = new Distritox();
             distritox.Id = id;
@@ -1015,7 +1137,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -1033,9 +1155,57 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdCanton
+        {
+            get
+            {
+                return _IdCanton;
+            }
+            set
+            {
+                OnIdCantonChanging(value);
+                ReportPropertyChanging("IdCanton");
+                _IdCanton = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCanton");
+                OnIdCantonChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdCanton;
+        partial void OnIdCantonChanging(Nullable<global::System.Int32> value);
+        partial void OnIdCantonChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProvincia
+        {
+            get
+            {
+                return _IdProvincia;
+            }
+            set
+            {
+                OnIdProvinciaChanging(value);
+                ReportPropertyChanging("IdProvincia");
+                _IdProvincia = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProvincia");
+                OnIdProvinciaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProvincia;
+        partial void OnIdProvinciaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdProvinciaChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -1204,7 +1374,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto Emailx.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Emailx CreateEmailx(global::System.Decimal id)
+        public static Emailx CreateEmailx(global::System.Int32 id)
         {
             Emailx emailx = new Emailx();
             emailx.Id = id;
@@ -1220,7 +1390,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -1238,8 +1408,8 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
     
         /// <summary>
@@ -1289,6 +1459,30 @@ namespace EncuestasC.Models
         private global::System.String _Nombre;
         partial void OnNombreChanging(global::System.String value);
         partial void OnNombreChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdCPSP
+        {
+            get
+            {
+                return _IdCPSP;
+            }
+            set
+            {
+                OnIdCPSPChanging(value);
+                ReportPropertyChanging("IdCPSP");
+                _IdCPSP = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCPSP");
+                OnIdCPSPChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdCPSP;
+        partial void OnIdCPSPChanging(Nullable<global::System.Int32> value);
+        partial void OnIdCPSPChanged();
 
         #endregion
 
@@ -1373,7 +1567,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto Encuestax.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Encuestax CreateEncuestax(global::System.Decimal id)
+        public static Encuestax CreateEncuestax(global::System.Int32 id)
         {
             Encuestax encuestax = new Encuestax();
             encuestax.Id = id;
@@ -1383,17 +1577,13 @@ namespace EncuestasC.Models
         #endregion
 
         #region Propiedades primitivas
-
-     
-
-         
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -1411,9 +1601,105 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProyecto
+        {
+            get
+            {
+                return _IdProyecto;
+            }
+            set
+            {
+                OnIdProyectoChanging(value);
+                ReportPropertyChanging("IdProyecto");
+                _IdProyecto = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProyecto");
+                OnIdProyectoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProyecto;
+        partial void OnIdProyectoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdProyectoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdCPSP
+        {
+            get
+            {
+                return _IdCPSP;
+            }
+            set
+            {
+                OnIdCPSPChanging(value);
+                ReportPropertyChanging("IdCPSP");
+                _IdCPSP = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCPSP");
+                OnIdCPSPChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdCPSP;
+        partial void OnIdCPSPChanging(Nullable<global::System.Int32> value);
+        partial void OnIdCPSPChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdCodigoPresupuestario
+        {
+            get
+            {
+                return _IdCodigoPresupuestario;
+            }
+            set
+            {
+                OnIdCodigoPresupuestarioChanging(value);
+                ReportPropertyChanging("IdCodigoPresupuestario");
+                _IdCodigoPresupuestario = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCodigoPresupuestario");
+                OnIdCodigoPresupuestarioChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdCodigoPresupuestario;
+        partial void OnIdCodigoPresupuestarioChanging(Nullable<global::System.Int32> value);
+        partial void OnIdCodigoPresupuestarioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdTelefono
+        {
+            get
+            {
+                return _IdTelefono;
+            }
+            set
+            {
+                OnIdTelefonoChanging(value);
+                ReportPropertyChanging("IdTelefono");
+                _IdTelefono = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdTelefono");
+                OnIdTelefonoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdTelefono;
+        partial void OnIdTelefonoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdTelefonoChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -1462,6 +1748,54 @@ namespace EncuestasC.Models
         private global::System.String _NombreContacto;
         partial void OnNombreContactoChanging(global::System.String value);
         partial void OnNombreContactoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdEmail
+        {
+            get
+            {
+                return _IdEmail;
+            }
+            set
+            {
+                OnIdEmailChanging(value);
+                ReportPropertyChanging("IdEmail");
+                _IdEmail = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEmail");
+                OnIdEmailChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdEmail;
+        partial void OnIdEmailChanging(Nullable<global::System.Int32> value);
+        partial void OnIdEmailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdEstadoServicio
+        {
+            get
+            {
+                return _IdEstadoServicio;
+            }
+            set
+            {
+                OnIdEstadoServicioChanging(value);
+                ReportPropertyChanging("IdEstadoServicio");
+                _IdEstadoServicio = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEstadoServicio");
+                OnIdEstadoServicioChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdEstadoServicio;
+        partial void OnIdEstadoServicioChanging(Nullable<global::System.Int32> value);
+        partial void OnIdEstadoServicioChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -1738,7 +2072,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto EstadoServiciox.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static EstadoServiciox CreateEstadoServiciox(global::System.Decimal id)
+        public static EstadoServiciox CreateEstadoServiciox(global::System.Int32 id)
         {
             EstadoServiciox estadoServiciox = new EstadoServiciox();
             estadoServiciox.Id = id;
@@ -1754,7 +2088,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -1772,8 +2106,8 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
     
         /// <summary>
@@ -1869,7 +2203,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto Pobladox.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Pobladox CreatePobladox(global::System.Decimal id)
+        public static Pobladox CreatePobladox(global::System.Int32 id)
         {
             Pobladox pobladox = new Pobladox();
             pobladox.Id = id;
@@ -1885,7 +2219,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -1903,9 +2237,81 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdDistrito
+        {
+            get
+            {
+                return _IdDistrito;
+            }
+            set
+            {
+                OnIdDistritoChanging(value);
+                ReportPropertyChanging("IdDistrito");
+                _IdDistrito = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdDistrito");
+                OnIdDistritoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdDistrito;
+        partial void OnIdDistritoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdDistritoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdCanton
+        {
+            get
+            {
+                return _IdCanton;
+            }
+            set
+            {
+                OnIdCantonChanging(value);
+                ReportPropertyChanging("IdCanton");
+                _IdCanton = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCanton");
+                OnIdCantonChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdCanton;
+        partial void OnIdCantonChanging(Nullable<global::System.Int32> value);
+        partial void OnIdCantonChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProvincia
+        {
+            get
+            {
+                return _IdProvincia;
+            }
+            set
+            {
+                OnIdProvinciaChanging(value);
+                ReportPropertyChanging("IdProvincia");
+                _IdProvincia = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProvincia");
+                OnIdProvinciaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProvincia;
+        partial void OnIdProvinciaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdProvinciaChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -2090,7 +2496,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto Provinciax.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Provinciax CreateProvinciax(global::System.Decimal id)
+        public static Provinciax CreateProvinciax(global::System.Int32 id)
         {
             Provinciax provinciax = new Provinciax();
             provinciax.Id = id;
@@ -2106,7 +2512,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -2124,8 +2530,8 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
     
         /// <summary>
@@ -2263,7 +2669,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto Proyectox.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Proyectox CreateProyectox(global::System.Decimal id)
+        public static Proyectox CreateProyectox(global::System.Int32 id)
         {
             Proyectox proyectox = new Proyectox();
             proyectox.Id = id;
@@ -2279,7 +2685,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -2297,8 +2703,8 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
     
         /// <summary>
@@ -2551,7 +2957,7 @@ namespace EncuestasC.Models
         /// Crear un nuevo objeto Telefonox.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Telefonox CreateTelefonox(global::System.Decimal id)
+        public static Telefonox CreateTelefonox(global::System.Int32 id)
         {
             Telefonox telefonox = new Telefonox();
             telefonox.Id = id;
@@ -2567,7 +2973,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -2585,8 +2991,8 @@ namespace EncuestasC.Models
                 }
             }
         }
-        private global::System.Decimal _Id;
-        partial void OnIdChanging(global::System.Decimal value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
     
         /// <summary>
@@ -2612,6 +3018,30 @@ namespace EncuestasC.Models
         private Nullable<global::System.Decimal> _Telefono1;
         partial void OnTelefono1Changing(Nullable<global::System.Decimal> value);
         partial void OnTelefono1Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdCPSP
+        {
+            get
+            {
+                return _IdCPSP;
+            }
+            set
+            {
+                OnIdCPSPChanging(value);
+                ReportPropertyChanging("IdCPSP");
+                _IdCPSP = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCPSP");
+                OnIdCPSPChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdCPSP;
+        partial void OnIdCPSPChanging(Nullable<global::System.Int32> value);
+        partial void OnIdCPSPChanged();
 
         #endregion
 

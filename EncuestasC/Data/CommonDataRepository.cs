@@ -8,11 +8,11 @@ namespace EncuestasC.Data
 {
     public class CommonDataRepository
     {
-        private readonly EncuestasEntitiesx _encuestasDbEntities;
+        private readonly EncuestasEntities _encuestasDbEntities;
 
         public CommonDataRepository()
         {
-            _encuestasDbEntities = new EncuestasEntitiesx();
+            _encuestasDbEntities = new EncuestasEntities();
         }
 
         //public IEnumerable<Provincia> GetAllProvinces()
