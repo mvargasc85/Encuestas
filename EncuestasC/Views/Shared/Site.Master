@@ -42,15 +42,14 @@
                                 <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllDistrites" Text="Distrito" Value="Distrito"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllTowns" Text="Poblado" Value="Poblado"></asp:MenuItem>
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Editar Códigos Presupuestarios" 
-                                Value="Editar Códigos Presupuestarios"></asp:MenuItem>
-                            <asp:MenuItem Text="Editar CPSP" Value="Editar CPSP"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllProvinces" Text="Editar Códigos Presupuestarios" Value="Editar Códigos Presupuestarios"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllProvinces" Text="Editar CPSP" Value="Editar CPSP"></asp:MenuItem>
                             <asp:MenuItem Text="Editar Datos Contacto" Value="Editar Datos Contacto">
-                                <asp:MenuItem Text="Teléfono" Value="Teléfono"></asp:MenuItem>
-                                <asp:MenuItem Text="Email" Value="Email"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllProvinces" Text="Teléfono" Value="Teléfono"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllProvinces" Text="Email" Value="Email"></asp:MenuItem>
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Editar Proyectos" Value="Editar Proyectos"></asp:MenuItem>
-                            <asp:MenuItem Text="Editar Estados" Value="Editar Estados"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllProvinces" Text="Editar Proyectos" Value="Editar Proyectos"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/geographicInfo/GetAllProvinces" Text="Editar Estados" Value="Editar Estados"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
                     <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
