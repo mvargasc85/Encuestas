@@ -212,9 +212,99 @@ namespace EncuestasC.Controllers
 
         #endregion
 
-        #region Town
+       #region Poblado
 
-        
+
+        //LIST
+        public ActionResult GetAllPoblado()
+        {
+            return View(_entities.Poblado.ToList());
+
+        }
+
+        //CREAR
+        public ActionResult CreatePoblado()
+        {
+            return View();
+        }
+
+        //
+        // POST: /GeographicInfo/CreatePoblado
+
+        [HttpPost]
+        public ActionResult CreateProvince(Pobladox pobladoToCreate)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                _entities.AddToPoblado(pobladoToCreate);
+                _entities.SaveChanges();
+                return RedirectToAction("GetAllPoblado");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //EDITAR
+        public ActionResult EditPoblado(int id)
+        {
+            var pobladoToEdit = _entities.Poblado.First(m => m.Id == id);
+            return View(pobladoToEdit);
+        }
+
+        //
+        // POST: /GeographicInfo/Edit/5
+
+        [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult EditPoblado(Pobladox pobladoToEdit)
+        {
+
+            // TODO: Add update logic here
+            var originalPoblado = _entities.Poblado.First(m => m.Id == pobladoToEdit.Id);
+
+            if (!ModelState.IsValid)
+
+                return View(originalPoblado);
+
+            _entities.ApplyCurrentValues(originalPoblado.EntityKey.EntitySetName, pobladoToEdit);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllPoblado");
+
+
+        }
+
+        //
+        // GET: /GeographicInfo/Delete/5
+        //BORRAR
+        public ActionResult DeletePoblado(int id)
+        {
+            var pobladoToDelete = _entities.Poblado.First(m => m.Id == id);
+            return View(pobladoToDelete);
+        }
+
+        //
+        // POST: /GeographicInfo/DeleteProvince/5
+
+        [HttpPost]
+        public ActionResult DeletePoblado(Pobladox pobladoToDelete)
+        {
+            pobladoToDelete = _entities.Poblado.First(m => m.Id == pobladoToDelete.Id);
+
+            if (!ModelState.IsValid)
+                return View(pobladoToDelete);
+
+            _entities.DeleteObject(pobladoToDelete);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllPoblado");
+
+        }
 
         #endregion
 
