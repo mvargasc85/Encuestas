@@ -2,9 +2,10 @@
 
 //set onChange eventHandler for CpspDropdownList
     //    $("#cpspDdl").change(GetTelephonesForCpsp);
-    $("#cpspDdl").change(GetSurveyInfo);
-
     GetCPSPInfo();
+//    $("#cpspDdl").change(GetSurveyInfo);
+
+   
 });
 
 
@@ -37,6 +38,7 @@ function GetTelephonesForCpsp() {
 
 
 function ShowTelephonesGrid(result) {
+
     if (result !== "") {
         createTelephoneGrid("telephonepv", result.Telefonos);
         $("#telephonesDiv").show();
@@ -48,7 +50,9 @@ function ShowTelephonesGrid(result) {
 
 function ShowEmailsGrid(result) {
     if (result !== "") {
+
         createEmailGrid("emailpv", result.Emails);
+//        $("#telephonepv").style()
         $("#emailsDiv").show();
     } else
         $("#emailsDiv").hide();
@@ -88,19 +92,19 @@ function createTelephoneGrid(divId, items) {
                 model: {
                     fields: {
                         Id: { type: "number" },
-                        Telefono1: { type: "number" }
+                        Telefono: { type: "string" }
                     }
                 }
             },
-            pageSize: 10
+            pageSize: 5
         },
-        height: 50,
-        scrollable: true,
+//        height: 100,
+        scrollable: false,
         sortable: true,
         filterable: true,
         columns: [
             { field: "Id", title: "Id", width: "50px" },
-            { field: "Telefono1", title: "Telefono",width: "50px" }]
+            { field: "Telefono", title: "Telefono",width: "50px" }]
     });
 }
 
@@ -118,10 +122,10 @@ function createEmailGrid(divId, items) {
                     }
                 }
             },
-            pageSize: 10
+            pageSize: 5
         },
-        height: 50,
-        scrollable: true,
+//        height: 100,
+        scrollable: false,
         sortable: true,
         filterable: true,
         columns: [
@@ -136,6 +140,7 @@ function createEmailGrid(divId, items) {
 function CreateDropDownlist(divId,items,text,value) {
 
     $("#" + divId).kendoDropDownList({
+        optionLabel: "Select category...",
         dataTextField: text,
         dataValueField: value,
         dataSource: items,

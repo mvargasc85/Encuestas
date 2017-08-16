@@ -198,7 +198,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Telefono" Type="numeric" Precision="9" />
+          <Property Name="Telefono" Type="varchar" MaxLength="9" />
           <Property Name="IdCPSP" Type="int" />
         </EntityType>
         <Association Name="FK_Canton_Provincia">
@@ -649,7 +649,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Telefono1" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="Telefono1" Type="String" MaxLength="9" Unicode="false" FixedLength="false" />
           <Property Name="IdCPSP" Type="Int32" />
           <NavigationProperty Name="CPSP" Relationship="EncuestasModel.FK_Telefono_CPSP" FromRole="Telefono" ToRole="CPSP" />
           <NavigationProperty Name="Encuesta" Relationship="EncuestasModel.FK_Encuesta_Telefono" FromRole="Telefono" ToRole="Encuesta" />
@@ -1018,9 +1018,9 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1">
+      <Diagram Name="Model1" ZoomLevel="74">
         <EntityTypeShape EntityType="EncuestasModel.Cantonx" Width="1.5" PointX="3" PointY="6.5" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="EncuestasModel.CodigoPresupuestariox" Width="1.875" PointX="8.5" PointY="13.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EncuestasModel.CodigoPresupuestariox" Width="1.5" PointX="8.5" PointY="13.375" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="EncuestasModel.CPSPx" Width="1.5" PointX="5.25" PointY="6" Height="3.5186979166666648" IsExpanded="true" />
         <EntityTypeShape EntityType="EncuestasModel.Distritox" Width="1.5" PointX="8.25" PointY="6.5" Height="2.5571907552083344" IsExpanded="true" />
         <EntityTypeShape EntityType="EncuestasModel.Emailx" Width="1.5" PointX="7.5" PointY="3.25" Height="2.1725878906249996" IsExpanded="true" />
@@ -1084,9 +1084,9 @@
           <ConnectorPoint PointX="14.25" PointY="6.375" />
         </AssociationConnector>
         <AssociationConnector Association="EncuestasModel.FK_Encuesta_CodigoPresupuestario" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.1015625" PointY="13.375" />
-          <ConnectorPoint PointX="10.1015625" PointY="9.5733879166666682" />
-          <ConnectorPoint PointX="10.75" PointY="9.5733879166666682" />
+          <ConnectorPoint PointX="9.90625" PointY="13.375" />
+          <ConnectorPoint PointX="9.90625" PointY="9.4826464843750014" />
+          <ConnectorPoint PointX="10.75" PointY="9.4826464843750014" />
         </AssociationConnector>
         <AssociationConnector Association="EncuestasModel.FK_CPSP_Distrito" ManuallyRouted="false">
           <ConnectorPoint PointX="8.25" PointY="7.7785953776041676" />
@@ -1171,8 +1171,8 @@
         </AssociationConnector>
         <AssociationConnector Association="EncuestasModel.FK_Encuesta_Telefono" ManuallyRouted="false">
           <ConnectorPoint PointX="9" PointY="11.240143229166666" />
-          <ConnectorPoint PointX="10.018229166666666" PointY="11.240143229166666" />
-          <ConnectorPoint PointX="10.184895833333334" PointY="11.240143229166666" />
+          <ConnectorPoint PointX="9.8229166666666661" PointY="11.240143229166666" />
+          <ConnectorPoint PointX="9.9895833333333339" PointY="11.240143229166666" />
           <ConnectorPoint PointX="11.0937475" PointY="11.240143229166666" />
           <ConnectorPoint PointX="11.0937475" PointY="9.8456022135416674" />
         </AssociationConnector>

@@ -12,8 +12,8 @@ namespace EncuestasC.Models
         public Proyectox Proyecto { get; set; }
         public CPSPx CpsP { get; set; }
         public CodigoPresupuestariox CodigoPresupuestario { get; set; }
-        public IEnumerable<Telefonox> Telefonos { get; set; }
-        public IEnumerable<Emailx> Emails { get; set; }
+        public IEnumerable<TelephoneDtoModel> Telefonos { get; set; }
+        public IEnumerable<EmailDtoModel> Emails { get; set; }
         public EstadoServiciox EstadoServicio { get; set; }
         public string Comentarios { get; set; }
         public string NombreContacto { get; set; }
@@ -36,4 +36,25 @@ namespace EncuestasC.Models
         public decimal? PobladosId { get; set; }
 
     }
+
+    public class CpspDtoModel
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+    }
+
+    public class EmailDtoModel
+    {
+        public int Id { get; set; }
+        public string Correo { get; set; }
+        public string Nombre { get; set; }
+    }
+
+    public class TelephoneDtoModel
+    {
+        public int Id { get; set; }
+        public string Telefono { get; set; }
+        public int? IdCpsp { get; set; }
+    }
+
 }

@@ -3000,7 +3000,7 @@ namespace EncuestasC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Telefono1
+        public global::System.String Telefono1
         {
             get
             {
@@ -3010,13 +3010,13 @@ namespace EncuestasC.Models
             {
                 OnTelefono1Changing(value);
                 ReportPropertyChanging("Telefono1");
-                _Telefono1 = StructuralObject.SetValidValue(value);
+                _Telefono1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Telefono1");
                 OnTelefono1Changed();
             }
         }
-        private Nullable<global::System.Decimal> _Telefono1;
-        partial void OnTelefono1Changing(Nullable<global::System.Decimal> value);
+        private global::System.String _Telefono1;
+        partial void OnTelefono1Changing(global::System.String value);
         partial void OnTelefono1Changed();
     
         /// <summary>

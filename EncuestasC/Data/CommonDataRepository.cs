@@ -24,16 +24,33 @@ namespace EncuestasC.Data
             return list;
         }
 
-        public IEnumerable<Telefonox> GetTelephones(decimal idCpsp)
+        public IEnumerable<TelephoneDtoModel> GetTelephones(decimal idCpsp)
         {
-            var list = _encuestasDbEntities.Telefono.Where(t => t.CPSP.Id == idCpsp);
-            return list;
+            var list = _encuestasDbEntities.Telefono.Where(t => t.CPSP.Id == idCpsp).ToList();
+            var phoneList = new List<TelephoneDtoModel>();
+            list.ForEach(p => phoneList.Add(new TelephoneDtoModel
+            {
+                Id = p.Id,
+                Telefono = p.Telefono1,
+                IdCpsp = p.IdCPSP
+            }));
+            return phoneList;
         }
 
-        public IEnumerable<Emailx> GetEmails(decimal idCpsp)
+        public IEnumerable<EmailDtoModel> GetEmails(decimal idCpsp)
         {
-            var list = _encuestasDbEntities.Email.Where(t => t.CPSP.Id == idCpsp);
-            return list;
+            var list = _encuestasDbEntities.Email.Where(t => t.CPSP.Id == idCpsp).ToList();
+            var emailList = new List<EmailDtoModel>();
+            foreach (var emailx in list)
+            {
+                emailList.Add(new EmailDtoModel
+                {
+                    Id = emailx.Id,
+                    Nombre = emailx.Nombre,
+                    Correo = emailx.Correo
+                });
+            }
+            return emailList;
         }
 
         public CodigoPresupuestariox GetCodigoPresupuestario(decimal cpspId)

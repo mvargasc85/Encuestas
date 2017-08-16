@@ -20,12 +20,19 @@ namespace EncuestasC.Services
 
 
 
-        public IEnumerable<CPSPx> GetAllCpsp()
+        public IEnumerable<CpspDtoModel> GetAllCpsp()
         {
-            return _commonDataRepository.GetAllCpsp();
+            var cpspList = _commonDataRepository.GetAllCpsp().ToList();
+            var cpspDtoList = new List<CpspDtoModel>();
+            cpspList.ForEach(cp => cpspDtoList.Add(new CpspDtoModel
+            {
+                Id = cp.Id,
+                Nombre = cp.Nombre
+            }));
+            return cpspDtoList;
         }
 
-        public IEnumerable<Telefonox> GetTelephones(decimal idCpsp)
+        public IEnumerable<TelephoneDtoModel> GetTelephones(decimal idCpsp)
         {
             return _commonDataRepository.GetTelephones(idCpsp);
         }
@@ -36,7 +43,7 @@ namespace EncuestasC.Services
         //    return _commonDataRepository.GetProvince(provinceId);
         //}
 
-        public IEnumerable<Emailx> GetEmails(decimal idCpsp)
+        public IEnumerable<EmailDtoModel> GetEmails(decimal idCpsp)
         {
             return _commonDataRepository.GetEmails(idCpsp);
         }

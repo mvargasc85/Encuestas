@@ -11,37 +11,41 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Encuesta</h2>
-
+<%--
     <% using (Html.BeginForm())
        { %>
-        <%: Html.ValidationSummary(true) %>
+        <%: Html.ValidationSummary(true) %>--%>
 
         <fieldset>
             <legend>Datos</legend>
+            <label class="k-label">Nombre del CSPS:</label>
+            <br/><br/>
+            <div id="cpspDdlDiv" ></div>
+            <br/><br/>
+            <table>
+                <tr>
+                    <td><label>Provincia:</label></td>
+                    <td><label>Cantón:</label></td>
+                    <td><label>Distrito:</label></td>
+                    <td><label>Poblado:</label></td>
+                </tr>
+                <tr>
+                    <td><input id="provincias" style="width: 99%;" /></td>
+                    <td><input id="canton" disabled="disabled" style="width: 99%;" /></td>
+                    <td><input id="distrito" disabled="disabled" style="width: 99%;" /></td>
+                    <td><input id="poblado" disabled="disabled" style="width: 99%;" /></td>
+                </tr>
+                <tr><td colspan="4"></td></tr>
+                <tr><td id="telephonesDiv"><label style="font-weight: bold">Información de Contacto:</label></td><td colspan="3"></td></tr>
+                <tr><td><label class="k-label">Numeros Telefónicos:</label></td><td colspan="3"></td></tr>
+                <tr><td colspan="4"> <div id="telephonepv" style="width: 450px" ></div></td></tr>  
+                <tr><td colspan="4"></td></tr>
+                <tr><td id="emailsDiv"><label class="k-label">Correo Electronico:</label></td><td colspan="3"></td></tr>
+                <tr><td colspan="4">  <div id="emailpv" style="width: 600px"></div></td></tr>
+     </table>
             
-            <div class="editor-label">
-                <%: Html.Label("Nombre del CSPS") %>
-            </div>
-            
-            <div id="cpspDdlDiv"></div>
-            <br/>
-            
-            <div id="telephonesDiv" style="display: none; ">
-              <h2>Información de Contacto:</h2>
-            
-              <label class="k-label">Numeros Telefónicos:</label>
-               <div id="telephonepv" ></div>
-                   
-                <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>
-              <label class="k-label">Correo Electronico:</label>
-              <div id="emailpv" ></div>
-       
-            <br/>
-        
-            </div>
-            
-            <br/>  <br/> <br/> 
-       <div class="editor-label">
+           
+   <%--    <div class="editor-label">
        <%: Html.LabelFor(model => model.Comentarios) %>
             </div>
             <div class="editor-field">
@@ -67,10 +71,10 @@
             
             <p>
                 <input type="submit" value="Create" />
-            </p>
+            </p>--%>
         </fieldset>
 
-    <% } %>
+    <%--<% } %>--%>
     
     
  
