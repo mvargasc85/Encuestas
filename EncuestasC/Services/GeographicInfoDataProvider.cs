@@ -45,5 +45,23 @@ namespace EncuestasC.Services
                 return cantonesDtoList;
             
         }
+
+        public IEnumerable<LocationInfoDtoModel> GetAllDistrites(int? cantonId)
+        {
+
+            var distritesList = cantonId == null
+                ? _commonDataRepository.GetAllDistrites().ToList()
+                : _commonDataRepository.GetAllDistrites(cantonId).ToList();
+
+            var distritesDtoList = new List<LocationInfoDtoModel>();
+            distritesList.ForEach(cp => distritesDtoList.Add(new LocationInfoDtoModel
+            {
+                Id = cp.Id,
+                Nombre = cp.Nombre,
+                ParentId = cp.IdCanton
+            }));
+            return distritesDtoList;
+
+        }
     }
 }

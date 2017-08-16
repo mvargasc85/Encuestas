@@ -185,13 +185,23 @@ function createDropDownsForLocation() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
-            CreateDropDownlist("cantonDdl", result, "Nombre", "Id",null,"Seleccionar Cantón");
+            CreateDropDownlist("cantonDdl", result, "Nombre", "Id", filterDistrites, "Seleccionar Cantón");
+        },
+        error: function (e) { display(e); }
+    });
+
+       $.ajax({
+        type: "Get",
+        url: "/GeographicInfo/GetAllDistritesData",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            CreateDropDownlist("distritoDdl", result, "Nombre", "Id",null,"Seleccionar distrito");
         },
         error: function (e) { display(e); }
     });
 
 }
-
 
 function filterCantones(e) {
     var dataItem = e.sender.dataItem(e.sender.selectedIndex);
@@ -201,8 +211,21 @@ function filterCantones(e) {
         field: 'ParentId',
         operator: 'eq',
         value: provinceId
-    });
+    })
+};
+
+
+
+    function filterDistrites(e) {
+    var dataItem = e.sender.dataItem(e.sender.selectedIndex);
+    var cantonId = dataItem.Id;
+    var ddl = $("#distritoDdl").data("kendoDropDownList");
+    ddl.dataSource.filter({
+        field: 'ParentId',
+        operator: 'eq',
+        value: cantonId
+     })};
 
 //    $("#cantonDdl").removeAttr("disabled");
 //    $("#cantonDdl").prop('disabled', false);
-}
+

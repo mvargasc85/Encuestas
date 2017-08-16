@@ -97,7 +97,7 @@ namespace EncuestasC.Data
             var list = _encuestasDbEntities.Canton.Select(p => p);
             return list;
         }
-        private IEnumerable<Distritox> GetAllDistrites()
+        public IEnumerable<Distritox> GetAllDistrites()
         {
             var list = _encuestasDbEntities.Distrito.Select(p => p);
             return list;
@@ -111,6 +111,11 @@ namespace EncuestasC.Data
         public IEnumerable<Cantonx> GetAllCantones(int? provinceId)
         {
             return GetAllCantones().Where(c => c.IdProvincia == provinceId);
+        }
+
+        public IEnumerable<Distritox> GetAllDistrites(int? cantonId)
+        {
+            return GetAllDistrites().Where(c => c.IdCanton == cantonId);
         }
     }
 }

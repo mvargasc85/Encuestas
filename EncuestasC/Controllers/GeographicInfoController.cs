@@ -29,6 +29,12 @@ namespace EncuestasC.Controllers
             var cantonesInfo = _geographicInfoDataProvider.GetAllCantones(provinceId);
             return JsonConvert.SerializeObject(cantonesInfo);
         }
+        //PEQUEÑLO DETALLE :p
+        public string GetAllDistritesData(int? cantonId)
+        {
+            var cantonesInfo = _geographicInfoDataProvider.GetAllDistrites(cantonId);
+            return JsonConvert.SerializeObject(cantonesInfo);
+        }
 
 
         //LIST

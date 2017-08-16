@@ -32,7 +32,7 @@
                 <tr>
                     <td><input id="provinciaDdl" style="width: 170px;" /></td>
                     <td><input id="cantonDdl" style="width: 170px;" /></td>
-                    <td><input id="distritoDdl" disabled="disabled" style="width: 170px;" /></td>
+                    <td><input id="distritoDdl"  style="width: 170px;" /></td>
                     <td><input id="pobladoDdl" disabled="disabled" style="width:  170px;" /></td>
                 </tr>
                 <tr><td colspan="4"></td></tr>
