@@ -26,10 +26,10 @@ namespace EncuestasC.Models
 
     public class LocationDtoModel
     {
-        public IEnumerable<Provinciax> Provincias { get; set; }
-        public IEnumerable<Cantonx> Cantones { get; set; }
-        public IEnumerable<Distritox> Distritos { get; set; }
-        public IEnumerable<Pobladox> Poblados { get; set; }
+        public IEnumerable<LocationInfoDtoModel> Provincias { get; set; }
+        public IEnumerable<LocationInfoDtoModel> Cantones { get; set; }
+        public IEnumerable<LocationInfoDtoModel> Distritos { get; set; }
+        public IEnumerable<LocationInfoDtoModel> Poblados { get; set; }
         public decimal? ProvinciaId { get; set; }
         public decimal? CantonId { get; set; }
         public decimal? DistritoId { get; set; }
@@ -55,6 +55,14 @@ namespace EncuestasC.Models
         public int Id { get; set; }
         public string Telefono { get; set; }
         public int? IdCpsp { get; set; }
+    }
+
+
+    public class LocationInfoDtoModel
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int? ParentId { get; set; }
     }
 
 }

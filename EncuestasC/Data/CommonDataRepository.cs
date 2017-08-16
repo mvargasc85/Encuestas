@@ -68,13 +68,13 @@ namespace EncuestasC.Data
                 Id = cpspId,
                 Emails = GetEmails(cpspId),
                 Telefonos = GetTelephones(cpspId),
-                Location = new LocationDtoModel
-                {
-                    Provincias = GetAllProvinces(),
-                    Cantones = GetAllCantons(),
-                    Distritos = GetAllDistrites(),
-                    Poblados = GetAllTowns()
-                }
+                //Location = new LocationDtoModel
+                //{
+                //    Provincias = GetAllProvinces(),
+                //    Cantones = GetAllCantons(),
+                //    Distritos = GetAllDistrites(),
+                //    Poblados = GetAllTowns()
+                //}
             };
 
             return surveryDtoModel;
@@ -91,7 +91,8 @@ namespace EncuestasC.Data
             var province = _encuestasDbEntities.Provincia.SingleOrDefault(p => p.Id == provinceId);
             return province;
         }
-        private IEnumerable<Cantonx> GetAllCantons()
+
+        public IEnumerable<Cantonx> GetAllCantones()
         {
             var list = _encuestasDbEntities.Canton.Select(p => p);
             return list;
@@ -105,6 +106,11 @@ namespace EncuestasC.Data
         {
             var list = _encuestasDbEntities.Poblado.Select(p => p);
             return list;
+        }
+
+        public IEnumerable<Cantonx> GetAllCantones(int? provinceId)
+        {
+            return GetAllCantones().Where(c => c.IdProvincia == provinceId);
         }
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EncuestasC.Models;
+using EncuestasC.Services;
+using Newtonsoft.Json;
 
 namespace EncuestasC.Controllers
 {
@@ -11,10 +13,24 @@ namespace EncuestasC.Controllers
     {
 
         private EncuestasEntitiesx _entities = new EncuestasEntitiesx();
+        private readonly GeographicInfoDataProvider _geographicInfoDataProvider = new GeographicInfoDataProvider();
 
         #region Provincia
 
-      
+
+        public string GetAllProvicesData()
+        {
+            var provincesInfo = _geographicInfoDataProvider.GetAllProvinces();
+            return JsonConvert.SerializeObject(provincesInfo);
+        }
+
+        public string GetAllCantonesData(int? provinceId)
+        {
+            var cantonesInfo = _geographicInfoDataProvider.GetAllCantones(provinceId);
+            return JsonConvert.SerializeObject(cantonesInfo);
+        }
+
+
         //LIST
         public ActionResult GetAllProvinces()
         {

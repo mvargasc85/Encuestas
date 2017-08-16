@@ -30,10 +30,10 @@
                     <td><label>Poblado:</label></td>
                 </tr>
                 <tr>
-                    <td><input id="provincias" style="width: 99%;" /></td>
-                    <td><input id="canton" disabled="disabled" style="width: 99%;" /></td>
-                    <td><input id="distrito" disabled="disabled" style="width: 99%;" /></td>
-                    <td><input id="poblado" disabled="disabled" style="width: 99%;" /></td>
+                    <td><input id="provinciaDdl" style="width: 170px;" /></td>
+                    <td><input id="cantonDdl" style="width: 170px;" /></td>
+                    <td><input id="distritoDdl" disabled="disabled" style="width: 170px;" /></td>
+                    <td><input id="pobladoDdl" disabled="disabled" style="width:  170px;" /></td>
                 </tr>
                 <tr><td colspan="4"></td></tr>
                 <tr><td id="telephonesDiv"><label style="font-weight: bold">Información de Contacto:</label></td><td colspan="3"></td></tr>

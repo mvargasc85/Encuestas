@@ -1,11 +1,10 @@
 ﻿$(document).ready(function () {
 
-//set onChange eventHandler for CpspDropdownList
-    //    $("#cpspDdl").change(GetTelephonesForCpsp);
-    GetCPSPInfo();
-//    $("#cpspDdl").change(GetSurveyInfo);
 
-   
+    GetCPSPInfo();
+    createDropDownsForLocation();
+
+
 });
 
 
@@ -137,15 +136,15 @@ function createEmailGrid(divId, items) {
 
 
 
-function CreateDropDownlist(divId,items,text,value) {
+function CreateDropDownlist(divId,items,text,value,onchanceEventHandler,selectPlaceHolder) {
 
     $("#" + divId).kendoDropDownList({
-        optionLabel: "Select category...",
+        optionLabel: selectPlaceHolder,
         dataTextField: text,
         dataValueField: value,
         dataSource: items,
         index: 0,
-        change: GetSurveyInfo
+        change: onchanceEventHandler
     });
 }
 
@@ -158,9 +157,52 @@ function GetCPSPInfo() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
-            CreateDropDownlist("cpspDdlDiv", result, "Nombre", "Id");
+            CreateDropDownlist("cpspDdlDiv", result, "Nombre", "Id", GetSurveyInfo,"Seleccione ...");
         },
         error: function(e) { display(e); }
     });
 
+}
+
+
+
+function createDropDownsForLocation() {
+
+    $.ajax({
+        type: "Get",
+        url: "/GeographicInfo/GetAllProvicesData",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            CreateDropDownlist("provinciaDdl", result, "Nombre", "Id", filterCantones,"Seleccionar Provincia");
+        },
+        error: function (e) { display(e); }
+    });
+
+    $.ajax({
+        type: "Get",
+        url: "/GeographicInfo/GetAllCantonesData",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            CreateDropDownlist("cantonDdl", result, "Nombre", "Id",null,"Seleccionar Cantón");
+        },
+        error: function (e) { display(e); }
+    });
+
+}
+
+
+function filterCantones(e) {
+    var dataItem = e.sender.dataItem(e.sender.selectedIndex);
+    var provinceId = dataItem.Id;
+    var ddl = $("#cantonDdl").data("kendoDropDownList");
+    ddl.dataSource.filter({
+        field: 'ParentId',
+        operator: 'eq',
+        value: provinceId
+    });
+
+//    $("#cantonDdl").removeAttr("disabled");
+//    $("#cantonDdl").prop('disabled', false);
 }
