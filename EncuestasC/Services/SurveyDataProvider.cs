@@ -49,15 +49,66 @@ namespace EncuestasC.Services
         }
 
 
-        public CodigoPresupuestariox GetCodigoPresupuestario(decimal cpspId)
+        public CodigoPresupuestariox GetCodigoPresupuestario(decimal cpId)
         {
-            return _commonDataRepository.GetCodigoPresupuestario(cpspId);
+            return _commonDataRepository.GetCodigoPresupuestario().Single(cp => cp.Id == cpId);
         }
 
 
         public SurveyDtoModel GetCpspInfo(decimal cpspId)
         {
-            return _commonDataRepository.GetCpspInfo(cpspId);
+            var cpsp = _commonDataRepository.GetCpspInfo(cpspId);
+            var surveryDtoModel = new SurveyDtoModel
+            {
+                Id = cpspId,
+                Emails = GetEmails(cpspId),
+                Telefonos = GetTelephones(cpspId),
+                Location = new LocationDtoModel
+                {
+                    Provincia = CreateLocationInfo(cpsp.Provincia.Id, cpsp.Provincia.Nombre, null),
+                    Canton = CreateLocationInfo(cpsp.Canton.Id, cpsp.Canton.Nombre, cpsp.Canton.IdProvincia),
+                    Distrito = CreateLocationInfo(cpsp.Distrito.Id, cpsp.Distrito.Nombre, cpsp.Distrito.IdCanton)
+                },
+                EstadosServicio = GetServiceStatusDtoModel(),
+                CodPresupuestarios = GetCodPresDtoModel()
+            };
+
+            return surveryDtoModel;
+
+        }
+
+        private IEnumerable<EstadoServicioDtoModel> GetServiceStatusDtoModel()
+        {
+            var serviceStatusList = _commonDataRepository.GetServiceStatus().ToList();
+            var statusDtoList = new List<EstadoServicioDtoModel>();
+            serviceStatusList.ForEach(cp => statusDtoList.Add(new EstadoServicioDtoModel
+            {
+                Id = cp.Id,
+                Estado = cp.Estado
+            }));
+            return statusDtoList;
+        }
+
+        private LocationInfoDtoModel CreateLocationInfo(int id, string name, int? parentId)
+        {
+            return new LocationInfoDtoModel
+            {
+                Id = id,
+                Nombre = name,
+                ParentId = parentId
+            };
+        }
+
+        public IEnumerable<CodPresupuestarioDtoModel> GetCodPresDtoModel()
+        {
+            var codes = _commonDataRepository.GetCodigoPresupuestario().ToList();
+            var codPresDto = new List<CodPresupuestarioDtoModel>();
+            codes.ForEach(cp => codPresDto.Add(new CodPresupuestarioDtoModel
+            {
+                Id = cp.Id,
+                Codigo = cp.Codigo
+            }));
+            return codPresDto;
         }
     }
 }

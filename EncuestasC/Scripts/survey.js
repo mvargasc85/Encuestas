@@ -4,7 +4,8 @@
     GetCPSPInfo();
     createDropDownsForLocation();
 
-
+//    $("input[name=statusRdbtn]:radio").change(showCallInformation);
+    showCallInformation();
 });
 
 
@@ -59,29 +60,38 @@ function ShowEmailsGrid(result) {
 }
 
 
-
 function GetSurveyInfo() {
     var cpspId = $("#cpspDdlDiv").val();
-
-    $.ajax({
-        type: "Get",
-        url: "/Survey/GetCpspInfo?cpspId=" + cpspId,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json", 
-        success: function(result) {
-            ShowTelephonesGrid(result);
-            ShowEmailsGrid(result);
-        },
-        error: function (e) { display(e); }
-    });
-
+    if (cpspId === "")
+        $("#cpspInfoTbl").hide();
+    else {
+        $.ajax({
+            type: "Get",
+            url: "/Survey/GetCpspInfo?cpspId=" + cpspId,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(result) {
+                if (result) $("#cpspInfoTbl").show();
+                else $("#cpspInfoTbl").hide();
+                setLocationInfo(result.Location);
+                ShowTelephonesGrid(result);
+                ShowEmailsGrid(result);
+                setCallInfo(result);
+            },
+            error: function(e) { display(e); }
+        });
+    }
 }
 
-function display(e) {
+function display(e) {alert(e);}
 
-    alert(e);
+
+function setLocationInfo(data) {
+
+    $("#provinciaIdLbl").text(data.Provincia.Nombre);
+    $("#cantonIdLbl").text(data.Canton.Nombre);
+    $("#distritoIdLbl").text(data.Distrito.Nombre);
 }
-
 
 function createTelephoneGrid(divId, items) {
     $("#"+divId).kendoGrid({
@@ -211,7 +221,7 @@ function filterCantones(e) {
         field: 'ParentId',
         operator: 'eq',
         value: provinceId
-    })
+    });
 };
 
 
@@ -229,3 +239,30 @@ function filterCantones(e) {
 //    $("#cantonDdl").removeAttr("disabled");
 //    $("#cantonDdl").prop('disabled', false);
 
+
+function setCallInfo(data) {
+//    CreateDropDownlist("serviceStatusDdl", data.EstadosServicio, "Estado", "Id",null,"Seleccionar ...");
+    CreateDropDownlist("codPresDdl", data.CodPresupuestarios, "Codigo", "Id",null,"Seleccionar ...");
+
+    for (var i = 0; i < data.EstadosServicio.length; i++) {
+        var radioBtn = $('<label class="k-radio-label" for="status_'+data.EstadosServicio[i].Id+'"><input type="radio" name="statusRdbtn" id="status_'+data.EstadosServicio[i].Id+'" class="k-radio"/>'+data.EstadosServicio[i].Estado+'</label><br/>');
+        radioBtn.appendTo('#serviceStatusDdl');
+    }
+
+ 
+
+
+ 
+}
+
+function showCallInformation() {
+    $("input:radio[name='answercallRdbtn']").change(function() {
+        var contesta = $("#contesta")[0].checked;
+       if (contesta) {
+           $("#callInformationfs").show();
+       }else
+           $("#callInformationfs").hide();
+    });
+
+    $("#bottonsDiv").show();
+};

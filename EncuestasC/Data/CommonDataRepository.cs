@@ -53,32 +53,20 @@ namespace EncuestasC.Data
             return emailList;
         }
 
-        public CodigoPresupuestariox GetCodigoPresupuestario(decimal cpspId)
+        public IEnumerable<CodigoPresupuestariox> GetCodigoPresupuestario()
         {
-            var cpsp = GetAllCpsp().FirstOrDefault(c => c.Id == cpspId);
-            return null;
-            //var codPresupuestario = _encuestasDbEntities.CodigoPresupuestario.FirstOrDefault(cp=> cp.Id==cpsp.)
+            return _encuestasDbEntities.CodigoPresupuestario.Select(cp => cp);
 
         }
 
-        public SurveyDtoModel GetCpspInfo(decimal cpspId)
+        public CPSPx GetCpspInfo(decimal cpspId)
         {
-            var surveryDtoModel = new SurveyDtoModel
-            {
-                Id = cpspId,
-                Emails = GetEmails(cpspId),
-                Telefonos = GetTelephones(cpspId),
-                //Location = new LocationDtoModel
-                //{
-                //    Provincias = GetAllProvinces(),
-                //    Cantones = GetAllCantons(),
-                //    Distritos = GetAllDistrites(),
-                //    Poblados = GetAllTowns()
-                //}
-            };
-
-            return surveryDtoModel;
+            var cpsp = GetAllCpsp().Single(c => c.Id == cpspId);
+            return cpsp;
         }
+
+
+      
 
         public IEnumerable<Provinciax> GetAllProvinces()
         {
@@ -102,12 +90,7 @@ namespace EncuestasC.Data
             var list = _encuestasDbEntities.Distrito.Select(p => p);
             return list;
         }
-        private IEnumerable<Pobladox> GetAllTowns()
-        {
-            var list = _encuestasDbEntities.Poblado.Select(p => p);
-            return list;
-        }
-
+       
         public IEnumerable<Cantonx> GetAllCantones(int? provinceId)
         {
             return GetAllCantones().Where(c => c.IdProvincia == provinceId);
@@ -116,6 +99,11 @@ namespace EncuestasC.Data
         public IEnumerable<Distritox> GetAllDistrites(int? cantonId)
         {
             return GetAllDistrites().Where(c => c.IdCanton == cantonId);
+        }
+
+        public IEnumerable<EstadoServiciox> GetServiceStatus()
+        {
+            return _encuestasDbEntities.EstadoServicio.Select(e => e);
         }
     }
 }

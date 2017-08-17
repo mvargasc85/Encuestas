@@ -14,7 +14,9 @@ namespace EncuestasC.Models
         public CodigoPresupuestariox CodigoPresupuestario { get; set; }
         public IEnumerable<TelephoneDtoModel> Telefonos { get; set; }
         public IEnumerable<EmailDtoModel> Emails { get; set; }
-        public EstadoServiciox EstadoServicio { get; set; }
+        public IEnumerable<EstadoServicioDtoModel> EstadosServicio { get; set; }
+        public IEnumerable<CodPresupuestarioDtoModel> CodPresupuestarios { get; set; }
+        public EstadoServicioDtoModel EstadoServicio { get; set; }
         public string Comentarios { get; set; }
         public string NombreContacto { get; set; }
         public char Contesta { get; set; }
@@ -30,10 +32,9 @@ namespace EncuestasC.Models
         public IEnumerable<LocationInfoDtoModel> Cantones { get; set; }
         public IEnumerable<LocationInfoDtoModel> Distritos { get; set; }
         public IEnumerable<LocationInfoDtoModel> Poblados { get; set; }
-        public decimal? ProvinciaId { get; set; }
-        public decimal? CantonId { get; set; }
-        public decimal? DistritoId { get; set; }
-        public decimal? PobladosId { get; set; }
+        public LocationInfoDtoModel Provincia { get; set; }
+        public LocationInfoDtoModel Canton { get; set; }
+        public LocationInfoDtoModel Distrito { get; set; }
 
     }
 
@@ -65,4 +66,15 @@ namespace EncuestasC.Models
         public int? ParentId { get; set; }
     }
 
+    public class EstadoServicioDtoModel
+    {
+        public int Id { get; set; }
+        public string Estado { get; set; }
+    }
+
+    public class CodPresupuestarioDtoModel
+    {
+        public int Id { get; set; }
+        public int? Codigo { get; set; }
+    }
 }

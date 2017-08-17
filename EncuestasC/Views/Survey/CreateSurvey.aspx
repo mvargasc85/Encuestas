@@ -16,74 +16,65 @@
        { %>
         <%: Html.ValidationSummary(true) %>--%>
 
-        <fieldset>
+        <fieldset style="width: 500px">
             <legend>Datos</legend>
             <label class="k-label">Nombre del CSPS:</label>
             <br/><br/>
             <div id="cpspDdlDiv" ></div>
             <br/><br/>
-            <table>
+            <table id="cpspInfoTbl" style="display: none">
+                <tr><td id="Td1" colspan="3"><label style="font-weight: bold" >Ubicación:</label></td></tr>
                 <tr>
                     <td><label>Provincia:</label></td>
                     <td><label>Cantón:</label></td>
                     <td><label>Distrito:</label></td>
-                    <td><label>Poblado:</label></td>
                 </tr>
-                <tr>
+                <%--<tr>
                     <td><input id="provinciaDdl" style="width: 170px;" /></td>
                     <td><input id="cantonDdl" style="width: 170px;" /></td>
                     <td><input id="distritoDdl"  style="width: 170px;" /></td>
                     <td><input id="pobladoDdl" disabled="disabled" style="width:  170px;" /></td>
+                </tr>--%>
+                <tr>
+                    <td style="width: 170px;"><label id="provinciaIdLbl" ></label></td>
+                    <td style="width: 170px;"><label id="cantonIdLbl" ></label></td>
+                    <td style="width: 170px;"><label id="distritoIdLbl"></label></td>
                 </tr>
-                <tr><td colspan="4"></td></tr>
-                <tr><td id="telephonesDiv"><label style="font-weight: bold">Información de Contacto:</label></td><td colspan="3"></td></tr>
-                <tr><td><label class="k-label">Numeros Telefónicos:</label></td><td colspan="3"></td></tr>
-                <tr><td colspan="4"> <div id="telephonepv" style="width: 450px" ></div></td></tr>  
-                <tr><td colspan="4"></td></tr>
-                <tr><td id="emailsDiv"><label class="k-label">Correo Electronico:</label></td><td colspan="3"></td></tr>
-                <tr><td colspan="4">  <div id="emailpv" style="width: 600px"></div></td></tr>
+                <tr><td colspan="3"></td></tr>
+                <tr><td colspan="3"></td></tr>
+                <tr><td id="telephonesDiv" colspan="3"><label style="font-weight: bold">Información de Contacto:</label></td></tr>
+                <tr><td colspan="3" ><label class="k-label" style="color: midnightblue">Numeros Telefónicos:</label></td></tr>
+                <tr><td colspan="3"> <div id="telephonepv" style="width: 100%" ></div></td></tr>  
+                <tr><td colspan="3"></td></tr>
+                <tr><td colspan="3"></td></tr>
+                <tr><td id="emailsDiv" colspan="3"><label class="k-label" style="color: midnightblue">Correo Electronico:</label></td></tr>
+                <tr><td colspan="3">  <div id="emailpv" style="width: 100%"></div></td></tr>
+                <tr><td colspan="3"></td></tr>
+                <tr><td colspan="3"></td></tr>
+                <tr>
+                    <td><label class="k-label" style="color: midnightblue">Contesta la llamada:</label></td>
+                    <td><label class="k-radio-label" for="contesta">Si<input type="radio" name="answercallRdbtn" id="contesta" class="k-radio"/></label></td>
+                    <td><label class="k-radio-label" for="noContesta">No<input type="radio" name="answercallRdbtn" id="noContesta" class="k-radio"/></label></td>
+                </tr>
      </table>
-            
-           
-   <%--    <div class="editor-label">
-       <%: Html.LabelFor(model => model.Comentarios) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Comentarios) %>
-                <%: Html.ValidationMessageFor(model => model.Comentarios) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.NombreContacto) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.NombreContacto) %>
-                <%: Html.ValidationMessageFor(model => model.NombreContacto) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Contesta) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Contesta) %>
-                <%: Html.ValidationMessageFor(model => model.Contesta) %>
-            </div>
-            
-            <p>
-                <input type="submit" value="Create" />
-            </p>--%>
         </fieldset>
-
-    <%--<% } %>--%>
+        <fieldset id="callInformationfs" style="width: 500px; display: none">
+            <legend>Seguimiento de la Llamada</legend>
+            <table>
+                <tr><td style="width: 170px;"></td><td style="width: 170px;"></td><td style="width: 170px;"></td></tr>
+                <tr><td><label>Persona que contesta:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="personContactedName" /></td></tr>
+                <tr><td><label>Codigo Presupuestario:</label></td><td colspan="2"><input id="codPresDdl"/></td></tr>
+                <tr><td><label>Estado del Servicio:</label></td><td colspan="2"><div id="serviceStatusDdl"></div></td></tr>
+                <tr><td><label>Observaciones:</label></td><td colspan="2">
+                    <%:Html.TextArea("commentsTxt", "", new { @class = "k-textbox", style = "width: 100%;  height:80px" })%>
+                </td></tr>
+            </table>
+            </fieldset>
     
-    
- 
-    
-
-    
-    
-    <div>
-        <%: Html.ActionLink("Regresar", "Index") %>
+    <br/>
+    <div id="bottonsDiv" style="width: 500px; display:none">
+        <input type="submit" value="Cancelar" />
+        <input type="submit" value="Guardar" />
     </div>
 
 </asp:Content>
