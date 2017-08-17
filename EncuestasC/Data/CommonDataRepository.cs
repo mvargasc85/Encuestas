@@ -15,8 +15,12 @@ namespace EncuestasC.Data
             _encuestasDbEntities = new EncuestasEntitiesx();
         }
 
-       
 
+        public IEnumerable<CodigoPresupuestariox> GetAllCodPres()
+        {
+            var list = _encuestasDbEntities.CodigoPresupuestario.Select(p => p);
+            return list;
+        }
 
         public IEnumerable<CPSPx> GetAllCpsp()
         {
