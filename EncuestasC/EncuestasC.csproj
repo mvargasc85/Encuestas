@@ -69,12 +69,14 @@
     <Compile Include="Controllers\ContactInfoController.cs" />
     <Compile Include="Controllers\GeographicInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaintenanceController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Data\CommonDataRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\MaintenanceDTOModel.cs" />
     <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,6 +90,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\GeographicInfoDataProvider.cs" />
+    <Compile Include="Services\MaintenanceDataProvider.cs" />
     <Compile Include="Services\SurveyDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +122,7 @@
     <Content Include="Content\metro\utils-sprite.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\kendoui\kendo.web.min.js" />
+    <Content Include="Scripts\Maintenance.js" />
     <Content Include="Scripts\survey.js" />
     <Content Include="Views\GeographicInfo\CreateCanton.aspx" />
     <Content Include="Views\GeographicInfo\CreateProvince.aspx" />
@@ -129,6 +133,10 @@
     <Content Include="Views\GeographicInfo\GetAllCantons.aspx" />
     <Content Include="Views\GeographicInfo\GetAllProvinces.aspx" />
     <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Maintenance\CreateCodPres.aspx" />
+    <Content Include="Views\Maintenance\DeleteCodPres.aspx" />
+    <Content Include="Views\Maintenance\EditCodPres.aspx" />
+    <Content Include="Views\Maintenance\GetAllCodPres.aspx" />
     <Content Include="Views\Survey\CreateSurvey.aspx" />
     <Content Include="Views\Survey\EditSurvey.aspx" />
     <Content Include="Views\Survey\GetAllSurveys.aspx" />
