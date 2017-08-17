@@ -21,7 +21,7 @@
     </fieldset>
     <% using (Html.BeginForm()) { %>
         <p>
-		    <input type="submit" value="Borrar" /> |
+		    <input type="submit" value="Eliminar" /> |
 		    <%: Html.ActionLink("Volver", "GetAllCodPres") %>
         </p>
     <% } %>
