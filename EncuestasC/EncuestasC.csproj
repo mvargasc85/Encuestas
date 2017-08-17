@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Newtonsoft.Json.dll</HintPath>
@@ -72,6 +75,11 @@
     <Compile Include="Controllers\MaintenanceController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Data\CommonDataRepository.cs" />
+    <Compile Include="EncuestasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EncuestasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -88,6 +96,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="reports\ReporteEncuesta.aspx.cs">
+      <DependentUpon>ReporteEncuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reports\ReporteEncuesta.aspx.designer.cs">
+      <DependentUpon>ReporteEncuesta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services\GeographicInfoDataProvider.cs" />
     <Compile Include="Services\MaintenanceDataProvider.cs" />
@@ -121,6 +136,7 @@
     <Content Include="Content\metro\sprite.png" />
     <Content Include="Content\metro\utils-sprite.png" />
     <Content Include="Global.asax" />
+    <Content Include="reports\ReporteEncuesta.aspx" />
     <Content Include="Scripts\kendoui\kendo.web.min.js" />
     <Content Include="Scripts\Maintenance.js" />
     <Content Include="Scripts\survey.js" />
@@ -194,10 +210,24 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="EncuestasDataSet.xsc">
+      <DependentUpon>EncuestasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EncuestasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EncuestasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EncuestasDataSet.xss">
+      <DependentUpon>EncuestasDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="reports\RpEncuestas.rdlc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
