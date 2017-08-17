@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using EncuestasC.Models;
 using EncuestasC.Services;
-using Newtonsoft.Json;
 
 namespace EncuestasC.Controllers
 {
@@ -326,6 +325,209 @@ namespace EncuestasC.Controllers
             return RedirectToAction("GetAllProyecto");
 
         }
+        public ActionResult GetAllTelefono()
+        {
+            return View(_entities.Telefono.ToList());
+        }
 
+        ////LIST
+        //public string GetCodPresList()
+        //{
+        //    //return View(_entities.CodigoPresupuestario.ToList());
+        //    var codpresList = _maintenanceDataProvider.GetAllCodPres();
+
+        //    //_codpres.Id = new SelectList(cpsps, "Id", "Nombre");
+
+        //  // ya
+
+        //    return JsonConvert.SerializeObject(codpresList);
+        //}
+
+        //CREAR
+        public ActionResult CreateTelefono()
+        {
+            return View();
+        }
+
+        //
+        // POST: /GeographicInfo/CreateProvince
+
+        [HttpPost]
+        public ActionResult CreateTelefono(Telefonox TelefonoToCreate)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                _entities.AddToTelefono(TelefonoToCreate);
+                _entities.SaveChanges();
+                return RedirectToAction("GetAllTelefono");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //EDITAR
+        public ActionResult EditTelefono(int id)
+        {
+            var TelefonoToEdit = _entities.Telefono.First(m => m.Id == id);
+            return View(TelefonoToEdit);
+        }
+
+        //
+        // POST: /GeographicInfo/Edit/5
+
+        [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult EditTelefono(Telefonox TelefonoToEdit)
+        {
+
+            // TODO: Add update logic here
+            var originalTelefono = _entities.Telefono.First(m => m.Id == TelefonoToEdit.Id);
+
+            if (!ModelState.IsValid)
+
+                return View(originalTelefono);
+
+            _entities.ApplyCurrentValues(originalTelefono.EntityKey.EntitySetName, TelefonoToEdit);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllTelefono");
+
+
+        }
+
+        //
+        // GET: /GeographicInfo/Delete/5
+        //BORRAR
+        public ActionResult DeleteTelefono(int id)
+        {
+            var TelefonoToDelete = _entities.Telefono.First(m => m.Id == id);
+            return View(TelefonoToDelete);
+        }
+
+        //
+        // POST: /GeographicInfo/DeleteProvince/5
+
+        [HttpPost]
+        public ActionResult DeleteTelefono(Telefonox TelefonoToDelete)
+        {
+            TelefonoToDelete = _entities.Telefono.First(m => m.Id == TelefonoToDelete.Id);
+
+            if (!ModelState.IsValid)
+                return View(TelefonoToDelete);
+
+            _entities.DeleteObject(TelefonoToDelete);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllTelefono");
+
+        }
+
+
+        public ActionResult GetAllEmail()
+        {
+            return View(_entities.Email.ToList());
+        }
+
+        ////LIST
+        //public string GetCodPresList()
+        //{
+        //    //return View(_entities.CodigoPresupuestario.ToList());
+        //    var codpresList = _maintenanceDataProvider.GetAllCodPres();
+
+        //    //_codpres.Id = new SelectList(cpsps, "Id", "Nombre");
+
+        //  // ya
+
+        //    return JsonConvert.SerializeObject(codpresList);
+        //}
+
+        //CREAR
+        public ActionResult CreateEmail()
+        {
+            return View();
+        }
+
+        //
+        // POST: /GeographicInfo/CreateProvince
+
+        [HttpPost]
+        public ActionResult CreateEmail(Emailx EmailToCreate)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                _entities.AddToEmail(EmailToCreate);
+                _entities.SaveChanges();
+                return RedirectToAction("GetAllEmail");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //EDITAR
+        public ActionResult EditEmail(int id)
+        {
+            var EmailToEdit = _entities.Email.First(m => m.Id == id);
+            return View(EmailToEdit);
+        }
+
+        //
+        // POST: /GeographicInfo/Edit/5
+
+        [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult EditEmail(Emailx EmailToEdit)
+        {
+
+            // TODO: Add update logic here
+            var originalEmail = _entities.Email.First(m => m.Id == EmailToEdit.Id);
+
+            if (!ModelState.IsValid)
+
+                return View(originalEmail);
+
+            _entities.ApplyCurrentValues(originalEmail.EntityKey.EntitySetName, EmailToEdit);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllEmail");
+
+
+        }
+
+        //
+        // GET: /GeographicInfo/Delete/5
+        //BORRAR
+        public ActionResult DeleteEmail(int id)
+        {
+            var EmailToDelete = _entities.Email.First(m => m.Id == id);
+            return View(EmailToDelete);
+        }
+
+        //
+        // POST: /GeographicInfo/DeleteProvince/5
+
+        [HttpPost]
+        public ActionResult DeleteEmail(Emailx EmailToDelete)
+        {
+            EmailToDelete = _entities.Email.First(m => m.Id == EmailToDelete.Id);
+
+            if (!ModelState.IsValid)
+                return View(EmailToDelete);
+
+            _entities.DeleteObject(EmailToDelete);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllEmail");
+
+        }
     }
 }

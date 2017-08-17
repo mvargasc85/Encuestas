@@ -44,8 +44,8 @@
                             <asp:MenuItem NavigateUrl="~/Maintenance/GetAllCodPres" Text="Editar Códigos Presupuestarios" Value="Editar Códigos Presupuestarios"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Maintenance/GetAllCPSP" Text="Editar CPSP" Value="Editar CPSP"></asp:MenuItem>
                             <asp:MenuItem Text="Editar Datos Contacto" Value="Editar Datos Contacto">
-                                <asp:MenuItem NavigateUrl="~/Maintenance/GetAllTelefonos" Text="Teléfono" Value="Teléfono"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Maintenance/GetAllEmails" Text="Email" Value="Email"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Maintenance/GetAllTelefono" Text="Teléfono" Value="Teléfono"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Maintenance/GetAllEmail" Text="Email" Value="Email"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Maintenance/GetAllProyecto" Text="Editar Proyectos" Value="Editar Proyectos"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Maintenance/GetAllEstServ" Text="Editar Estados" Value="Editar Estados"></asp:MenuItem>
