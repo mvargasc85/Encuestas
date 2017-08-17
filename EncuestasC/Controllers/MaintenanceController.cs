@@ -4,20 +4,35 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EncuestasC.Models;
+using EncuestasC.Services;
+using Newtonsoft.Json;
 
 namespace EncuestasC.Controllers
 {
     public class MaintenanceController : Controller
     {
-        private CodPresDtoModel _maintenanceC = new CodPresDtoModel();
+        private CodPresDtoModel _codpres = new CodPresDtoModel();
          private EncuestasEntitiesx _entities = new EncuestasEntitiesx();
- 
-        //LIST
-        public ActionResult GetAllCodPres()
-        {
-            return View(_entities.CodigoPresupuestario.ToList());
+         private readonly MaintenanceDataProvider _maintenanceDataProvider = new MaintenanceDataProvider();
 
-        }
+
+         public ActionResult GetAllCodPres()
+         {
+             return View(_entities.CodigoPresupuestario.ToList());
+         }
+
+        ////LIST
+        //public string GetCodPresList()
+        //{
+        //    //return View(_entities.CodigoPresupuestario.ToList());
+        //    var codpresList = _maintenanceDataProvider.GetAllCodPres();
+
+        //    //_codpres.Id = new SelectList(cpsps, "Id", "Nombre");
+
+        //  // ya
+
+        //    return JsonConvert.SerializeObject(codpresList);
+        //}
 
         //CREAR
         public ActionResult CreateCodPres()

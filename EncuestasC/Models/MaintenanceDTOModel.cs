@@ -9,8 +9,8 @@ namespace EncuestasC.Models
 
      public class CodPresDtoModel
     {
-         public CodigoPresupuestariox CodigoPresupuestario { get; set; }
+         //public CodigoPresupuestariox CodigoPresupuestario { get; set; }
         public int Id { get; set; }
-        public int Codigo { get; set; }
+        public int? Codigo { get; set; }
     }
  }

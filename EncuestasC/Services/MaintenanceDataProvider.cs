@@ -16,42 +16,19 @@ namespace EncuestasC.Services
         {
             _commonDataRepository = new CommonDataRepository();
         }
-
-
-
-
-        public IEnumerable<CodPresDtoModel> GetAllCodPres()
+                
+      public IEnumerable<CodPresDtoModel> GetAllCodPres()
         {
-            return _commonDataRepository.GetAllCodPres();
-           
-        }
-
-        public IEnumerable<TelephoneDtoModel> GetTelephones(decimal idCpsp)
-        {
-            return _commonDataRepository.GetTelephones(idCpsp);
-        }
-
-
-        //public Provincia GetProvince(int provinceId)
-        //{
-        //    return _commonDataRepository.GetProvince(provinceId);
-        //}
-
-        public IEnumerable<EmailDtoModel> GetEmails(decimal idCpsp)
-        {
-            return _commonDataRepository.GetEmails(idCpsp);
-        }
+           var list = _commonDataRepository.GetAllCodPres().ToList();
+           var codPresList = new List<CodPresDtoModel>();
+           list.ForEach(cp => codPresList.Add(new CodPresDtoModel
+           {
+               Id = cp.Id,
+               Codigo = cp.Codigo
+           }));
+           return codPresList; //listo
+       }
 
 
-        public CodigoPresupuestariox GetCodigoPresupuestario(decimal cpspId)
-        {
-            return _commonDataRepository.GetCodigoPresupuestario(cpspId);
-        }
-
-
-        public SurveyDtoModel GetCpspInfo(decimal cpspId)
-        {
-            return _commonDataRepository.GetCpspInfo(cpspId);
-        }
     }
 }

@@ -1,11 +1,19 @@
-﻿function createCodPresGrid(divId, items) {
+﻿
+$(document).ready(function () {
+    getCodPresData();  
+
+
+});
+
+
+function createCodPresGrid(divId, items) {
     $("#" + divId).kendoGrid({
         dataSource: {
             data: items,
             schema: {
                 model: {
                     fields: {
-                        Id: { type: "number" },
+                        Id: { type: "number" ,editable: false},
                         Codigo: { type: "number" }
                     }
                 }
@@ -18,6 +26,30 @@
         filterable: true,
         columns: [
             { field: "Id", title: "Id", width: "50px" },
-            { field: "Codigo", title: "Codigo", width: "50px"}]
+            { field: "Codigo", title: "Codigo", width: "50px" },
+            { command: ["edit", "destroy"], title: "&nbsp;", width: "250px"}],
+        editable: "inline"
     });
+}
+
+
+
+
+function getCodPresData() {
+    $.ajax({
+        type: "Get",
+        url: "/Maintenance/GetCodPresList",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            createCodPresGrid("codPresGridDiv", result);
+        },
+        error: function (e) { display(e); }
+    });
+}
+
+
+function display(e) {
+
+    alert(e);
 }
