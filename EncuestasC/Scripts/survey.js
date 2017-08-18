@@ -1,11 +1,18 @@
 ﻿$(document).ready(function () {
     $("#saveSurveyBtn").on("click", SaveSurvey);
+    $("#cancelBtn").on("click", cancelSurvey);
     GetCPSPInfo();
     createDropDownsForLocation();
-
-
 });
 
+
+function cancelSurvey() {
+    dropDownListObject("cpspDdlDiv").select(0);
+    dropDownListObject("cpspDdlDiv").value("");
+    GetSurveyInfo();
+    $("#noContesta")[0].checked = true;
+    showCallInformation();
+}
 
 //get a list of telephones for the selected cpsp
 function GetTelephonesForCpsp() {
@@ -21,16 +28,16 @@ function GetTelephonesForCpsp() {
             success: function (result) { ShowTelephonesGrid(result); },
             error: function (e) { display(e); }
         });
-        $.ajax({
-            type: "post",
-            url: "/Survey/GetEmails",
-            dataType: "html",
-            data: "cpspId=" + cpspId,
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            //  async: true,
-            success: function (result) { ShowEmailsGrid(result); },
-            error: function (e) { display(e); }
-        });
+//        $.ajax({
+//            type: "post",
+//            url: "/Survey/GetEmails",
+//            dataType: "html",
+//            data: "cpspId=" + cpspId,
+//            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+//            //  async: true,
+//            success: function (result) { ShowEmailsGrid(result); },
+//            error: function (e) { display(e); }
+//        });
     }
 }
 
@@ -48,7 +55,6 @@ function ShowTelephonesGrid(result) {
 
 function ShowEmailsGrid(result) {
     if (result !== "") {
-
         createEmailGrid("emailpv", result.Emails);
 //        $("#telephonepv").style()
         $("#emailsDiv").show();
@@ -59,9 +65,12 @@ function ShowEmailsGrid(result) {
 
 
 function GetSurveyInfo() {
+    $("#noContesta")[0].checked = true;
     var cpspId = $("#cpspDdlDiv").val();
-    if (cpspId === "")
+    if (cpspId === "") {
         $("#cpspInfoTbl").hide();
+        $("#bottonsDiv").hide();
+    }
     else {
         $.ajax({
             type: "Get",
@@ -280,6 +289,7 @@ function showCallInformation() {
         $("#callInformationfs").hide();
 
     $("#bottonsDiv").show();
+    
 }
 
 
