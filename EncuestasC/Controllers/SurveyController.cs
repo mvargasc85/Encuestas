@@ -26,29 +26,28 @@ namespace EncuestasC.Controllers
         //CREAR
         public ActionResult CreateSurvey()
         {
-            //_survey = new SurveyDtoModel();
-            var cpsps = _surveyDataProvider.GetAllCpsp();
+            ////_survey = new SurveyDtoModel();
+            //var cpsps = _surveyDataProvider.GetAllCpsp();
 
-            _survey.CpspList = new SelectList(cpsps, "Id", "Nombre");
+            //_survey.CpspList = new SelectList(cpsps, "Id", "Nombre");
 
-            return View(_survey);
+            return View();
         }
 
         //
         // POST: /GeographicInfo/CreateCanton
 
         [HttpPost]
-        public ActionResult CreateSurvey(Encuestax surveyToCreate)
+        public ActionResult CreateSurvey(SurveyDtoModel surveyToCreate)
         {
             try
             {
-                _entities.AddToEncuesta(surveyToCreate);
-                _entities.SaveChanges();
+                _surveyDataProvider.CreateSurvey(surveyToCreate);
                 return RedirectToAction("GetAllSurveys");
             }
             catch
             {
-                return View();
+                return RedirectToAction("GetAllSurveys");
             }
         }
 

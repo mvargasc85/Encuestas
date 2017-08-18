@@ -60,7 +60,7 @@ namespace EncuestasC.Data
         }
 
 
-      
+
 
         public IEnumerable<Provinciax> GetAllProvinces()
         {
@@ -79,12 +79,13 @@ namespace EncuestasC.Data
             var list = _encuestasDbEntities.Canton.Select(p => p);
             return list;
         }
+
         public IEnumerable<Distritox> GetAllDistrites()
         {
             var list = _encuestasDbEntities.Distrito.Select(p => p);
             return list;
         }
-       
+
         public IEnumerable<Cantonx> GetAllCantones(int? provinceId)
         {
             return GetAllCantones().Where(c => c.IdProvincia == provinceId);
@@ -103,6 +104,47 @@ namespace EncuestasC.Data
         public IEnumerable<Proyectox> GetProjects()
         {
             return _encuestasDbEntities.Proyecto.Select(e => e);
+        }
+
+        public Emailx GetEmail(int? emailId)
+        {
+            return _encuestasDbEntities.Email.Single(e => e.Id == emailId);
+        }
+
+        public int SaveEmail(Emailx email)
+        {
+            try
+            {
+                if (email.Id == 0)
+                {
+                    _encuestasDbEntities.AddToEmail(email);
+                    _encuestasDbEntities.SaveChanges();
+                    return 0;
+                }
+
+                var originalEmail = _encuestasDbEntities.Email.First(m => m.Id == email.Id);
+                _encuestasDbEntities.ApplyCurrentValues(originalEmail.EntityKey.EntitySetName, email);
+                _encuestasDbEntities.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        public int CreateSurvey(Encuestax survey)
+        {
+            try
+            {
+                _encuestasDbEntities.AddToEncuesta(survey);
+                _encuestasDbEntities.SaveChanges();
+                return 0;
+            }
+            catch(Exception)
+            {
+                return -1;
+            }
         }
     }
 }
