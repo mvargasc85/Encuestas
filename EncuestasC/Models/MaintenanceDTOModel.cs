@@ -13,4 +13,7 @@ namespace EncuestasC.Models
         public int Id { get; set; }
         public int? Codigo { get; set; }
     }
+
+
+   
  }

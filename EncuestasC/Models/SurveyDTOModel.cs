@@ -49,6 +49,14 @@ namespace EncuestasC.Models
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public IEnumerable<LocationInfoDtoModel> Provincias { get; set; }
+        public IEnumerable<LocationInfoDtoModel> Cantones { get; set; }
+        public IEnumerable<LocationInfoDtoModel> Distritos { get; set; }
+        public IEnumerable<LocationInfoDtoModel> Poblados { get; set; }
+        public LocationInfoDtoModel Provincia { get; set; }
+        public LocationInfoDtoModel Canton { get; set; }
+        public LocationInfoDtoModel Distrito { get; set; }
+
     }
 
     public class EmailDtoModel

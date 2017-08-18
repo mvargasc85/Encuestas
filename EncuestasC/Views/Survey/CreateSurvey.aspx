@@ -75,8 +75,8 @@
             </fieldset>
     
     <br/>
-    <div id="bottonsDiv" style="width: 500px; display:none">
-        <input class="k-button" value="Cancelar" />
+    <div id="bottonsDiv" style="width: 500px; display: none; margin-right: 5px">
+        <input id="cancelBtn" class="k-button" value="Cancelar" />
         <input id="saveSurveyBtn" class="k-button" value="Guardar"  />
     </div>
 
