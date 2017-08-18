@@ -15,12 +15,13 @@
     <% using (Html.BeginForm())
        { %>
         <%: Html.ValidationSummary(true) %>--%>
-
+        <div id="validatorDiv">
         <fieldset style="width: 500px">
             <legend>Datos</legend>
             <label class="k-label">Nombre del CSPS:</label>
             <br/><br/>
-            <input id="cpspDdlDiv"/>
+            <input id="cpspDdlDiv" name="cpspDdl" />
+           
             <br/><br/>
             <table id="cpspInfoTbl" style="display: none">
                 <tr><td id="Td1" colspan="3"><label style="font-weight: bold" >Ubicación:</label></td></tr>
@@ -62,19 +63,35 @@
             <legend>Seguimiento de la Llamada</legend>
             <table>
                 <tr><td style="width: 170px;"></td><td style="width: 170px;"></td><td style="width: 170px;"></td></tr>
-                <tr><td><label>Persona que contesta:</label></td><td colspan="2"><input style="width: 100%" id="contactedPersonDdl" /></td></tr>
-                <tr class="otherContact"><td ><label>Nombre contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="contactedPersonName" /></td></tr>
-                <tr class="otherContact"><td><label>Correo contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="contactedPersonEmail" /></td></tr>
-                <tr><td><label>Codigo Presupuestario:</label></td><td colspan="2"><input id="codPresDdl"/></td></tr>
-                <tr><td><label>Proyecto:</label></td><td colspan="2"><input id="projectIdDdl"/></td></tr>
+                <tr><td><label>Persona que contesta:</label></td><td colspan="2">
+                    <input style="width: 100%" id="contactedPersonDdl" name="contactedPersonDdl" required="required" validationMessage="Debe seleccionar un contacto"/></td>
+                    <td><span class="k-invalid-msg" data-for="contactedPersonDdl"></span>
+                </td></tr>
+                <tr class="otherContact">
+                    <td ><label>Nombre contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="contactedPersonName" name="contactedPersonName" required validationMessage="Digite el nombre del contacto" /></td>
+                    <td><span class="k-invalid-msg" data-for="contactedPersonName"></span></td>
+                </tr>
+                <tr class="otherContact">
+                    <td><label>Correo contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="contactedPersonEmail" name="contactedPersonEmail"  required validationMessage="Digite el email del contacto" /></td>
+                    <td><span class="k-invalid-msg" data-for="contactedPersonEmail"></span></td>
+                </tr>
+                <tr><td>
+                    <label>Codigo Presupuestario:</label></td><td colspan="2"><input id="codPresDdl" name="codPresDdl" required="required" validationMessage="Debe seleccionar el código presupuestario"/></td>
+                    <td><span class="k-invalid-msg" data-for="codPresDdl"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Proyecto:</label></td><td colspan="2"><input id="projectIdDdl" name="" required="required" validationMessage="Debe seleccionar el proyecto"/></td>
+                </tr>
                 <tr><td><label>Estado del Servicio:</label></td><td colspan="2"><div id="serviceStatusDdl"></div></td></tr>
                 <tr><td><label>Observaciones:</label></td><td colspan="2">
                     <%:Html.TextArea("commentsTxt", "", new { @class = "k-textbox", style = "width: 100%;  height:80px" })%>
                 </td></tr>
             </table>
             </fieldset>
-    
+            <div class="status"></div>
+        </div>
     <br/>
+
     <div id="bottonsDiv" style="width: 500px; display: none; margin-right: 5px">
         <input id="cancelBtn" class="k-button" value="Cancelar" />
         <input id="saveSurveyBtn" class="k-button" value="Guardar"  />

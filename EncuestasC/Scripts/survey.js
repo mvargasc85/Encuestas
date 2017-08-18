@@ -294,17 +294,32 @@ function showCallInformation() {
 
 
 function SaveSurvey() {
-    var surveyData = getSurveyModel();
-    $.ajax({
-        type: "Post",
-        url: "/Survey/CreateSurvey",
-        data:surveyData,
-        success: function (result) {
-            var url = "/Survey/GetAllSurveys";
-            window.location.href = url; 
-        },
-        error: function (e) { display(e); }
-    });
+
+    var validator = $("#validatorDiv").kendoValidator().data("kendoValidator");
+    var status = $(".status");
+
+    if (validator.validate()) {
+        status.text("Hooray! Your tickets has been booked!")
+            .removeClass("invalid")
+            .addClass("valid");
+
+        var surveyData = getSurveyModel();
+        $.ajax({
+            type: "Post",
+            url: "/Survey/CreateSurvey",
+            data: surveyData,
+            success: function(result) {
+                var url = "/Survey/GetAllSurveys";
+                window.location.href = url;
+            },
+            error: function(e) { display(e); }
+        });
+
+    } else {
+        status.text("Oops! There is invalid data in the form.")
+            .removeClass("valid")
+            .addClass("invalid");
+    }
 }
 
 function getSurveyModel() {
