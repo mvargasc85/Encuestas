@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    $("#saveSurveyBtn").on("click", SaveSurvey);
     GetCPSPInfo();
     createDropDownsForLocation();
 
@@ -283,7 +284,17 @@ function showCallInformation() {
 
 
 function SaveSurvey() {
-
+    var surveyData = getSurveyModel();
+    $.ajax({
+        type: "Post",
+        url: "/Survey/CreateSurvey",
+        data:surveyData,
+        success: function (result) {
+            var url = "/Survey/GetAllSurveys";
+            window.location.href = url; 
+        },
+        error: function (e) { display(e); }
+    });
 }
 
 function getSurveyModel() {
@@ -291,11 +302,33 @@ function getSurveyModel() {
     var surveyDataModel =
     {
         Id: null,
-        IdProyecto: dropDownListObject("projectIdDdl").value(),
-        IdCPSP: dropDownListObject("cpspDdlDiv").value(),
-        IdCodigoPresupuestario: dropDownListObject("codPresDdl").value(),
-//        IdCodigoPresupuestario: dropDownListObject("codPresDdl").value(),
+        CpsPId: dropDownListObject("cpspDdlDiv").value(),
+        Contesta: ($("#contesta")[0].checked) ? "S" : "N"
+    };
+
+    getCallDetails(surveyDataModel);
+    getContactedPersonInfo(surveyDataModel);
+
+    return surveyDataModel;
+}
+
+function getCallDetails(model) {
+    if (model.Contesta==="S") {
+        model.ProyectoId = dropDownListObject("projectIdDdl").value();
+        model.CodPresupuestarioId = dropDownListObject("codPresDdl").value();
+        model.EstadoServicioId = $('input[name=statusRdbtn]:checked')[0].id.split("_")[1];
+        model.Comentarios = $("#commentsTxt").val();
     }
+}
+
+function getContactedPersonInfo(model) {
+    var emailId = dropDownListObject("contactedPersonDdl").value();
+    if (emailId === "-1") {
+        model.NombreNuevoContacto = $("#contactedPersonName").val();
+        model.EmailNuevoContacto = $("#contactedPersonEmail").val();
+    } else
+        model.EmailId = emailId;
+
 }
 
 var dropDownListObject = (function(ddlId) {

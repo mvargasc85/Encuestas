@@ -63,8 +63,8 @@
             <table>
                 <tr><td style="width: 170px;"></td><td style="width: 170px;"></td><td style="width: 170px;"></td></tr>
                 <tr><td><label>Persona que contesta:</label></td><td colspan="2"><input style="width: 100%" id="contactedPersonDdl" /></td></tr>
-                <tr class="otherContact"><td ><label>Nombre contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="personContactedName" /></td></tr>
-                <tr class="otherContact"><td><label>Correo contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="personContactedEmail" /></td></tr>
+                <tr class="otherContact"><td ><label>Nombre contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="contactedPersonName" /></td></tr>
+                <tr class="otherContact"><td><label>Correo contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="contactedPersonEmail" /></td></tr>
                 <tr><td><label>Codigo Presupuestario:</label></td><td colspan="2"><input id="codPresDdl"/></td></tr>
                 <tr><td><label>Proyecto:</label></td><td colspan="2"><input id="projectIdDdl"/></td></tr>
                 <tr><td><label>Estado del Servicio:</label></td><td colspan="2"><div id="serviceStatusDdl"></div></td></tr>
@@ -76,8 +76,8 @@
     
     <br/>
     <div id="bottonsDiv" style="width: 500px; display:none">
-        <input type="submit" value="Cancelar" />
-        <input type="submit" value="Guardar" />
+        <input class="k-button" value="Cancelar" />
+        <input id="saveSurveyBtn" class="k-button" value="Guardar"  />
     </div>
 
 <style type="text/css">

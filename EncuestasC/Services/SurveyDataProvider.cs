@@ -136,5 +136,50 @@ namespace EncuestasC.Services
             }));
             return codPresDto;
         }
+
+        public string CreateSurvey(SurveyDtoModel surveyModel)
+        {
+            try
+            {
+                var survey = new Encuestax();
+                survey.IdCPSP = surveyModel.CpsPId;
+                survey.ContestaLlamada = surveyModel.Contesta;
+
+                if (survey.ContestaLlamada == "S")
+                {
+                    survey.IdProyecto = surveyModel.ProyectoId;
+                    survey.IdCodigoPresupuestario = surveyModel.CodPresupuestarioId;
+                    var email = surveyModel.EmailId == null
+                        ? SaveEmail(0, surveyModel.CpsPId, surveyModel.EmailNuevoContacto,
+                            surveyModel.NombreNuevoContacto)
+                        : _commonDataRepository.GetEmail(surveyModel.EmailId);
+
+                    survey.IdEmail = email.Id;
+                    survey.NombreContacto = email.Nombre;
+                    survey.IdEstadoServicio = surveyModel.EstadoServicioId;
+                    survey.Comentarios = surveyModel.Comentarios;
+                }
+
+               _commonDataRepository.CreateSurvey(survey);
+               
+                return "Creada exitosamente";
+            }
+            catch (Exception e)
+            {
+                return string.Format("Error al crear la encuesta. Detalles: {0}", e.Message);
+            }
+        }
+
+        public Emailx SaveEmail(int id, int? cpspId, string correo, string nombre)
+        {
+            var email = id == 0 ? new Emailx() : _commonDataRepository.GetEmail(id);
+
+            email.IdCPSP = cpspId;
+            email.Nombre = nombre;
+            email.Correo = correo;
+            _commonDataRepository.SaveEmail(email);
+            return email;
+
+        }
     }
 }

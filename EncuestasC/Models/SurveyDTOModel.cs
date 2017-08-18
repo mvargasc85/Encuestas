@@ -9,20 +9,24 @@ namespace EncuestasC.Models
     public class SurveyDtoModel
     {
         public decimal Id { get; set; }
-        public Proyectox Proyecto { get; set; }
-        public CPSPx CpsP { get; set; }
-        public CodigoPresupuestariox CodigoPresupuestario { get; set; }
+        public int? ProyectoId { get; set; }
+        public int? CpsPId { get; set; }
+        public int? CodPresupuestarioId { get; set; }
+        public int? EstadoServicioId { get; set; }
+        public int? EmailId { get; set; }   
+        public string Comentarios { get; set; }
+        public string NombreNuevoContacto { get; set; }
+        public string EmailNuevoContacto { get; set; }
+        public string Contesta { get; set; }
+        public SelectList CpspList { get; set; }
+        public LocationDtoModel Location { get; set; }
         public IEnumerable<TelephoneDtoModel> Telefonos { get; set; }
         public IEnumerable<EmailDtoModel> Emails { get; set; }
         public IEnumerable<EstadoServicioDtoModel> EstadosServicio { get; set; }
         public IEnumerable<CodPresupuestarioDtoModel> CodPresupuestarios { get; set; }
         public IEnumerable<ProyectoDtoModel> Proyectos { get; set; }
         public EstadoServicioDtoModel EstadoServicio { get; set; }
-        public string Comentarios { get; set; }
-        public string NombreContacto { get; set; }
-        public char Contesta { get; set; }
-        public SelectList CpspList { get; set; }
-        public LocationDtoModel Location { get; set; }
+     
 
     }
 
