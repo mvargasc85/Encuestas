@@ -16,6 +16,7 @@ namespace EncuestasC.Models
         public IEnumerable<EmailDtoModel> Emails { get; set; }
         public IEnumerable<EstadoServicioDtoModel> EstadosServicio { get; set; }
         public IEnumerable<CodPresupuestarioDtoModel> CodPresupuestarios { get; set; }
+        public IEnumerable<ProyectoDtoModel> Proyectos { get; set; }
         public EstadoServicioDtoModel EstadoServicio { get; set; }
         public string Comentarios { get; set; }
         public string NombreContacto { get; set; }
@@ -24,6 +25,8 @@ namespace EncuestasC.Models
         public LocationDtoModel Location { get; set; }
 
     }
+
+    
 
 
     public class LocationDtoModel
@@ -49,6 +52,7 @@ namespace EncuestasC.Models
         public int Id { get; set; }
         public string Correo { get; set; }
         public string Nombre { get; set; }
+        public string NombreCorreo { get; set; }
     }
 
     public class TelephoneDtoModel
@@ -76,5 +80,12 @@ namespace EncuestasC.Models
     {
         public int Id { get; set; }
         public int? Codigo { get; set; }
+    }
+
+    public class ProyectoDtoModel
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Detalle { get; set; }
     }
 }

@@ -45,7 +45,19 @@ namespace EncuestasC.Services
 
         public IEnumerable<EmailDtoModel> GetEmails(decimal idCpsp)
         {
-            return _commonDataRepository.GetEmails(idCpsp);
+            var list = _commonDataRepository.GetEmails(idCpsp).ToList();
+            var emailDtoList = new List<EmailDtoModel>();
+
+            list.ForEach(emailx => emailDtoList.Add(new EmailDtoModel
+            {
+                Id = emailx.Id,
+                Nombre = emailx.Nombre,
+                Correo = emailx.Correo,
+                NombreCorreo = string.Format("{0} <{1}>", emailx.Nombre, emailx.Correo)
+            }));
+
+            emailDtoList.Add(new EmailDtoModel {Id = -1,Nombre = "Otra",NombreCorreo = "Otra"});
+            return emailDtoList;
         }
 
 
@@ -70,11 +82,25 @@ namespace EncuestasC.Services
                     Distrito = CreateLocationInfo(cpsp.Distrito.Id, cpsp.Distrito.Nombre, cpsp.Distrito.IdCanton)
                 },
                 EstadosServicio = GetServiceStatusDtoModel(),
-                CodPresupuestarios = GetCodPresDtoModel()
+                CodPresupuestarios = GetCodPresDtoModel(),
+                Proyectos = GetProjectDtoModel()
             };
 
             return surveryDtoModel;
 
+        }
+
+        private IEnumerable<ProyectoDtoModel> GetProjectDtoModel()
+        {
+            var project = _commonDataRepository.GetProjects().ToList();
+            var codPresDto = new List<ProyectoDtoModel>();
+            project.ForEach(cp => codPresDto.Add(new ProyectoDtoModel
+            {
+                Id = cp.Id,
+                Nombre = cp.Nombre,
+                Detalle = cp.Detalle
+            }));
+            return codPresDto;
         }
 
         private IEnumerable<EstadoServicioDtoModel> GetServiceStatusDtoModel()

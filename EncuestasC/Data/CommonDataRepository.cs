@@ -41,20 +41,10 @@ namespace EncuestasC.Data
             return phoneList;
         }
 
-        public IEnumerable<EmailDtoModel> GetEmails(decimal idCpsp)
+        public IEnumerable<Emailx> GetEmails(decimal idCpsp)
         {
-            var list = _encuestasDbEntities.Email.Where(t => t.CPSP.Id == idCpsp).ToList();
-            var emailList = new List<EmailDtoModel>();
-            foreach (var emailx in list)
-            {
-                emailList.Add(new EmailDtoModel
-                {
-                    Id = emailx.Id,
-                    Nombre = emailx.Nombre,
-                    Correo = emailx.Correo
-                });
-            }
-            return emailList;
+            var list = _encuestasDbEntities.Email.Where(t => t.CPSP.Id == idCpsp);
+            return list;
         }
 
         public IEnumerable<CodigoPresupuestariox> GetCodigoPresupuestario()
@@ -108,6 +98,11 @@ namespace EncuestasC.Data
         public IEnumerable<EstadoServiciox> GetServiceStatus()
         {
             return _encuestasDbEntities.EstadoServicio.Select(e => e);
+        }
+
+        public IEnumerable<Proyectox> GetProjects()
+        {
+            return _encuestasDbEntities.Proyecto.Select(e => e);
         }
     }
 }

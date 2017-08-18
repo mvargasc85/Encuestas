@@ -1,11 +1,8 @@
 ﻿$(document).ready(function () {
-
-
     GetCPSPInfo();
     createDropDownsForLocation();
 
-//    $("input[name=statusRdbtn]:radio").change(showCallInformation);
-    showCallInformation();
+
 });
 
 
@@ -241,28 +238,67 @@ function filterCantones(e) {
 
 
 function setCallInfo(data) {
-//    CreateDropDownlist("serviceStatusDdl", data.EstadosServicio, "Estado", "Id",null,"Seleccionar ...");
+    CreateDropDownlist("contactedPersonDdl", data.Emails, "NombreCorreo", "Id",onContactedPersonChanged,"Seleccionar ...");
     CreateDropDownlist("codPresDdl", data.CodPresupuestarios, "Codigo", "Id",null,"Seleccionar ...");
+    CreateDropDownlist("projectIdDdl", data.Proyectos, "Nombre", "Id",null,"Seleccionar ...");
+    createStatusRadioButtons(data);
 
+}
+
+
+function onContactedPersonChanged(e) {
+    var dataItem = e.sender.dataItem(e.sender.selectedIndex);
+    if (dataItem.Id === -1)
+        $(".otherContact").show();
+    else
+        $(".otherContact").hide();
+}
+
+function createStatusRadioButtons(data) {
+    $("#serviceStatusDdl").html("");
     for (var i = 0; i < data.EstadosServicio.length; i++) {
-        var radioBtn = $('<label class="k-radio-label" for="status_'+data.EstadosServicio[i].Id+'"><input type="radio" name="statusRdbtn" id="status_'+data.EstadosServicio[i].Id+'" class="k-radio"/>'+data.EstadosServicio[i].Estado+'</label><br/>');
+        var radioBtn = $('<label class="k-radio-label" for="status_' +
+            data.EstadosServicio[i].Id +
+            '"><input type="radio" name="statusRdbtn" id="status_' +
+            data.EstadosServicio[i].Id +
+            '" class="k-radio"/>' +
+            data.EstadosServicio[i].Estado +
+            '</label><br/>');
         radioBtn.appendTo('#serviceStatusDdl');
     }
-
- 
-
-
- 
+    $("input:radio[name='answercallRdbtn']").change(showCallInformation);
+    $("#noContesta")[0].checked = true;
+    showCallInformation();
 }
 
 function showCallInformation() {
-    $("input:radio[name='answercallRdbtn']").change(function() {
-        var contesta = $("#contesta")[0].checked;
-       if (contesta) {
-           $("#callInformationfs").show();
-       }else
-           $("#callInformationfs").hide();
-    });
+    var contesta = $("#contesta")[0].checked;
+    if (contesta) {
+        $("#callInformationfs").show();
+    } else
+        $("#callInformationfs").hide();
 
     $("#bottonsDiv").show();
-};
+}
+
+
+function SaveSurvey() {
+
+}
+
+function getSurveyModel() {
+
+    var surveyDataModel =
+    {
+        Id: null,
+        IdProyecto: dropDownListObject("projectIdDdl").value(),
+        IdCPSP: dropDownListObject("cpspDdlDiv").value(),
+        IdCodigoPresupuestario: dropDownListObject("codPresDdl").value(),
+//        IdCodigoPresupuestario: dropDownListObject("codPresDdl").value(),
+    }
+}
+
+var dropDownListObject = (function(ddlId) {
+    return $('#' + ddlId).data("kendoDropDownList");
+});
+

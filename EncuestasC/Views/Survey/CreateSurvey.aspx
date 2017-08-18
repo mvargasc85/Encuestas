@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     
-	CreateSurvey
+	Encuesta
     
    
 </asp:Content>
@@ -20,7 +20,7 @@
             <legend>Datos</legend>
             <label class="k-label">Nombre del CSPS:</label>
             <br/><br/>
-            <div id="cpspDdlDiv" ></div>
+            <input id="cpspDdlDiv"/>
             <br/><br/>
             <table id="cpspInfoTbl" style="display: none">
                 <tr><td id="Td1" colspan="3"><label style="font-weight: bold" >Ubicación:</label></td></tr>
@@ -47,10 +47,10 @@
                 <tr><td colspan="3"> <div id="telephonepv" style="width: 100%" ></div></td></tr>  
                 <tr><td colspan="3"></td></tr>
                 <tr><td colspan="3"></td></tr>
-                <tr><td id="emailsDiv" colspan="3"><label class="k-label" style="color: midnightblue">Correo Electronico:</label></td></tr>
+            <%--    <tr><td id="emailsDiv" colspan="3"><label class="k-label" style="color: midnightblue">Correo Electronico:</label></td></tr>
                 <tr><td colspan="3">  <div id="emailpv" style="width: 100%"></div></td></tr>
                 <tr><td colspan="3"></td></tr>
-                <tr><td colspan="3"></td></tr>
+                <tr><td colspan="3"></td></tr>--%>
                 <tr>
                     <td><label class="k-label" style="color: midnightblue">Contesta la llamada:</label></td>
                     <td><label class="k-radio-label" for="contesta">Si<input type="radio" name="answercallRdbtn" id="contesta" class="k-radio"/></label></td>
@@ -62,8 +62,11 @@
             <legend>Seguimiento de la Llamada</legend>
             <table>
                 <tr><td style="width: 170px;"></td><td style="width: 170px;"></td><td style="width: 170px;"></td></tr>
-                <tr><td><label>Persona que contesta:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="personContactedName" /></td></tr>
+                <tr><td><label>Persona que contesta:</label></td><td colspan="2"><input style="width: 100%" id="contactedPersonDdl" /></td></tr>
+                <tr class="otherContact"><td ><label>Nombre contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="personContactedName" /></td></tr>
+                <tr class="otherContact"><td><label>Correo contacto:</label></td><td colspan="2"><input class="k-textbox" style="width: 100%" id="personContactedEmail" /></td></tr>
                 <tr><td><label>Codigo Presupuestario:</label></td><td colspan="2"><input id="codPresDdl"/></td></tr>
+                <tr><td><label>Proyecto:</label></td><td colspan="2"><input id="projectIdDdl"/></td></tr>
                 <tr><td><label>Estado del Servicio:</label></td><td colspan="2"><div id="serviceStatusDdl"></div></td></tr>
                 <tr><td><label>Observaciones:</label></td><td colspan="2">
                     <%:Html.TextArea("commentsTxt", "", new { @class = "k-textbox", style = "width: 100%;  height:80px" })%>
@@ -77,5 +80,10 @@
         <input type="submit" value="Guardar" />
     </div>
 
+<style type="text/css">
+    .otherContact {
+        display: none;
+    }
+</style>
 </asp:Content>
 
