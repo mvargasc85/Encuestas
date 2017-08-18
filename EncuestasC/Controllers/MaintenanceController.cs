@@ -15,23 +15,20 @@ namespace EncuestasC.Controllers
          private readonly MaintenanceDataProvider _maintenanceDataProvider = new MaintenanceDataProvider();
 
 
+
+         public ActionResult GetAllCPSP()
+         {
+             var cpspList = _maintenanceDataProvider.GetAllCpsp();
+            return View(cpspList);
+
+        }
+
          public ActionResult GetAllCodPres()
          {
              return View(_entities.CodigoPresupuestario.ToList());
          }
 
-        ////LIST
-        //public string GetCodPresList()
-        //{
-        //    //return View(_entities.CodigoPresupuestario.ToList());
-        //    var codpresList = _maintenanceDataProvider.GetAllCodPres();
-
-        //    //_codpres.Id = new SelectList(cpsps, "Id", "Nombre");
-
-        //  // ya
-
-        //    return JsonConvert.SerializeObject(codpresList);
-        //}
+     
 
         //CREAR
         public ActionResult CreateCodPres()
