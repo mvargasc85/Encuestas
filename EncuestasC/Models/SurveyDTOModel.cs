@@ -56,7 +56,9 @@ namespace EncuestasC.Models
         public LocationInfoDtoModel Provincia { get; set; }
         public LocationInfoDtoModel Canton { get; set; }
         public LocationInfoDtoModel Distrito { get; set; }
-
+        public int? ProvinciaId { get; set; }
+        public int? CantonId { get; set; }
+        public int? DistritoId { get; set; }
     }
 
     public class EmailDtoModel

@@ -38,10 +38,10 @@ namespace EncuestasC.Services
                 cpspDtoList.Add(new CpspDtoModel
                 {
                     Id = cp.Id,
-                    Nombre = cp.Nombre,
-                    Provincia = GetProvincia(cp.IdProvincia),
-                    Canton = GetCanton(cp.IdCanton),
-                    Distrito = GetDistrito(cp.IdDistrito)
+                    Nombre = string.IsNullOrEmpty(cp.Nombre) ? string.Empty : cp.Nombre,
+                    Provincia = cp.IdProvincia == null ? null : GetProvincia(cp.IdProvincia),
+                    Canton = cp.IdCanton == null ? null : GetCanton(cp.IdCanton),
+                    Distrito = cp.IdDistrito == null ? null : GetDistrito(cp.IdDistrito),
                 });
 
             return cpspDtoList;

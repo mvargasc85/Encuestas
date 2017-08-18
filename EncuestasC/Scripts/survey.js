@@ -356,7 +356,8 @@ function getContactedPersonInfo(model) {
 
 }
 
+
+
 var dropDownListObject = (function(ddlId) {
     return $('#' + ddlId).data("kendoDropDownList");
 });
-
