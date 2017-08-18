@@ -7,55 +7,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>GetAllCPSP</h2>
-
-    <table>
-        <tr>
-            <th></th>
-            <th>
-                Id
-            </th>
-            <th>
-                Nombre
-            </th>
-           <th>
-                Provincia
-            </th>
-            <th>
-                Canton
-            </th>
-            <th>
-                Distrito
-            </th>
-        </tr>
-
-    <% foreach (var item in Model) { %>
     
-        <tr>
-            <td>
-                <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) %> |
-                <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })%>
-            </td>
-            <td>
-                <%: item.Id %>
-            </td>
-            <td>
-                <%: item.Nombre %>
-            </td>
-            <td>
-                <%: item.Provincia.Nombre%>
-            </td>
-            <td>
-                <%: item.Canton.Nombre%>
-            </td>
-            <td>
-                <%: item.Distrito.Nombre%>
-            </td>
-        </tr>
-    
-    <% } %>
-
-    </table>
+        <tr><td id="Td1" colspan="3"><label style="font-weight: bold" >Ubicación:</label></td></tr>
+                <tr>
+                    <td><label>Provincia:</label></td>
+                    <td><label>Cantón:</label></td>
+                    <td><label>Distrito:</label></td>
+                </tr>
+               <tr>
+                    <td><input id="provinciaDdl" style="width: 170px;" /></td>
+                    <td><input id="cantonDdl" style="width: 170px;" /></td>
+                    <td><input id="distritoDdl"  style="width: 170px;" /></td>
+                   
+                </tr>
+   
 
     <p>
         <%: Html.ActionLink("Create New", "Create") %>

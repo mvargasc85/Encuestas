@@ -19,16 +19,15 @@ namespace EncuestasC.Services
 
   
 
-public string CreateCPSP(CpspDtoModel CPSPModel)
+public string CreateCPSP(CpspDtoModel cpspModel)
         {
             try
             {
                 var cpsp = new CPSPx();
-                cpsp.Id = CPSPModel.Id;
-              
-                    cpsp.IdProvincia = CPSPModel.Provincia.Id;
-                cpsp.IdCanton = CPSPModel.Canton.Id;
-                   cpsp.IdDistrito = CPSPModel.Distrito.Id;
+
+                cpsp.IdProvincia = cpspModel.Provincia.Id;
+                cpsp.IdCanton = cpspModel.Canton.Id;
+                cpsp.IdDistrito = cpspModel.Distrito.Id;
                
 
                _commonDataRepository.CreateCpsp(cpsp);
