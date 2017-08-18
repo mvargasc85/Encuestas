@@ -79,12 +79,23 @@
     <Compile Include="Controllers\GeographicInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaintenanceController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Data\CommonDataRepository.cs" />
     <Compile Include="EncuestasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EncuestasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EncuestasDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EncuestasDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EncuestasDataSetx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EncuestasDataSetx.xsd</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -103,22 +114,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="reports\ReporteEncuesta.aspx.cs">
-      <DependentUpon>ReporteEncuesta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="reports\ReporteEncuesta.aspx.designer.cs">
-      <DependentUpon>ReporteEncuesta.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="reports\RPEncuestas.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RPEncuestas.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Services\GeographicInfoDataProvider.cs" />
     <Compile Include="Services\MaintenanceDataProvider.cs" />
     <Compile Include="Services\SurveyDataProvider.cs" />
+    <Compile Include="reports\EncuestasRP.aspx.cs">
+      <DependentUpon>EncuestasRP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reports\EncuestasRP.aspx.designer.cs">
+      <DependentUpon>EncuestasRP.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Encuestas.mdf" />
@@ -148,7 +153,6 @@
     <Content Include="Content\metro\sprite.png" />
     <Content Include="Content\metro\utils-sprite.png" />
     <Content Include="Global.asax" />
-    <Content Include="reports\ReporteEncuesta.aspx" />
     <Content Include="Scripts\kendoui\kendo.web.min.js" />
     <Content Include="Scripts\Maintenance.js" />
     <Content Include="Scripts\survey.js" />
@@ -181,6 +185,8 @@
     <Content Include="Views\Maintenance\GetAllEstServ.aspx" />
     <Content Include="Views\Maintenance\GetAllProyecto.aspx" />
     <Content Include="Views\Maintenance\GetAllTelefono.aspx" />
+    <Content Include="Views\Reports\EncuestasRP.aspx" />
+    <Content Include="reports\EncuestasRP.aspx" />
     <Content Include="Views\Survey\CreateSurvey.aspx" />
     <Content Include="Views\Survey\EditSurvey.aspx" />
     <Content Include="Views\Survey\GetAllSurveys.aspx" />
@@ -233,6 +239,28 @@
     <None Include="EncuestasDataSet.xss">
       <DependentUpon>EncuestasDataSet.xsd</DependentUpon>
     </None>
+    <None Include="EncuestasDataSet1.xsc">
+      <DependentUpon>EncuestasDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EncuestasDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EncuestasDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EncuestasDataSet1.xss">
+      <DependentUpon>EncuestasDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EncuestasDataSetx.xsc">
+      <DependentUpon>EncuestasDataSetx.xsd</DependentUpon>
+    </None>
+    <None Include="EncuestasDataSetx.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EncuestasDataSetx.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EncuestasDataSetx.xss">
+      <DependentUpon>EncuestasDataSetx.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -242,10 +270,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="reports\RPEncuestas.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPEncuestas.cs</LastGenOutput>
-    </EmbeddedResource>
+    <EmbeddedResource Include="reports\RPEncuestas.rdlc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
