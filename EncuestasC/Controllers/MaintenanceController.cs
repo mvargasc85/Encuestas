@@ -13,7 +13,7 @@ namespace EncuestasC.Controllers
         private CodPresDtoModel _codpres = new CodPresDtoModel();
          private EncuestasEntitiesx _entities = new EncuestasEntitiesx();
          private readonly MaintenanceDataProvider _maintenanceDataProvider = new MaintenanceDataProvider();
-
+         private readonly CpspDataProvider _CpspDataProvider = new CpspDataProvider();
 
 
          public ActionResult GetAllCPSP()
@@ -545,12 +545,12 @@ namespace EncuestasC.Controllers
         {
             try
             {
-                _surveyDataProvider.CreateSurvey(CPSPtoCreate);
-                return RedirectToAction("GetAllSurveys");
+                _CpspDataProvider.CreateCPSP(CPSPtoCreate);
+                return RedirectToAction("GetAllCPSP");
             }
             catch
             {
-                return RedirectToAction("GetAllSurveys");
+                return RedirectToAction("GetAllCPSP");
             }
         }
     }

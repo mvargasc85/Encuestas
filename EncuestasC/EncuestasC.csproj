@@ -167,6 +167,7 @@
     <Content Include="Views\GeographicInfo\GetAllProvinces.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Maintenance\CreateCodPres.aspx" />
+    <Content Include="Views\Maintenance\CreateCPSP.aspx" />
     <Content Include="Views\Maintenance\CreateEmail.aspx" />
     <Content Include="Views\Maintenance\CreateEstServ.aspx" />
     <Content Include="Views\Maintenance\CreateProyecto.aspx" />
