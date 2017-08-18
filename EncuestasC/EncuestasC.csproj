@@ -114,6 +114,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\CpspDataProvider.cs" />
     <Compile Include="Services\GeographicInfoDataProvider.cs" />
     <Compile Include="Services\MaintenanceDataProvider.cs" />
     <Compile Include="Services\SurveyDataProvider.cs" />

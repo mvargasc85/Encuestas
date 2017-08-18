@@ -146,5 +146,19 @@ namespace EncuestasC.Data
                 return -1;
             }
         }
+
+        public int CreateCpsp(CPSPx cpsp)
+        {
+            try
+            {
+                _encuestasDbEntities.AddToCPSP(cpsp);
+                _encuestasDbEntities.SaveChanges();
+                return 0;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
     }
 }

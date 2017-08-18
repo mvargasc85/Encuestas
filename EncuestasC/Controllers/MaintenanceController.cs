@@ -526,5 +526,32 @@ namespace EncuestasC.Controllers
             return RedirectToAction("GetAllEmail");
 
         }
+
+        public ActionResult CreateCPSP()
+        {
+            ////_survey = new SurveyDtoModel();
+            //var cpsps = _surveyDataProvider.GetAllCpsp();
+
+            //_survey.CpspList = new SelectList(cpsps, "Id", "Nombre");
+
+            return View();
+        }
+
+        //
+        // POST: /GeographicInfo/CreateCanton
+
+        [HttpPost]
+        public ActionResult CreateCPSP(CpspDtoModel CPSPtoCreate)
+        {
+            try
+            {
+                _surveyDataProvider.CreateSurvey(CPSPtoCreate);
+                return RedirectToAction("GetAllSurveys");
+            }
+            catch
+            {
+                return RedirectToAction("GetAllSurveys");
+            }
+        }
     }
 }
