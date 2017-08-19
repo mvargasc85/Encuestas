@@ -280,6 +280,8 @@ namespace EncuestasC.Controllers
             return View();
         }
 
+        //CREAR
+       
      
         [HttpPost]
         public ActionResult CreateTelefono(Telefonox TelefonoToCreate)
@@ -451,7 +453,7 @@ namespace EncuestasC.Controllers
             try
             {
                 _cpspDataProvider.CreateCPSP(cpsPtoCreate);
-                return RedirectToAction("GetAllCPSP");
+                return RedirectToAction("CreateTelefono");
             }
             catch
             {

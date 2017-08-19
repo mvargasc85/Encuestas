@@ -8,27 +8,31 @@
 
     <h2>Eliminar Email</h2>
 
-    <h3>Favor confirmar la eliminación</h3>
+    <h3>Seguro que desea eliminar el siguiente Email?</h3>
     <fieldset>
-        <legend>Fields</legend>
+        <legend>Datos</legend>
         
-        <div class="display-label">Id</div>
-        <div class="display-field"><%: Model.Id %></div>
-        
-        <div class="display-label">Correo</div>
-        <div class="display-field"><%: Model.Correo %></div>
-        
-        <div class="display-label">Nombre</div>
-        <div class="display-field"><%: Model.Nombre %></div>
-        
-        <div class="display-label">IdCPSP</div>
-        <div class="display-field"><%: Model.IdCPSP %></div>
+        <table>
+            <tr>
+                <td><div class="display-label">Id</div></td>
+                <td><div class="display-label">Nombre</div></td>
+                <td><div class="display-label">Correo</div></td> 
+                <td><div class="display-label">CPSP</div></td> 
+            </tr>
+            <tr>
+                <td><div class="display-field"><%: Model.Id %></div></td>
+                <td> <div class="display-field"><%: Model.Nombre %></div></td> 
+                <td> <div class="display-field"><%: Model.Correo %></div></td>
+                <td> <div class="display-field"><%: Model.IdCPSP %></div></td> 
+            </tr>
+        </table>
         
     </fieldset>
     <% using (Html.BeginForm()) { %>
         <p>
-		    <input type="submit" value="Eliminar" /> |
-		    <%: Html.ActionLink("Volver", "GetAllEmail") %>
+		   
+		    <%: Html.ActionLink("Volver", "GetAllEmail") %> |
+            <input type="submit" value="Eliminar" /> 
         </p>
     <% } %>
 

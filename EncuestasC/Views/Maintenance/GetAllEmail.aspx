@@ -15,15 +15,15 @@
                 Id
             </th>
             <th>
-                Correo
-            </th>
-            <th>
                 Nombre
             </th>
             <th>
-                IdCPSP
+                Correo
             </th>
-            <th>Acciones</th>
+            <th>
+                CPSP
+            </th>
+            <th></th>
         </tr>
 
     <% foreach (var item in Model) { %>
@@ -34,10 +34,10 @@
                 <%: item.Id %>
             </td>
             <td>
-                <%: item.Correo %>
+                <%: item.Nombre %>
             </td>
             <td>
-                <%: item.Nombre %>
+                <%: item.Correo %>
             </td>
             <td>
                 <%: item.IdCPSP %>
@@ -54,7 +54,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Ingresar Registro", "CreateEmail") %>
+        <%: Html.ActionLink("Crear nuevo", "CreateEmail") %>
     </p>
 
 </asp:Content>

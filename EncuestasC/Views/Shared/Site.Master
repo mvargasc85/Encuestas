@@ -14,7 +14,11 @@
     <script src="../../Scripts/Kendoui/kendo.web.min.js" type="text/javascript"></script>
     <script src="../../Scripts/survey.js" type="text/javascript"></script>
      <script src="../../Scripts/maintenance.js" type="text/javascript"></script>
-  
+    <style type="text/css">
+       a:link {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,47 +26,41 @@
     <div class="page">
 
         <div id="header">
-            <div id="title">
-                <h1>Empresa los tigres</h1>
-                
-            </div>
-
+            <div id="title"><h1>Empresa Los Tigres</h1></div>
              <div id="logindisplay">
                 <%--<% Html.RenderPartial("LogOnUserControl"); %>--%>
-                               
-             
             </div>
-               <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" 
-                BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" 
-                Font-Size="1.1em" ForeColor="#284E98" StaticSubMenuIndent="10px"  >
-                    <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
-                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                    <DynamicMenuStyle BackColor="#B5C7DE" />
-                    <DynamicSelectedStyle BackColor="#507CD1" />
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Survey/CreateSurvey" Text="Realizar Encuesta" Value="Encuesta"></asp:MenuItem>
-                        <asp:MenuItem Text="Mantenimientos" Value="Mantenimientos">
-                            <asp:MenuItem NavigateUrl="~/Maintenance/GetAllCodPres" Text="Editar Códigos Presupuestarios" Value="Editar Códigos Presupuestarios"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Maintenance/GetAllCPSP" Text="Editar CPSP" Value="Editar CPSP"></asp:MenuItem>
-                            <asp:MenuItem Text="Editar Datos Contacto" Value="Editar Datos Contacto">
-                                <asp:MenuItem NavigateUrl="~/Maintenance/GetAllTelefono" Text="Teléfono" Value="Teléfono"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Maintenance/GetAllEmail" Text="Email" Value="Email"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Maintenance/GetAllProyecto" Text="Editar Proyectos" Value="Editar Proyectos"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Maintenance/GetAllEstServ" Text="Editar Estados" Value="Editar Estados"></asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Reportes" Value="Reportes">
-                            <asp:MenuItem NavigateUrl="~/Reports/EncuestasRP" Text="Reporte Encuestas" Value="Reporte Encuestas"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Reports/EncuestasRP" Text="Reporte Encuestas" Value="Reporte Encuestas"></asp:MenuItem>
-                       </asp:MenuItem>
-                    </Items>
-                    <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
-                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                    <StaticSelectedStyle BackColor="#507CD1" />
-                </asp:Menu>
-           
-        </div>
-
+            <br/> <br/>
+            <div>
+            
+            <ul id="Menu1">
+                    <li><a href="../Home"> Inicio </a></li>
+                    <li><a href="../Survey/CreateSurvey"> Realizar Encuesta </a></li>
+                    <li>Mantenimientos
+                        <ul>
+                            <li><a href="../Maintenance/GetAllCodPres">Editar Códigos Presupuestarios</a></li>
+                            <li><a href="../Maintenance/GetAllCPSP">Editar CPSP</a></li>
+                            <li> Editar Datos Contacto
+                                <ul>
+                                    <li><a href="../../Maintenance/GetAllTelefono">Teléfono </a></li>
+                                    <li><a href="../Maintenance/GetAllEmail">Email</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../Maintenance/GetAllProyecto" >Editar Proyectos </a></li>
+                            <li><a href="../Maintenance/GetAllEstServ">Editar Estados</a></li>
+                        </ul>
+                    </li>
+                    <li>Reportes
+                        <ul>
+                            <li><a href="../Survey/GetAllSurveys" >Ver Encuestas </a></li>
+                            <li><a href="../Reports/EncuestasRP.aspx">Reporte Encuestas</a></li>
+                        </ul>
+                    </li>
+            </ul>
+          </div>
+         
+            </div>
+       
         <div id="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 

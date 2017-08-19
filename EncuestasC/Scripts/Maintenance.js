@@ -82,9 +82,10 @@ function SaveCpsp() {
         type: "Post",
         url: url,
         data: cpspData,
-        success: function(result) {
-            var url = "/maintenance/GetAllCPSP";
+        success: function (result) {
+            var url = "/maintenance/CreateTelefono";
             window.location.href = url;
+            
         },
         error: function(e) { display(e); }
     });

@@ -20,7 +20,6 @@
             <th>
                 Detalle
             </th>
-            <th>Acciones</th>
         </tr>
 
     <% foreach (var item in Model) { %>
