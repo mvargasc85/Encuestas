@@ -1,8 +1,9 @@
 ﻿
 $(document).ready(function () {
-    getCodPresData();  
+    //    getCodPresData(); safis
 
-
+    $("#saveCpspBtn").on("click", SaveCpsp) // aca se le asigna el handler al evento click del boton guardar
+    $("#cancelCpspBtn").on("click", cancelCpsp);
 });
 
 
@@ -52,4 +53,42 @@ function getCodPresData() {
 function display(e) {
 
     alert(e);
+}
+
+
+
+function getLocationModel() {
+
+       var locationDataModel = 
+    {
+        Id: null,
+        Nombre: $("#cpspName").val(),
+        ProvinciaId: dropDownListObject("provinciaDdl").value(),
+        CantonId: dropDownListObject("cantonDdl").value() ,
+        DistritoId: dropDownListObject("distritoDdl").value() 
+
+    };
+
+    return locationDataModel;
+}//perqueñas cosass
+
+
+function SaveCpsp() {
+    var cpspData = getLocationModel();
+    $.ajax({
+        type: "Post",
+        url: "/maintenance/CreateCPSP",
+        data: cpspData,
+        success: function (result) {
+            var url = "/maintenance/GetAllCPSP"; 
+            window.location.href = url;
+        },
+        error: function (e) { display(e); }
+    });
+}
+
+
+function cancelCpsp() {
+    var url = "/maintenance/GetAllCPSP";
+    window.location.href = url;
 }

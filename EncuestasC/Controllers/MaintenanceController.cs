@@ -22,7 +22,7 @@ namespace EncuestasC.Controllers
             return View(cpspList);
 
         }
-
+    
          public ActionResult GetAllCodPres()
          {
              return View(_entities.CodigoPresupuestario.ToList());
@@ -36,16 +36,13 @@ namespace EncuestasC.Controllers
             return View();
         }
 
-        //
-        // POST: /GeographicInfo/CreateProvince
-
+     
         [HttpPost]
         public ActionResult CreateCodPres(CodigoPresupuestariox CodPresToCreate)
         {
             try
             {
-                // TODO: Add insert logic here
-                _entities.AddToCodigoPresupuestario(CodPresToCreate);
+                 _entities.AddToCodigoPresupuestario(CodPresToCreate);
                 _entities.SaveChanges();
                 return RedirectToAction("GetAllCodPres");
             }
@@ -62,16 +59,12 @@ namespace EncuestasC.Controllers
             return View(codPresToEdit);
         }
 
-        //
-        // POST: /GeographicInfo/Edit/5
-
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditCodPres(CodigoPresupuestariox codPresToEdit)
         {
 
-            // TODO: Add update logic here
-            var originalCodPres = _entities.CodigoPresupuestario.First(m => m.Id == codPresToEdit.Id);
+           var originalCodPres = _entities.CodigoPresupuestario.First(m => m.Id == codPresToEdit.Id);
 
             if (!ModelState.IsValid)
 
@@ -86,18 +79,14 @@ namespace EncuestasC.Controllers
 
         }
 
-        //
-        // GET: /GeographicInfo/Delete/5
-        //BORRAR
+       //BORRAR
         public ActionResult DeleteCodPres(int id)
         {
             var codPresToDelete = _entities.CodigoPresupuestario.First(m => m.Id == id);
             return View(codPresToDelete);
         }
 
-        //
-        // POST: /GeographicInfo/DeleteProvince/5
-
+   
         [HttpPost]
         public ActionResult DeleteCodPres(CodigoPresupuestariox codPresToDelete)
         {
@@ -122,34 +111,19 @@ namespace EncuestasC.Controllers
             return View(_entities.EstadoServicio.ToList());
         }
 
-        ////LIST
-        //public string GetCodPresList()
-        //{
-        //    //return View(_entities.CodigoPresupuestario.ToList());
-        //    var codpresList = _maintenanceDataProvider.GetAllCodPres();
-
-        //    //_codpres.Id = new SelectList(cpsps, "Id", "Nombre");
-
-        //  // ya
-
-        //    return JsonConvert.SerializeObject(codpresList);
-        //}
-
+    
         //CREAR
         public ActionResult CreateEstServ()
         {
             return View();
         }
 
-        //
-        // POST: /GeographicInfo/CreateProvince
-
+    
         [HttpPost]
         public ActionResult CreateEstServ(EstadoServiciox EstServToCreate)
         {
             try
             {
-                // TODO: Add insert logic here
                 _entities.AddToEstadoServicio(EstServToCreate);
                 _entities.SaveChanges();
                 return RedirectToAction("GetAllEstServ");
@@ -167,15 +141,12 @@ namespace EncuestasC.Controllers
             return View(EstServToEdit);
         }
 
-        //
-        // POST: /GeographicInfo/Edit/5
-
+     
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditEstServ(EstadoServiciox EstServToEdit)
         {
 
-            // TODO: Add update logic here
             var originalEstServ = _entities.EstadoServicio.First(m => m.Id == EstServToEdit.Id);
 
             if (!ModelState.IsValid)
@@ -191,8 +162,6 @@ namespace EncuestasC.Controllers
 
         }
 
-        //
-        // GET: /GeographicInfo/Delete/5
         //BORRAR
         public ActionResult DeleteEstServ(int id)
         {
@@ -200,9 +169,7 @@ namespace EncuestasC.Controllers
             return View(EstServToDelete);
         }
 
-        //
-        // POST: /GeographicInfo/DeleteProvince/5
-
+     
         [HttpPost]
         public ActionResult DeleteEstServ(EstadoServiciox EstServToDelete)
         {
@@ -226,35 +193,19 @@ namespace EncuestasC.Controllers
             return View(_entities.Proyecto.ToList());
         }
 
-        ////LIST
-        //public string GetCodPresList()
-        //{
-        //    //return View(_entities.CodigoPresupuestario.ToList());
-        //    var codpresList = _maintenanceDataProvider.GetAllCodPres();
-
-        //    //_codpres.Id = new SelectList(cpsps, "Id", "Nombre");
-
-        //  // ya
-
-        //    return JsonConvert.SerializeObject(codpresList);
-        //}
-
+    
         //CREAR
         public ActionResult CreateProyecto()
         {
             return View();
         }
 
-        //
-        // POST: /GeographicInfo/CreateProvince
-
-        [HttpPost]
+       [HttpPost]
         public ActionResult CreateProyecto(Proyectox ProyectoToCreate)
         {
             try
             {
-                // TODO: Add insert logic here
-                _entities.AddToProyecto(ProyectoToCreate);
+                 _entities.AddToProyecto(ProyectoToCreate);
                 _entities.SaveChanges();
                 return RedirectToAction("GetAllProyecto");
             }
@@ -271,15 +222,12 @@ namespace EncuestasC.Controllers
             return View(ProyectoToEdit);
         }
 
-        //
-        // POST: /GeographicInfo/Edit/5
-
+     
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditProyecto(Proyectox ProyectoToEdit)
         {
 
-            // TODO: Add update logic here
             var originalProyecto = _entities.Proyecto.First(m => m.Id == ProyectoToEdit.Id);
 
             if (!ModelState.IsValid)
@@ -295,8 +243,6 @@ namespace EncuestasC.Controllers
 
         }
 
-        //
-        // GET: /GeographicInfo/Delete/5
         //BORRAR
         public ActionResult DeleteProyecto(int id)
         {
@@ -304,9 +250,7 @@ namespace EncuestasC.Controllers
             return View(ProyectoToDelete);
         }
 
-        //
-        // POST: /GeographicInfo/DeleteProvince/5
-
+       
         [HttpPost]
         public ActionResult DeleteProyecto(Proyectox ProyectoToDelete)
         {
@@ -327,18 +271,7 @@ namespace EncuestasC.Controllers
             return View(_entities.Telefono.ToList());
         }
 
-        ////LIST
-        //public string GetCodPresList()
-        //{
-        //    //return View(_entities.CodigoPresupuestario.ToList());
-        //    var codpresList = _maintenanceDataProvider.GetAllCodPres();
-
-        //    //_codpres.Id = new SelectList(cpsps, "Id", "Nombre");
-
-        //  // ya
-
-        //    return JsonConvert.SerializeObject(codpresList);
-        //}
+      
 
         //CREAR
         public ActionResult CreateTelefono()
@@ -346,15 +279,13 @@ namespace EncuestasC.Controllers
             return View();
         }
 
-        //
-        // POST: /GeographicInfo/CreateProvince
-
+     
         [HttpPost]
         public ActionResult CreateTelefono(Telefonox TelefonoToCreate)
         {
             try
             {
-                // TODO: Add insert logic here
+              
                 _entities.AddToTelefono(TelefonoToCreate);
                 _entities.SaveChanges();
                 return RedirectToAction("GetAllTelefono");
@@ -372,9 +303,7 @@ namespace EncuestasC.Controllers
             return View(TelefonoToEdit);
         }
 
-        //
-        // POST: /GeographicInfo/Edit/5
-
+   
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditTelefono(Telefonox TelefonoToEdit)
@@ -396,8 +325,7 @@ namespace EncuestasC.Controllers
 
         }
 
-        //
-        // GET: /GeographicInfo/Delete/5
+       
         //BORRAR
         public ActionResult DeleteTelefono(int id)
         {
@@ -405,9 +333,7 @@ namespace EncuestasC.Controllers
             return View(TelefonoToDelete);
         }
 
-        //
-        // POST: /GeographicInfo/DeleteProvince/5
-
+     
         [HttpPost]
         public ActionResult DeleteTelefono(Telefonox TelefonoToDelete)
         {
@@ -430,18 +356,8 @@ namespace EncuestasC.Controllers
             return View(_entities.Email.ToList());
         }
 
-        ////LIST
-        //public string GetCodPresList()
-        //{
-        //    //return View(_entities.CodigoPresupuestario.ToList());
-        //    var codpresList = _maintenanceDataProvider.GetAllCodPres();
 
-        //    //_codpres.Id = new SelectList(cpsps, "Id", "Nombre");
-
-        //  // ya
-
-        //    return JsonConvert.SerializeObject(codpresList);
-        //}
+      
 
         //CREAR
         public ActionResult CreateEmail()
@@ -449,15 +365,13 @@ namespace EncuestasC.Controllers
             return View();
         }
 
-        //
-        // POST: /GeographicInfo/CreateProvince
-
+     
         [HttpPost]
         public ActionResult CreateEmail(Emailx EmailToCreate)
         {
             try
             {
-                // TODO: Add insert logic here
+              
                 _entities.AddToEmail(EmailToCreate);
                 _entities.SaveChanges();
                 return RedirectToAction("GetAllEmail");
@@ -475,15 +389,13 @@ namespace EncuestasC.Controllers
             return View(EmailToEdit);
         }
 
-        //
-        // POST: /GeographicInfo/Edit/5
-
+      
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditEmail(Emailx EmailToEdit)
         {
 
-            // TODO: Add update logic here
+           
             var originalEmail = _entities.Email.First(m => m.Id == EmailToEdit.Id);
 
             if (!ModelState.IsValid)
@@ -499,8 +411,6 @@ namespace EncuestasC.Controllers
 
         }
 
-        //
-        // GET: /GeographicInfo/Delete/5
         //BORRAR
         public ActionResult DeleteEmail(int id)
         {
@@ -508,9 +418,7 @@ namespace EncuestasC.Controllers
             return View(EmailToDelete);
         }
 
-        //
-        // POST: /GeographicInfo/DeleteProvince/5
-
+   
         [HttpPost]
         public ActionResult DeleteEmail(Emailx EmailToDelete)
         {
@@ -529,17 +437,11 @@ namespace EncuestasC.Controllers
 
         public ActionResult CreateCPSP()
         {
-            ////_survey = new SurveyDtoModel();
-            //var cpsps = _surveyDataProvider.GetAllCpsp();
-
-            //_survey.CpspList = new SelectList(cpsps, "Id", "Nombre");
-
+          
             return View();
         }
 
-        //
-        // POST: /GeographicInfo/CreateCanton
-
+      
         [HttpPost]
         public ActionResult CreateCPSP(CpspDtoModel CPSPtoCreate)
         {

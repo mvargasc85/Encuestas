@@ -24,10 +24,10 @@ public string CreateCPSP(CpspDtoModel cpspModel)
             try
             {
                 var cpsp = new CPSPx();
-
-                cpsp.IdProvincia = cpspModel.Provincia.Id;
-                cpsp.IdCanton = cpspModel.Canton.Id;
-                cpsp.IdDistrito = cpspModel.Distrito.Id;
+                cpsp.Nombre = cpspModel.Nombre;
+                cpsp.IdProvincia = cpspModel.ProvinciaId;
+                cpsp.IdCanton = cpspModel.CantonId;
+                cpsp.IdDistrito = cpspModel.DistritoId;
                
 
                _commonDataRepository.CreateCpsp(cpsp);
