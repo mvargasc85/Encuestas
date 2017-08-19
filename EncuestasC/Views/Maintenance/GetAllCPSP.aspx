@@ -48,7 +48,7 @@
                 <%: item.Distrito.Nombre%>
             </td>
              <td>
-                <%: Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) %> |
+                <%: Html.ActionLink("Editar", "EditCPSP",new { id = item.Id })%> |
                 <%: Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })%>
             </td>
         </tr>

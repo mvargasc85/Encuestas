@@ -435,6 +435,8 @@ namespace EncuestasC.Controllers
 
         }
 
+        #region CPSP
+
         public ActionResult CreateCPSP()
         {
           
@@ -455,5 +457,34 @@ namespace EncuestasC.Controllers
                 return RedirectToAction("GetAllCPSP");
             }
         }
+
+        //public ActionResult EditCPSP(int Id)
+        //{
+        //    var cpspToEdit = _entities.CPSP.Single(c => c.Id == Id);
+        //    var cpspDtoToEdit = new {
+
+        //    }
+
+        //    return View(cpspToEdit);
+        //}
+
+        
+
+        [HttpPost]
+        public ActionResult EditCPSP(CpspDtoModel CPSPtoEdit)
+        {
+            try
+            {
+                _CpspDataProvider.EditCPSP(CPSPtoEdit);
+                return RedirectToAction("GetAllCPSP");
+            }
+            catch
+            {
+                return RedirectToAction("GetAllCPSP");
+            }
+        }
+
+
+        #endregion
     }
 }

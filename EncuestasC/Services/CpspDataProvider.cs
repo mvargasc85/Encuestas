@@ -17,9 +17,9 @@ namespace EncuestasC.Services
             _commonDataRepository = new CommonDataRepository();
         }
 
-  
 
-public string CreateCPSP(CpspDtoModel cpspModel)
+
+        public string CreateCPSP(CpspDtoModel cpspModel)
         {
             try
             {
@@ -28,10 +28,10 @@ public string CreateCPSP(CpspDtoModel cpspModel)
                 cpsp.IdProvincia = cpspModel.ProvinciaId;
                 cpsp.IdCanton = cpspModel.CantonId;
                 cpsp.IdDistrito = cpspModel.DistritoId;
-               
 
-               _commonDataRepository.CreateCpsp(cpsp);
-               
+
+                _commonDataRepository.CreateCpsp(cpsp);
+
                 return "Creada exitosamente";
             }
             catch (Exception e)
@@ -39,5 +39,23 @@ public string CreateCPSP(CpspDtoModel cpspModel)
                 return string.Format("Error al crear la encuesta. Detalles: {0}", e.Message);
             }
         }
+
+        public string EditCPSP(CpspDtoModel cpspToEdit)
+        {
+            try
+            {
+                _commonDataRepository.SaveCPSP(cpspToEdit);
+
+                return "Creado exitosamente";
+
+            }
+            catch (Exception e)
+            {
+                return string.Format("Error al crear el CPSP. Detalles: {0}", e.Message);
+            }
+
+        }
+
+       
     }
 }

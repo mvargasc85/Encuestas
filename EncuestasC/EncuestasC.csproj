@@ -178,6 +178,7 @@
     <Content Include="Views\Maintenance\DeleteProyecto.aspx" />
     <Content Include="Views\Maintenance\DeleteTelefono.aspx" />
     <Content Include="Views\Maintenance\EditCodPres.aspx" />
+    <Content Include="Views\Maintenance\EditCPSP.aspx" />
     <Content Include="Views\Maintenance\EditEmail.aspx" />
     <Content Include="Views\Maintenance\EditEstServ.aspx" />
     <Content Include="Views\Maintenance\EditProyecto.aspx" />

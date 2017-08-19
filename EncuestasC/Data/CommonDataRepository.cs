@@ -160,5 +160,21 @@ namespace EncuestasC.Data
                 return -1;
             }
         }
+
+        public int SaveCPSP(CpspDtoModel cpsp)
+        {
+            try
+            {
+               // hagale el cambio 
+                var originalCpsp = _encuestasDbEntities.CPSP.Single(m => m.Id == cpsp.Id);
+                _encuestasDbEntities.ApplyCurrentValues(originalCpsp.EntityKey.EntitySetName, cpsp);
+                _encuestasDbEntities.SaveChanges();
+                return 0;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
     }
 }
