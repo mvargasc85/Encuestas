@@ -3,9 +3,14 @@
     $("#cancelBtn").on("click", cancelSurvey);
     GetCPSPInfo();
     createDropDownsForLocation();
+    
+
 });
 
 
+    function dropdownlist_dataBound(e) {
+        alert('hello');
+    }
 function cancelSurvey() {
     dropDownListObject("cpspDdlDiv").select(0);
     dropDownListObject("cpspDdlDiv").value("");
@@ -152,8 +157,7 @@ function createEmailGrid(divId, items) {
 }
 
 
-
-function CreateDropDownlist(divId,items,text,value,onchanceEventHandler,selectPlaceHolder) {
+function CreateDropDownlist(divId, items, text, value, onchanceEventHandler, selectPlaceHolder,dataBoundEvent) {
 
     $("#" + divId).kendoDropDownList({
         optionLabel: selectPlaceHolder,
@@ -161,7 +165,8 @@ function CreateDropDownlist(divId,items,text,value,onchanceEventHandler,selectPl
         dataValueField: value,
         dataSource: items,
         index: 0,
-        change: onchanceEventHandler
+        change: onchanceEventHandler,
+        open: dataBoundEvent
     });
 }
 
@@ -191,7 +196,7 @@ function createDropDownsForLocation() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
-            CreateDropDownlist("provinciaDdl", result, "Nombre", "Id", filterCantones,"Seleccionar Provincia");
+            CreateDropDownlist("provinciaDdl", result, "Nombre", "Id", filterCantones, "Seleccionar Provincia" );
         },
         error: function (e) { display(e); }
     });
@@ -202,7 +207,7 @@ function createDropDownsForLocation() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
-            CreateDropDownlist("cantonDdl", result, "Nombre", "Id", filterDistrites, "Seleccionar Cantón");
+            CreateDropDownlist("cantonDdl", result, "Nombre", "Id", filterDistrites, "Seleccionar Cantón",filterCantones);
         },
         error: function (e) { display(e); }
     });
@@ -213,7 +218,7 @@ function createDropDownsForLocation() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
-            CreateDropDownlist("distritoDdl", result, "Nombre", "Id",null,"Seleccionar distrito");
+            CreateDropDownlist("distritoDdl", result, "Nombre", "Id", null, "Seleccionar distrito", filterDistrites);
         },
         error: function (e) { display(e); }
     });
@@ -221,27 +226,33 @@ function createDropDownsForLocation() {
 }
 
 function filterCantones(e) {
-    var dataItem = e.sender.dataItem(e.sender.selectedIndex);
-    var provinceId = dataItem.Id;
-    var ddl = $("#cantonDdl").data("kendoDropDownList");
-    ddl.dataSource.filter({
-        field: 'ParentId',
-        operator: 'eq',
-        value: provinceId
-    });
+//    var dataItem = e.sender.dataItem(e.sender.selectedIndex);
+//    var provinceId = dataItem.Id;
+    var provinceId = dropDownListObject("provinciaDdl").value();
+    //    var ddl = $("#cantonDdl").data("kendoDropDownList");
+   
+        var ddl = dropDownListObject("cantonDdl");
+        if (ddl) { 
+        ddl.dataSource.filter({
+            field: 'ParentId',
+            operator: 'eq',
+            value: parseInt(provinceId)
+        });
+    }
 };
 
 
-
-    function filterDistrites(e) {
-    var dataItem = e.sender.dataItem(e.sender.selectedIndex);
-    var cantonId = dataItem.Id;
-    var ddl = $("#distritoDdl").data("kendoDropDownList");
-    ddl.dataSource.filter({
-        field: 'ParentId',
-        operator: 'eq',
-        value: cantonId
-     })};
+function filterDistrites(e) {
+    var cantonId = dropDownListObject("cantonDdl").value();
+    var ddl = dropDownListObject("distritoDdl");
+    if (ddl) {
+        ddl.dataSource.filter({
+            field: 'ParentId',
+            operator: 'eq',
+            value: parseInt(cantonId)
+        });
+    }
+}
 
 //    $("#cantonDdl").removeAttr("disabled");
 //    $("#cantonDdl").prop('disabled', false);
@@ -258,10 +269,15 @@ function setCallInfo(data) {
 
 function onContactedPersonChanged(e) {
     var dataItem = e.sender.dataItem(e.sender.selectedIndex);
-    if (dataItem.Id === -1)
+    if (dataItem.Id === -1) {
         $(".otherContact").show();
-    else
+        $("#contactedPersonName").prop("required","required");
+        $("#contactedPersonEmail").prop("required", "required");
+    } else {
         $(".otherContact").hide();
+        $("#contactedPersonName").removeAttr("required");
+        $("#contactedPersonEmail").removeAttr("required");
+    }
 }
 
 function createStatusRadioButtons(data) {
@@ -271,7 +287,7 @@ function createStatusRadioButtons(data) {
             data.EstadosServicio[i].Id +
             '"><input type="radio" name="statusRdbtn" id="status_' +
             data.EstadosServicio[i].Id +
-            '" class="k-radio"/>' +
+            '" class="k-radio" required validationMessage="seleccione el estado del servicio"/>' +
             data.EstadosServicio[i].Estado +
             '</label><br/>');
         radioBtn.appendTo('#serviceStatusDdl');
@@ -299,7 +315,7 @@ function SaveSurvey() {
     var status = $(".status");
 
     if (validator.validate()) {
-        status.text("Hooray! Your tickets has been booked!")
+        status.text("")
             .removeClass("invalid")
             .addClass("valid");
 
@@ -316,7 +332,7 @@ function SaveSurvey() {
         });
 
     } else {
-        status.text("Oops! There is invalid data in the form.")
+        status.text("Favor corrija los errores indicados!.")
             .removeClass("valid")
             .addClass("invalid");
     }

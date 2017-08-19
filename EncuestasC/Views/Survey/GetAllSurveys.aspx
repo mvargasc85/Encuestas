@@ -10,15 +10,30 @@
 
     <table>
         <tr>
-            <th></th>
+            
             <th>
                 Id
+            </th>
+            <th>
+                CPSP
             </th>
             <th>
                 ContestaLlamada
             </th>
             <th>
-                NombreContacto
+                Nombre Contacto
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Cod. Presupuestario
+            </th>
+            <th>
+                Id Proyecto
+            </th>
+            <th>
+                Estado Servicio
             </th>
             <th>
                 Comentarios
@@ -28,19 +43,30 @@
     <% foreach (var item in Model) { %>
     
         <tr>
-            <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Details", "Details", new { id=item.Id })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
-            </td>
+            
             <td>
                 <%: String.Format("{0:F}", item.Id) %>
+            </td>
+            <td>
+                <%: item.IdCPSP %>
             </td>
             <td>
                 <%: item.ContestaLlamada %>
             </td>
             <td>
                 <%: item.NombreContacto %>
+            </td>
+            <td>
+                <%: item.IdEmail %>
+            </td>
+            <td>
+                <%: item.IdCodigoPresupuestario %>
+            </td>
+            <td>
+                <%: item.IdProyecto %>
+            </td>
+            <td>
+                <%: item.IdEstadoServicio %>
             </td>
             <td>
                 <%: item.Comentarios %>

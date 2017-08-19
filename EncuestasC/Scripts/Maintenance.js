@@ -2,8 +2,9 @@
 $(document).ready(function () {
     //    getCodPresData(); safis
 
-    $("#saveCpspBtn").on("click", SaveCpsp) // aca se le asigna el handler al evento click del boton guardar
+    $("#saveCpspBtn").on("click", SaveCpsp); // aca se le asigna el handler al evento click del boton guardar
     $("#cancelCpspBtn").on("click", cancelCpsp);
+
 });
 
 
@@ -59,13 +60,13 @@ function display(e) {
 
 function getLocationModel() {
 
-       var locationDataModel = 
+    var locationDataModel =
     {
-        Id: null,
+        Id: $("#cpspToEditId").val(),
         Nombre: $("#cpspName").val(),
         ProvinciaId: dropDownListObject("provinciaDdl").value(),
-        CantonId: dropDownListObject("cantonDdl").value() ,
-        DistritoId: dropDownListObject("distritoDdl").value() 
+        CantonId: dropDownListObject("cantonDdl").value(),
+        DistritoId: dropDownListObject("distritoDdl").value()
 
     };
 
@@ -75,15 +76,17 @@ function getLocationModel() {
 
 function SaveCpsp() {
     var cpspData = getLocationModel();
+    var url = cpspData.Id ? "/maintenance/EditCPSP" : "/maintenance/CreateCPSP";
+
     $.ajax({
         type: "Post",
-        url: "/maintenance/CreateCPSP",
+        url: url,
         data: cpspData,
-        success: function (result) {
-            var url = "/maintenance/GetAllCPSP"; 
+        success: function(result) {
+            var url = "/maintenance/GetAllCPSP";
             window.location.href = url;
         },
-        error: function (e) { display(e); }
+        error: function(e) { display(e); }
     });
 }
 

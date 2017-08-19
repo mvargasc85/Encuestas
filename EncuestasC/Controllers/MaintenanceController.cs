@@ -13,7 +13,8 @@ namespace EncuestasC.Controllers
         private CodPresDtoModel _codpres = new CodPresDtoModel();
          private EncuestasEntitiesx _entities = new EncuestasEntitiesx();
          private readonly MaintenanceDataProvider _maintenanceDataProvider = new MaintenanceDataProvider();
-         private readonly CpspDataProvider _CpspDataProvider = new CpspDataProvider();
+         private readonly CpspDataProvider _cpspDataProvider = new CpspDataProvider();
+        private readonly GeographicInfoDataProvider _geographicInfoDataProvider = new GeographicInfoDataProvider();
 
 
          public ActionResult GetAllCPSP()
@@ -445,11 +446,11 @@ namespace EncuestasC.Controllers
 
       
         [HttpPost]
-        public ActionResult CreateCPSP(CpspDtoModel CPSPtoCreate)
+        public ActionResult CreateCPSP(CpspDtoModel cpsPtoCreate)
         {
             try
             {
-                _CpspDataProvider.CreateCPSP(CPSPtoCreate);
+                _cpspDataProvider.CreateCPSP(cpsPtoCreate);
                 return RedirectToAction("GetAllCPSP");
             }
             catch
@@ -458,30 +459,76 @@ namespace EncuestasC.Controllers
             }
         }
 
-        //public ActionResult EditCPSP(int Id)
-        //{
-        //    var cpspToEdit = _entities.CPSP.Single(c => c.Id == Id);
-        //    var cpspDtoToEdit = new {
+        public ActionResult EditCpsp(int id)
+        {
+            var cpspToEdit = _entities.CPSP.Single(c => c.Id == id);
+            var cpspDtoToEdit = new CpspDtoModel
+            {
+                Id = cpspToEdit.Id,
+                Nombre = cpspToEdit.Nombre,
+                ProvinciaId = cpspToEdit.IdProvincia,
+                CantonId = cpspToEdit.IdCanton,
+                DistritoId = cpspToEdit.IdDistrito,
+                Provincias = _geographicInfoDataProvider.GetAllProvinces(),
+                Cantones = _geographicInfoDataProvider.GetAllCantones(null),
+                Distritos = _geographicInfoDataProvider.GetAllDistrites(null)
+            };
 
-        //    }
-
-        //    return View(cpspToEdit);
-        //}
+            return View(cpspDtoToEdit);
+        }
 
         
 
         [HttpPost]
-        public ActionResult EditCPSP(CpspDtoModel CPSPtoEdit)
+        public ActionResult EditCpsp(CpspDtoModel cpsPtoEdit)
         {
             try
             {
-                _CpspDataProvider.EditCPSP(CPSPtoEdit);
+                _cpspDataProvider.EditCPSP(cpsPtoEdit);
                 return RedirectToAction("GetAllCPSP");
             }
             catch
             {
                 return RedirectToAction("GetAllCPSP");
             }
+        }
+
+
+        //BORRAR
+        public ActionResult DeleteCpsp(int id)
+        {
+            var cpsp = _entities.CPSP.Single(c => c.Id == id);
+            var prov = _entities.Provincia.Single(c => c.Id == cpsp.IdProvincia);
+            var canton = _entities.Canton.Single(c => c.Id == cpsp.IdCanton);
+            var dist = _entities.Distrito.Single(c => c.Id == cpsp.IdDistrito);
+            var cpspDtoToEdit = new CpspDtoModel
+            {
+                Id = cpsp.Id,
+                Nombre = cpsp.Nombre,
+                ProvinciaId = cpsp.IdProvincia,
+                CantonId = cpsp.IdCanton,
+                DistritoId = cpsp.IdDistrito,
+                Provincia = _geographicInfoDataProvider.GetLocationInfoObject(prov.Id, prov.Nombre, null),
+                Canton =
+                    _geographicInfoDataProvider.GetLocationInfoObject(canton.Id, canton.Nombre, canton.IdProvincia),
+                Distrito = _geographicInfoDataProvider.GetLocationInfoObject(dist.Id, dist.Nombre, dist.IdCanton)
+            };
+            return View(cpspDtoToEdit);
+        }
+
+
+
+        [HttpPost]
+        public ActionResult DeleteCpsp(CpspDtoModel cpspToDelete)
+        {
+            var originalCpspToDelete = _entities.CPSP.First(m => m.Id == cpspToDelete.Id);
+
+            _entities.DeleteObject(originalCpspToDelete);
+
+            _entities.SaveChanges();
+
+            return RedirectToAction("GetAllCPSP");
+
         }
 
 

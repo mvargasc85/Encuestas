@@ -49,7 +49,7 @@
             </td>
              <td>
                 <%: Html.ActionLink("Editar", "EditCPSP",new { id = item.Id })%> |
-                <%: Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })%>
+                <%: Html.ActionLink("Eliminar", "DeleteCpsp", new { id = item.Id })%>
             </td>
         </tr>
     

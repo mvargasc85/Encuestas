@@ -18,8 +18,13 @@ namespace EncuestasC.Controllers
 
         public ActionResult GetAllSurveys()
         {
-
-            return View(_entities.Encuesta.ToList());
+            var survey = _entities.Encuesta.ToList();
+            //foreach (var item in survey)
+            //{
+            //    item.Email = item.IdEmail == null ? null : _entities.Email.Single(e => e.Id == item.IdEmail);
+            //    item.Proyecto = item.IdProyecto == null ? null : _entities.Proyecto.Single(e => e.Id == item.IdProyecto);
+            //}
+            return View(survey);
         }
 
 

@@ -20,11 +20,7 @@ namespace EncuestasC.Services
         {
             var provincesList = _commonDataRepository.GetAllProvinces().ToList();
             var provincesDtoList = new List<LocationInfoDtoModel>();
-            provincesList.ForEach(cp => provincesDtoList.Add(new LocationInfoDtoModel
-            {
-                Id = cp.Id,
-                Nombre = cp.Nombre
-            }));
+            provincesList.ForEach(cp => provincesDtoList.Add(GetLocationInfoObject(cp.Id, cp.Nombre, null)));
             return provincesDtoList;
         }
 
@@ -35,15 +31,9 @@ namespace EncuestasC.Services
                 ? _commonDataRepository.GetAllCantones().ToList()
                 : _commonDataRepository.GetAllCantones(provinceId).ToList();
 
-                var cantonesDtoList = new List<LocationInfoDtoModel>();
-                cantonesList.ForEach(cp => cantonesDtoList.Add(new LocationInfoDtoModel
-                {
-                    Id = cp.Id,
-                    Nombre = cp.Nombre,
-                    ParentId = cp.IdProvincia
-                }));
-                return cantonesDtoList;
-            
+            var cantonesDtoList = new List<LocationInfoDtoModel>();
+            cantonesList.ForEach(cp => cantonesDtoList.Add(GetLocationInfoObject(cp.Id, cp.Nombre, cp.IdProvincia)));
+            return cantonesDtoList;
         }
 
         public IEnumerable<LocationInfoDtoModel> GetAllDistrites(int? cantonId)
@@ -54,14 +44,19 @@ namespace EncuestasC.Services
                 : _commonDataRepository.GetAllDistrites(cantonId).ToList();
 
             var distritesDtoList = new List<LocationInfoDtoModel>();
-            distritesList.ForEach(cp => distritesDtoList.Add(new LocationInfoDtoModel
-            {
-                Id = cp.Id,
-                Nombre = cp.Nombre,
-                ParentId = cp.IdCanton
-            }));
+            distritesList.ForEach(cp => distritesDtoList.Add(GetLocationInfoObject(cp.Id, cp.Nombre, cp.IdCanton)));
             return distritesDtoList;
 
+        }
+
+        public LocationInfoDtoModel GetLocationInfoObject(int id, string nombre, int? parentId)
+        {
+            return new LocationInfoDtoModel
+            {
+                Id = id,
+                Nombre = nombre,
+                ParentId = parentId
+            };
         }
     }
 }

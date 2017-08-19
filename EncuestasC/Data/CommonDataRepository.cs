@@ -161,11 +161,10 @@ namespace EncuestasC.Data
             }
         }
 
-        public int SaveCPSP(CpspDtoModel cpsp)
+        public int SaveCpsp(CPSPx cpsp)
         {
             try
             {
-               // hagale el cambio 
                 var originalCpsp = _encuestasDbEntities.CPSP.Single(m => m.Id == cpsp.Id);
                 _encuestasDbEntities.ApplyCurrentValues(originalCpsp.EntityKey.EntitySetName, cpsp);
                 _encuestasDbEntities.SaveChanges();

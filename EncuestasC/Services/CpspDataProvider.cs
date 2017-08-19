@@ -44,7 +44,15 @@ namespace EncuestasC.Services
         {
             try
             {
-                _commonDataRepository.SaveCPSP(cpspToEdit);
+                var cpsp = new CPSPx
+                {
+                    Id = cpspToEdit.Id,
+                    Nombre = cpspToEdit.Nombre,
+                    IdProvincia = cpspToEdit.ProvinciaId,
+                    IdCanton = cpspToEdit.CantonId,
+                    IdDistrito = cpspToEdit.DistritoId
+                };
+                _commonDataRepository.SaveCpsp(cpsp);
 
                 return "Creado exitosamente";
 
